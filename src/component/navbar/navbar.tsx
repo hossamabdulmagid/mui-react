@@ -1,100 +1,60 @@
-import { useState } from 'react';
+import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import SwipeableTemporaryDrawer from '../drawer/drawer';
-const MenuAppBar = () => {
-    const [auth, setAuth] = useState(true);
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setAuth(event.target.checked);
-    };
-    const open = Boolean(anchorEl);
+import { Container, Link } from '@mui/material';
+import LockIcon from '@mui/icons-material/Lock';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+const theme = createTheme({
+    typography: {
+        fontSize: 10,
+    },
+});
 
 
-    const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
+const NavbarLabel = (label: string) => {
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <FormGroup>
-                <FormControlLabel
-                    control={
-                        <Switch
-                            checked={auth}
-                            onChange={handleChange}
-                            aria-label="login switch"
-                        />
-                    }
-                    label={auth ? 'Logout' : 'Login'}
-                />
-            </FormGroup>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                        <SwipeableTemporaryDrawer />
+        <Container>
+            <Toolbar>
+                <ThemeProvider theme={theme}>
+                    <Typography variant="subtitle2" component='div' sx={{ flexGrow: 1, textAlign: 'left' }}>
+                    <Link href="/" underline="hover" sx={{ color: 'white' }}>
 
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Photos
-                    </Typography>
-                    {auth && (
-                        <div>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleMenu}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorEl)}
-                                onClose={handleClose}
-                            >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                <MenuItem onClick={handleClose}>My account</MenuItem>
-                            </Menu>
-                        </div>
-                    )}
-                </Toolbar>
-            </AppBar>
-        </Box>
+                        Create, maintain, publish, and share your CVs for free
+                        </Link>
+                        </Typography>
+                    <LockIcon sx={{ padding: '0px', marginTop: '', textAlign: 'right' }} />
+                    <Link href="/login" underline="hover" sx={{ color: 'white' }}>
+                        {label}
+                    </Link>
+                </ThemeProvider>
+            </Toolbar>
+        </Container>
     );
 }
-export default MenuAppBar;
+
+const darkTheme = createTheme({
+    palette: {
+        mode: 'dark',
+        primary: {
+            main: '#1976d2',
+        },
+
+    },
+});
+
+const Navbar = () => {
+    return (
+        <ThemeProvider theme={darkTheme}>
+            <AppBar position="static" color="secondary">
+                {NavbarLabel('Login | Signup')}
+            </AppBar>
+        </ThemeProvider>
+    );
+}
+
+
+export default Navbar;

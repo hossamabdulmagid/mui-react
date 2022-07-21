@@ -9,10 +9,12 @@ import MuiSelect from './component/select/select';
 import MenuAppBar from './component/navbar/navbar';
 import RadioButton from './component/radiobutton/muiradiobutton'
 import MuiCheckbox from './component/checkbox/muibox';
+import ExampleCarousel from './component/carousel/mui-carousel';
 const App = () => {
   return (
     <div className="App">
       <MenuAppBar/>
+      <ExampleCarousel/>
       <RadioButton/>
       <MuiCheckbox/>
 

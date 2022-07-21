@@ -35,7 +35,7 @@ const MuiSelect = () => {
                 <TextField
                     label='Select Country'
                     value={countries}
-                    onChange={handleChangeSingleValue}
+                    onChange={handleChangeGroupValue}
                     select
                     fullWidth
                     SelectProps={{
@@ -48,14 +48,14 @@ const MuiSelect = () => {
 
                 </TextField>
             </Box>
-            <Typography variant='h2' component='h5'>
+             <Typography variant='h2' component='h5'>
                 Single-Select
             </Typography>
             <Box width='250px' sx={{ textAlign: 'center', margin: '0 auto', marginTop: '30px' }}>
                 <TextField
                     label='Select Country'
                     value={country}
-                    onChange={handleChangeGroupValue}
+                    onChange={handleChangeSingleValue}
                     select
                     color="warning"
                     fullWidth
@@ -65,7 +65,7 @@ const MuiSelect = () => {
                     <MenuItem value='AU'>AUSTRALIA</MenuItem>
 
                 </TextField>
-            </Box>
+            </Box> 
         </>
     );
 }

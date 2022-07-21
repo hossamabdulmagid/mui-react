@@ -31,11 +31,9 @@ const FormRow = () => {
             <Grid
                 item
                 xs={4}
-                sx={{ marginBottom: '20px', marginTop: '20px', color: 'white' }}
+                sx={{ marginBottom: '20px', marginTop: '30px', color: 'white' }}
             >
-
-                <img src='cvcreator.png' alt='cvcreator.png' />
-
+                <img src='cvcreator.png' alt='cvcreator.png' width={'100'} />
                 <Typography style={{ marginTop: '10px', fontSize: '15px' }}>
                     Create, maintain, publish, and share your CVs for free
                 </Typography>
@@ -46,7 +44,7 @@ const FormRow = () => {
                 sx={{ marginBottom: '20px', marginTop: '30px', color: 'black' }}
                 onClick={HandleDownLoadClick}>
                 {download}
-                <Typography style={{ marginTop: '22px' ,color:'white'}}>
+                <Typography style={{ marginTop: '14px' ,color:'white'}}>
                     Download
                 </Typography>
             </Grid>
@@ -56,7 +54,7 @@ const FormRow = () => {
                 sx={{ marginBottom: '20px', marginTop: '30px', color: 'black' }}
                 onClick={HandleSaveClick}>
                 {save}
-                <Typography style={{ marginTop: '22px' ,color:'white'}}>
+                <Typography style={{ marginTop: '14px' ,color:'white'}}>
                     Save
                 </Typography>
             </Grid>
@@ -66,15 +64,13 @@ const FormRow = () => {
 const NavGuest = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <Container>
-
+            <Container sx={{textAlign:'center'}}>
                 <Grid container spacing={1}>
                     <Grid container item spacing={3}>
                         <FormRow />
                     </Grid>
                 </Grid>
             </Container>
-
         </Box>
     );
 }

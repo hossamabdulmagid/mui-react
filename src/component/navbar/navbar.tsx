@@ -50,7 +50,7 @@ const Navbar = () => {
     return (
         <ThemeProvider theme={darkTheme}>
             <AppBar position="static" color="secondary">
-                {NavbarLabel('Login | Signup')}
+                {NavbarLabel('Login')}
             </AppBar>
         </ThemeProvider>
     );

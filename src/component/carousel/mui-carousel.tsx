@@ -31,7 +31,7 @@ const CarouselComponent = (props: any) => {
     ]);
 
     return (
-        <Box sx={{ backgroundColor: 'rgb(24, 199, 225)', height: '600px' }}>
+        <Box sx={{ backgroundColor: 'rgb(24, 199, 225)', height: '650px' }}>
             <NavGuest/>
             <Container>
                 <Carousel>
@@ -45,7 +45,7 @@ const CarouselComponent = (props: any) => {
 const Item = (props: any) => {
     return (
         <Paper>
-            <img src={props.item.src} alt={props.item.alt} style={{ display: 'block', width: '100' }} />
+            <img src={props.item.src} alt={props.item.alt} style={{ display: 'block', width: '100%' }} />
         </Paper>
     )
 }

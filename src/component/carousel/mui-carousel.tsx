@@ -1,20 +1,11 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import { Box, Paper, Button, Container } from '@mui/material'
+import { Box, Paper, Stack, Grid, ButtonGroup, Button, Container, Typography } from '@mui/material'
 import { useState } from 'react';
 import NavGuest from './nav-guest';
 
 
-type Image = {
-    src: string;
-    alt: string;
-};
-
-
 const CarouselComponent = (props: any) => {
-    const [download,setDownload]=useState(0);
-    const[save,setSave]=useState(0);
-
     const [Images, setImage] = useState([
         {
             src: "1.png",
@@ -31,14 +22,51 @@ const CarouselComponent = (props: any) => {
     ]);
 
     return (
-        <Box sx={{ backgroundColor: 'rgb(24, 199, 225)', height: '650px' }}>
-            <NavGuest/>
+        <>
+            <Box sx={{ backgroundColor: 'rgb(24, 199, 225)', height: '650px' }}>
+                <NavGuest />
+                <Container>
+                    <Carousel>
+                        {Images.map((item, idx) => <Item key={idx} item={item} />)}
+                    </Carousel>
+                </Container>
+            </Box>
             <Container>
-                <Carousel>
-                    {Images.map((item, idx) => <Item key={idx} item={item} />)}
-                </Carousel>
+                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                    <Grid item xs={6}>
+                        <Stack sx={{ textAlign: '' }}>
+                            <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ padding: '5px' }}>
+                                <Button  size="small">Like</Button>
+                                <Button  size="small">Twiter</Button>
+                                <Button  size="small">Share</Button>
+                            </ButtonGroup>
+                        </Stack>
+                    </Grid>
+                    <Grid item xs={6} sx={{ textAlign: '' }}>
+                        <Typography sx={{ fontSize: '11px', textAlign: 'right' }}>
+                            Already have your resumes on CV Creator?
+                            <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ padding: '5px' }}>
+                                <Button variant="outlined" aria-label="outlined button" sx={{ padding: '5px' }} size="small">Login</Button>
+                            </ButtonGroup>
+                        </Typography>
+
+                    </Grid>
+                </Grid>
             </Container>
-        </Box>
+            <hr />
+
+            <>
+
+                <Container>
+
+                    <img src='press.png' alt='press.png' style={{padding:'15px'}} />
+                    <Typography sx={{textAlign:'center',padding:'15px'}}>
+                    A wide range of templates to choose from
+
+                    </Typography>
+                </Container>
+            </>
+        </>
     );
 }
 

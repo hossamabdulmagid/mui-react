@@ -44,7 +44,7 @@ const FormRow = () => {
                 sx={{ marginBottom: '20px', marginTop: '30px', color: 'black' }}
                 onClick={HandleDownLoadClick}>
                 {download}
-                <Typography style={{ marginTop: '14px' ,color:'white'}}>
+                <Typography style={{ marginTop: '14px', color: 'white' }}>
                     Download
                 </Typography>
             </Grid>
@@ -54,7 +54,7 @@ const FormRow = () => {
                 sx={{ marginBottom: '20px', marginTop: '30px', color: 'black' }}
                 onClick={HandleSaveClick}>
                 {save}
-                <Typography style={{ marginTop: '14px' ,color:'white'}}>
+                <Typography style={{ marginTop: '14px', color: 'white' }}>
                     Save
                 </Typography>
             </Grid>
@@ -64,7 +64,7 @@ const FormRow = () => {
 const NavGuest = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <Container sx={{textAlign:'center'}}>
+            <Container sx={{ textAlign: 'center',justifyContent:'space-between' }}>
                 <Grid container spacing={1}>
                     <Grid container item spacing={3}>
                         <FormRow />

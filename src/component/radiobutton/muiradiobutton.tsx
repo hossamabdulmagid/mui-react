@@ -3,7 +3,7 @@ import { Stack, Box, Button, Radio, RadioGroup, FormControl, FormLabel, FormCont
 const RadioButton = () => {
 
     const [value, setValue] = useState('');
-    console.log(value, `value`);
+    console.log({value}, `value`);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);

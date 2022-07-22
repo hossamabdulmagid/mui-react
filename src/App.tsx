@@ -1,13 +1,12 @@
 import MenuAppBar from './component/navbar/navbar';
-import ExampleCarousel from './component/carousel/mui-carousel';
 
-
+import HomePage from './pages/homepage/homepage.component';
 
 const App = () => {
   return (
     <div className="App">
       <MenuAppBar />
-      <ExampleCarousel />
+      <HomePage />
     </div>
   );
 }

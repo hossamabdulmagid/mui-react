@@ -23,7 +23,7 @@ const CarouselComponent = (props: any) => {
 
     return (
         <>
-            <Box sx={{ backgroundColor: 'rgb(24, 199, 225)', height: '750px' }}>
+            <Box sx={{ backgroundColor: 'rgb(24, 199, 225)', height: 'auto' }}>
                 <NavGuest />
                 <Container>
                     <Carousel>
@@ -71,8 +71,13 @@ const CarouselComponent = (props: any) => {
                     </Typography>
                     <Grid container spacing={2} sx={{ textAlign: 'center' }}>
                         <Grid item xs={6}>
-                            <Box sx={{ boxShadow: 3 }}>
-
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '2px solid grey'
+                                }
+                            }}>
                                 <img
                                     src="cv1.png"
                                     alt="cv1.png"
@@ -88,7 +93,13 @@ const CarouselComponent = (props: any) => {
                             </Box>
                         </Grid>
                         <Grid item xs={6}>
-                            <Box sx={{ boxShadow: 3 }}>
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '2px solid grey'
+                                }
+                            }}>
                                 <img
                                     src="cv2.png"
                                     alt="cv2.png"
@@ -105,7 +116,13 @@ const CarouselComponent = (props: any) => {
                         </Grid>
 
                         <Grid item xs={3}>
-                            <Box sx={{ boxShadow: 3 }}>
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '2px solid grey'
+                                }
+                            }}>
                                 <img
                                     src="cv3.png"
                                     alt="cv3.png"
@@ -122,7 +139,13 @@ const CarouselComponent = (props: any) => {
                         </Grid>
                         <Grid item xs={3}>
 
-                            <Box sx={{ boxShadow: 3 }}>
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '2px solid grey'
+                                }
+                            }}>
                                 <img
                                     src="cv4.png"
                                     alt=""
@@ -138,7 +161,13 @@ const CarouselComponent = (props: any) => {
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
-                            <Box sx={{ boxShadow: 3 }}>
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '2px solid grey'
+                                }
+                            }}>
                                 <img
                                     src="cv5.png"
                                     alt="cv5.png"
@@ -154,7 +183,13 @@ const CarouselComponent = (props: any) => {
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
-                            <Box sx={{ boxShadow: 3 }}>
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '2px solid grey'
+                                }
+                            }}>
                                 <img
                                     src="cv6.png"
                                     alt="cv6.png"
@@ -170,7 +205,13 @@ const CarouselComponent = (props: any) => {
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
-                            <Box sx={{ boxShadow: 3 }}>
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '2px solid grey'
+                                }
+                            }}>
                                 <img
                                     src="cv6.png"
                                     alt="cv6.png"
@@ -186,7 +227,13 @@ const CarouselComponent = (props: any) => {
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
-                            <Box sx={{ boxShadow: 3 }}>
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '2px solid grey'
+                                }
+                            }}>
                                 <img
                                     src="cv7.png"
                                     alt="cv7.png"
@@ -202,11 +249,23 @@ const CarouselComponent = (props: any) => {
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
-                            <Box sx={{ boxShadow: 3 }}></Box>
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '1px solid grey'
+                                }
+                            }}></Box>
 
                         </Grid>
                         <Grid item xs={3}>
-                            <Box sx={{ boxShadow: 3 }}></Box>
+                            <Box sx={{
+                                boxShadow: 3,
+                                "&:hover": {
+                                    margin: '5px',
+                                    border: '2px solid grey'
+                                }
+                            }}></Box>
 
                         </Grid>
                     </Grid>

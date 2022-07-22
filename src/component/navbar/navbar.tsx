@@ -1,11 +1,8 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Container, Link } from '@mui/material';
+import { Container, Link, Grid } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
@@ -20,16 +17,27 @@ const NavbarLabel = (label: string) => {
         <Container>
             <Toolbar>
                 <ThemeProvider theme={theme}>
-                    <Typography variant="subtitle2" component='div' sx={{ flexGrow: 1, textAlign: 'left' }}>
-                        <Link href="/" underline="hover" sx={{ color: 'white', fontSize: "10px", "&:hover": { color: 'white' } }}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6} md={6}
+                            sx={{
+                                display: { xs: "none", lg: "block" }
+                            }}>
+                            <Typography variant="subtitle2" component='div' sx={{ flexGrow: 1, textAlign: 'left' }}>
+                                <Link href="/" underline="hover" sx={{ color: 'white', fontSize: "10px", "&:hover": { color: 'white' } }}>
+                                    Create, maintain, publish, and share your CVs for free
+                                </Link>
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} md={6} sx={{ padding: '0px', marginTop: '', textAlign: 'center' }} >
+                            <LockIcon sx={{ padding: '0px', marginTop: '', textAlign: 'right' }} />
+                            <Link href="/login" underline="hover" sx={{ color: 'white', fontSize: '10px', "&:hover": { color: 'white' } }}>
+                                {label}
+                            </Link>
+                        </Grid>
 
-                            Create, maintain, publish, and share your CVs for free
-                        </Link>
-                    </Typography>
-                    <LockIcon sx={{ padding: '0px', marginTop: '', textAlign: 'right' }} />
-                    <Link href="/login" underline="hover" sx={{ color: 'white', fontSize: '10px', "&:hover": { color: 'white' } }}>
-                        {label}
-                    </Link>
+                    </Grid>
+
+
                 </ThemeProvider>
             </Toolbar>
         </Container>

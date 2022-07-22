@@ -1,16 +1,14 @@
-import { useState } from 'react';
-
+import { useState, Fragment } from 'react';
 import { Box, Grid, Link, Container, Typography } from '@mui/material';
 import CarouselComponent from '../../component/carousel/mui-carousel';
 
 const HomePage = () => {
 
-
     const [languages, setLanguages] = useState([
         "English -",
         "العربية -",
         "Български -",
-        "Čeština -",    
+        "Čeština -",
         "Dansk -",
         "Deutsch -",
         "Eesti -",
@@ -53,9 +51,8 @@ const HomePage = () => {
     ]);
 
     return (
-        <>
+        <Fragment>
             <CarouselComponent />
-
             <Container sx={{ textAlign: 'center', margin: '0 auto' }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={4}>
@@ -64,16 +61,22 @@ const HomePage = () => {
                                 variant="h6"
                                 component='h6'
                                 sx={{
-                                    margin:'5px',
+                                    margin: '5px',
                                     padding: '10px',
                                     fontSize: "14px"
                                 }}>
                                 System
                             </Typography>
                             <Box>
-                                <Typography variant='body2' component='div' sx={{margin:'10px'}}> Secure 256 bit SSL encryption</Typography>
-                                <Typography variant='body2' component='div'sx={{margin:'10px'}}> Available on the Chrome webstore</Typography>
-                                <Typography variant='body2' component='div'sx={{margin:'10px'}}> follow updates at @cvCreator</Typography>
+                                <Typography variant='body2' component='div' sx={{ margin: '10px' }}>
+                                    Secure 256 bit SSL encryption
+                                </Typography>
+                                <Typography variant='body2' component='div' sx={{ margin: '10px' }}>
+                                    Available on the Chrome webstore
+                                </Typography>
+                                <Typography variant='body2' component='div' sx={{ margin: '10px' }}>
+                                    follow updates at @cvCreator
+                                </Typography>
                             </Box>
                         </Box>
                     </Grid>
@@ -122,29 +125,28 @@ const HomePage = () => {
                             <Box>
                                 {links && links.map((singleLink, idx) => {
                                     return (
-                                        <Box  sx={{margin:'5px'}} key={idx}>
-                                            <Link href='#' underline="none"  
-                                            sx={{
-                                                color:'black',
-                                                "&:hover":{
-                                                    textDecoration:"none",
-                                                    color:'black'
-                                            }
-                                            }}>
+                                        <Box sx={{ margin: '5px' }} key={idx}>
+                                            <Link href='#' underline="none"
+                                                sx={{
+                                                    color: 'black',
+                                                    "&:hover": {
+                                                        textDecoration: "none",
+                                                        color: 'black'
+                                                    }
+                                                }}>
                                                 {singleLink.title}
                                             </Link>
                                         </Box>
 
                                     )
                                 })}
-
                             </Box>
                         </Box>
                     </Grid>
 
                 </Grid>
             </Container>
-        </>
+        </Fragment>
     );
 }
 

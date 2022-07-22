@@ -21,13 +21,13 @@ const NavbarLabel = (label: string) => {
             <Toolbar>
                 <ThemeProvider theme={theme}>
                     <Typography variant="subtitle2" component='div' sx={{ flexGrow: 1, textAlign: 'left' }}>
-                    <Link href="/" underline="hover" sx={{ color: 'white' }}>
+                        <Link href="/" underline="hover" sx={{ color: 'white', fontSize: "10px", "&:hover": { color: 'white' } }}>
 
-                        Create, maintain, publish, and share your CVs for free
+                            Create, maintain, publish, and share your CVs for free
                         </Link>
-                        </Typography>
+                    </Typography>
                     <LockIcon sx={{ padding: '0px', marginTop: '', textAlign: 'right' }} />
-                    <Link href="/login" underline="hover" sx={{ color: 'white' }}>
+                    <Link href="/login" underline="hover" sx={{ color: 'white', fontSize: '10px', "&:hover": { color: 'white' } }}>
                         {label}
                     </Link>
                 </ThemeProvider>

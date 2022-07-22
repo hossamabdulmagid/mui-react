@@ -36,17 +36,17 @@ const CarouselComponent = (props: any) => {
                     <Grid item xs={6}>
                         <Stack sx={{ textAlign: '' }}>
                             <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ padding: '5px' }}>
-                                <Button  size="small">Like</Button>
-                                <Button  size="small">Twiter</Button>
-                                <Button  size="small">Share</Button>
+                                <Button size="small">Like</Button>
+                                <Button size="small">Twiter</Button>
+                                <Button size="small">Share</Button>
                             </ButtonGroup>
                         </Stack>
                     </Grid>
                     <Grid item xs={6} sx={{ textAlign: '' }}>
-                        <Typography sx={{ fontSize: '11px', textAlign: 'right' }}>
+                        <Typography sx={{ fontSize: '10px', textAlign: 'right' }}>
                             Already have your resumes on CV Creator?
                             <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ padding: '5px' }}>
-                                <Button variant="outlined" aria-label="outlined button" sx={{ padding: '5px' }} size="small">Login</Button>
+                                <Button variant="outlined" aria-label="outlined button" sx={{ padding: '3px' }} size="small">Login</Button>
                             </ButtonGroup>
                         </Typography>
 
@@ -55,20 +55,17 @@ const CarouselComponent = (props: any) => {
             </Container>
             <hr />
             <>
-
-                <Container>
-
-                    <img src='press.png' alt='press.png' style={{padding:'15px'}} />
-                    <Typography sx={{textAlign:'center',padding:'15px'}}>
-                    A wide range of templates to choose from
-
+                <Container >
+                    <img src='press.png' alt='press.png' style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                        padding: 0,
+                        margin: 0,
+                    }} />
+                    <Typography sx={{ textAlign: 'center', padding: '15px', fontSize: '12px', marginTop: '20px' }}>
+                        A wide range of templates to choose from
                     </Typography>
                 </Container>
-            </>
-
-
-            <>
-            
             </>
         </>
     );

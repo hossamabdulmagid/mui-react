@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -18,7 +17,8 @@ const NavbarLabel = (label: string) => {
             <Toolbar>
                 <ThemeProvider theme={theme}>
                     <Grid container spacing={2}>
-                        <Grid item xs={6} md={6}
+                        <Grid
+                            item xs={6} md={6}
                             sx={{
                                 display: { xs: "none", lg: "block" }
                             }}>
@@ -30,14 +30,11 @@ const NavbarLabel = (label: string) => {
                         </Grid>
                         <Grid item xs={12} md={6} sx={{ padding: '0px', marginTop: '', textAlign: 'center' }} >
                             <LockIcon sx={{ padding: '0px', marginTop: '', textAlign: 'right' }} />
-                            <Link href="/login" underline="hover" sx={{ color: 'white', fontSize: '10px', "&:hover": { color: 'white' } }}>
+                            <Link href="/login" underline="hover" sx={{ color: 'white', fontSize: '12px', "&:hover": { color: 'white' } }}>
                                 {label}
                             </Link>
                         </Grid>
-
                     </Grid>
-
-
                 </ThemeProvider>
             </Toolbar>
         </Container>

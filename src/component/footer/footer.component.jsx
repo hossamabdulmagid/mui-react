@@ -20,8 +20,13 @@ const Footer = () => {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Link href='#blank' sx={{ color: 'white', '&:hover': { color: 'white' } }}>Privacy policy</Link>{" || "}
-                    <Link href='#blank' sx={{ color: 'white', '&:hover': { color: 'white' } }}>Contact</Link>
+                    <Link href='#blank' sx={{ color: 'white', '&:hover': { color: 'white' } }}>
+                        Privacy policy
+                    </Link>
+                    {" || "}
+                    <Link href='#blank' sx={{ color: 'white', '&:hover': { color: 'white' } }}>
+                        Contact
+                    </Link>
                 </Grid>
             </Grid>
         </Box>

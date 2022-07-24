@@ -8,6 +8,7 @@ import Help from './pages/help/help.component';
 import ResumeTips from './pages/resume-tips/resume-tips.component';
 import LanguagePage from './pages/languages-pages/languages-pages.component';
 import PrivacyPage from './pages/privcacy-policy/privacy-policy-component';
+import ContactPage from './pages/contact-page/contact-page.component';
 const App = () => {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/tips" element={<ResumeTips />} />
         <Route path="/lang" element={<LanguagePage />} />
         <Route path="/privacy-policy" element={<PrivacyPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <ContentLanguage />
       <Footer />

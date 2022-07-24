@@ -2,7 +2,7 @@ import { Container, Grid, Box } from '@mui/material';
 import SignUp from '../../component/singup/signup.component';
 import SignIn from '../../component/signin/signin.component';
 import Header from '../../component/header/header.component';
-const SignInSignUpPage = () => {
+const SignInSignUpPage: React.FC = (): JSX.Element => {
     return (
         <>
             <Header />

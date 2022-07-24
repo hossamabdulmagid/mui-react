@@ -6,7 +6,7 @@ const PrivacyPage: React.FC = (): JSX.Element => {
     return (
         <Fragment>
             <Header />
-            <Box sx={{ backgroundColor: "rgb(249, 249, 249)", padding: "20px",paddingBottom:'30px' }}>
+            <Box sx={{ backgroundColor: "rgb(249, 249, 249)", padding: "20px", paddingBottom: '30px' }}>
                 <Container>
                     <Stack>
                         <Grid container spacing={2}>

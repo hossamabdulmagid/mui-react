@@ -6,15 +6,15 @@ const PrivacyPage: React.FC = (): JSX.Element => {
     return (
         <Fragment>
             <Header />
-            <Box sx={{ backgroundColor: "rgb(249, 249, 249)", padding: "20px" }}>
+            <Box sx={{ backgroundColor: "rgb(249, 249, 249)", padding: "20px",paddingBottom:'30px' }}>
                 <Container>
                     <Stack>
                         <Grid container spacing={2}>
                             <Grid xs={12} md={12}>
-                                <Typography sx={{ fontWeight: '200', paddingTop: '20px' }}>
+                                <Typography sx={{ fontWeight: '200', paddingTop: '40px' }}>
                                     Terms & Privacy Policy
                                 </Typography>
-                                <Typography sx={{ fontSize: '10px', paddingTop: '20px' }}>
+                                <Typography sx={{ fontSize: '10px', paddingTop: '40px' }}>
                                     The CV Maker Privacy Policy statement discloses the privacy practices employed by CV Maker.
                                     To learn more about CV Maker's privacy policy please read the information listed below.
                                     The protection of privacy and the safeguarding of our Clients personal information is our highest precedence.
@@ -30,20 +30,20 @@ const PrivacyPage: React.FC = (): JSX.Element => {
                                     doesn't control or own or to individuals that CV Maker does not manage.
                                     CV Maker allows people to generate resumes online based on the data provided by them.
                                 </Typography>
-                                <Typography sx={{ fontWeight: '200', paddingTop: '20px' }}>
+                                <Typography sx={{ fontWeight: '200', paddingTop: '40px' }}>
                                     Changes and Terms to this Privacy Statement
                                 </Typography>
-                                <Typography sx={{ fontSize: '10px', paddingTop: '20px' }}>
+                                <Typography sx={{ fontSize: '10px', paddingTop: '40px' }}>
                                     CV Maker reserves the right to modify this agreement at any time.
                                     Your continued use of CV Maker following any such modification constitutes your agreement to be bound by and your acceptance of the agreement as so modified.
                                     Your continual use of the site indicates your acquiesce to any changes and constitutes your agreement to be bound by and your acceptance of the agreement as so modified.
                                     If you have any questions or feedback regarding this policy, please contact info@cvmkr.com and make sure to put “CV Maker Privacy Policy” in the subject line of the email.
                                     You are hereby responsible for reviewing this Privacy Policy sporadically to make certain that you are aware of any changes to it.
                                 </Typography>
-                                <Typography sx={{ fontWeight: '200', paddingTop: '20px' }}>
+                                <Typography sx={{ fontWeight: '200', paddingTop: '40px' }}>
                                     Collection and use of user information
                                 </Typography>
-                                <Typography sx={{ fontSize: '10px', paddingTop: '20px' }}>
+                                <Typography sx={{ fontSize: '10px', paddingTop: '40px' }}>
                                     CV Maker collects personal information
                                     (name, contact information such as e-mail, phone, employment history, education records,
                                     and other information pertaining to career and employment history or personal profile)
@@ -56,10 +56,10 @@ const PrivacyPage: React.FC = (): JSX.Element => {
                                     including security, privacy, and data protection shall be transferred to the entity from CV Maker,
                                     the company, and its proprietors.
                                 </Typography>
-                                <Typography sx={{ fontWeight: '200', paddingTop: '20px' }}>
+                                <Typography sx={{ fontWeight: '200', paddingTop: '40px' }}>
                                     Information Disclosure
                                 </Typography>
-                                <Typography sx={{ fontSize: '10px', paddingTop: '20px' }}>
+                                <Typography sx={{ fontSize: '10px', paddingTop: '40px' }}>
                                     CV Maker doesn't split, sell, share, or rent personal information about you with other people
                                     or non-affiliated companies apart from providing service's you may have requested,
                                     with your authorization,
@@ -72,10 +72,10 @@ const PrivacyPage: React.FC = (): JSX.Element => {
                                     Resumes explicitly published by you may be indexed by 3rd party search engines and sites and made available on their websites.
                                     CV Maker is neither responsible nor liable for where your resume content appears after you have made it public.
                                 </Typography>
-                                <Typography sx={{ fontWeight: '200', paddingTop: '20px' }}>
+                                <Typography sx={{ fontWeight: '200', paddingTop: '40px' }}>
                                     Cookies
                                 </Typography>
-                                <Typography sx={{ fontSize: '10px', paddingTop: '20px' }}>
+                                <Typography sx={{ fontSize: '10px', paddingTop: '40px' }}>
                                     Cookies are small pieces of information stored on the user's computer. CV Maker may access and set cookies on your computer.
                                     The cookie allows the CV Maker system to identify a user as a registered member and save
                                     some preferences that have nothing to do with a user's personal information.
@@ -83,10 +83,10 @@ const PrivacyPage: React.FC = (): JSX.Element => {
                                     the user later and automatically signs him/her in without the need of any manual action from the user.
                                     This cookie, in no way exposes any sensitive information.
                                 </Typography>
-                                <Typography sx={{ fontWeight: '200', paddingTop: '20px' }}>
+                                <Typography sx={{ fontWeight: '200', paddingTop: '40px' }}>
                                     Correspondences
                                 </Typography>
-                                <Typography sx={{ fontSize: '10px', paddingTop: '20px' }}>
+                                <Typography sx={{ fontSize: '10px', paddingTop: '40px' }}>
                                     CV Maker may contact its users from time to time to notify
                                     of important changes on the system,technical updates etc.
                                     CV Maker may also store correspondences from its users for tracking purposes,
@@ -96,10 +96,10 @@ const PrivacyPage: React.FC = (): JSX.Element => {
                                     (c) the user's written consent or other legit,
                                     genuine and ethical emergencies.
                                 </Typography>
-                                <Typography sx={{ fontWeight: '200', paddingTop: '20px' }}>
+                                <Typography sx={{ fontWeight: '200', paddingTop: '40px' }}>
                                     Disclaimer
                                 </Typography>
-                                <Typography sx={{ fontSize: '10px', paddingTop: '20px' }}>
+                                <Typography sx={{ fontSize: '10px', paddingTop: '40px' }}>
                                     Except as expressly provided otherwise in a written agreement between you and CV Maker,
                                     the online tool, resumes and document generated for users, and any materials included therein are provided "as is"
                                     and without warranties of any kind, either expresses or implied.
@@ -136,10 +136,10 @@ const PrivacyPage: React.FC = (): JSX.Element => {
                                     exceed the amount paid by you, if any, for purchasing any materials, services or products.
                                 </Typography>
 
-                                <Typography sx={{ fontWeight: '200', paddingTop: '20px' }}>
+                                <Typography sx={{ fontWeight: '200', paddingTop: '40px' }}>
                                     No guarantees or warranties
                                 </Typography>
-                                <Typography sx={{ fontSize: '10px', paddingTop: '20px' }}>
+                                <Typography sx={{ fontSize: '10px', paddingTop: '40px' }}>
                                     Due to technical, legal and practical limitations, CV Maker cannot warrant and does not guarantee the non-disclosure of the user's private/personal
                                     information and data in ways not described in this privacy policy. CV Maker may disclose information to government authorities or third parties
                                     under certain circumstances, or third parties may unlawfully intercept or access private data or communications. As the user,

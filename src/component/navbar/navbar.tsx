@@ -1,3 +1,4 @@
+import React, { FC } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -10,8 +11,11 @@ const theme = createTheme({
     },
 });
 
+interface IProps {
+    label: string,
+}
 
-const NavbarLabel = (label: string) => {
+const NavbarLabel: React.FC<IProps> = (props): JSX.Element => {
     return (
         <Container>
             <Toolbar>
@@ -23,7 +27,6 @@ const NavbarLabel = (label: string) => {
                                 display: { xs: "none", lg: "block" }
                             }}>
                             <Typography
-
                                 variant="subtitle2"
                                 component='div'
                                 sx={{
@@ -66,7 +69,7 @@ const NavbarLabel = (label: string) => {
                                     fontSize: '12px',
                                     "&:hover": { color: 'white' }
                                 }}>
-                                {label}
+                                {props.label}
                             </Link>
                         </Grid>
                     </Grid>
@@ -86,11 +89,13 @@ const darkTheme = createTheme({
     },
 });
 
-const Navbar = () => {
+
+
+const Navbar: React.FC<IProps> = (label): JSX.Element => {
     return (
         <ThemeProvider theme={darkTheme}>
             <AppBar position="static" color="secondary">
-                {NavbarLabel('Login | Signup')}
+                {NavbarLabel(label)}
             </AppBar>
         </ThemeProvider>
     );

@@ -8,16 +8,16 @@ import NavGuest from './nav-guest';
 const CarouselComponent = (props: any) => {
     const [Images, setImage] = useState([
         {
-            src: "1.png",
-            alt: "1.png"
+            src: "https://production-1d741-6fa29.firebaseapp.com/1.png",
+            alt: "https://production-1d741-6fa29.firebaseapp.com/1.png"
         },
         {
-            src: "2.png",
-            alt: "2.png"
+            src: "https://production-1d741-6fa29.firebaseapp.com/2.png",
+            alt: "https://production-1d741-6fa29.firebaseapp.com/2.png"
         },
         {
-            src: "3.png",
-            alt: "3.png"
+            src: "https://production-1d741-6fa29.firebaseapp.com/3.png",
+            alt: "https://production-1d741-6fa29.firebaseapp.com/3.png"
         },
     ]);
 
@@ -57,8 +57,8 @@ const CarouselComponent = (props: any) => {
             <>
                 <Container>
                     <img
-                        src='press.png'
-                        alt='press.png'
+                        src='https://production-1d741-6fa29.firebaseapp.com/press.png'
+                        alt='https://production-1d741-6fa29.firebaseapp.com/press.png'
                         style={{
                             maxWidth: '100%',
                             height: 'auto',
@@ -79,8 +79,8 @@ const CarouselComponent = (props: any) => {
                                 }
                             }}>
                                 <img
-                                    src="cv1.png"
-                                    alt="cv1.png"
+                                    src="https://production-1d741-6fa29.firebaseapp.com/cv1.png"
+                                    alt="https://production-1d741-6fa29.firebaseapp.com/cv1.png"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',
@@ -101,8 +101,8 @@ const CarouselComponent = (props: any) => {
                                 }
                             }}>
                                 <img
-                                    src="cv2.png"
-                                    alt="cv2.png"
+                                    src="https://production-1d741-6fa29.firebaseapp.com/cv2.png"
+                                    alt="https://production-1d741-6fa29.firebaseapp.com/cv2.png"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',
@@ -124,8 +124,8 @@ const CarouselComponent = (props: any) => {
                                 }
                             }}>
                                 <img
-                                    src="cv3.png"
-                                    alt="cv3.png"
+                                    src="https://production-1d741-6fa29.firebaseapp.com/cv3.png"
+                                    alt="https://production-1d741-6fa29.firebaseapp.com/cv3.png"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',
@@ -147,8 +147,8 @@ const CarouselComponent = (props: any) => {
                                 }
                             }}>
                                 <img
-                                    src="cv4.png"
-                                    alt=""
+                                    src="https://production-1d741-6fa29.firebaseapp.com/cv4.png"
+                                    alt="https://production-1d741-6fa29.firebaseapp.com/cv4.png"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',
@@ -169,8 +169,8 @@ const CarouselComponent = (props: any) => {
                                 }
                             }}>
                                 <img
-                                    src="cv5.png"
-                                    alt="cv5.png"
+                                    src="https://production-1d741-6fa29.firebaseapp.com/cv5.png"
+                                    alt="https://production-1d741-6fa29.firebaseapp.com/cv5.png"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',
@@ -191,8 +191,8 @@ const CarouselComponent = (props: any) => {
                                 }
                             }}>
                                 <img
-                                    src="cv6.png"
-                                    alt="cv6.png"
+                                    src="https://production-1d741-6fa29.firebaseapp.com/cv6.png"
+                                    alt="https://production-1d741-6fa29.firebaseapp.com/cv6.png"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',
@@ -213,8 +213,8 @@ const CarouselComponent = (props: any) => {
                                 }
                             }}>
                                 <img
-                                    src="cv6.png"
-                                    alt="cv6.png"
+                                    src="https://production-1d741-6fa29.firebaseapp.com/cv6.png"
+                                    alt="https://production-1d741-6fa29.firebaseapp.com/cv6.png"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',
@@ -235,8 +235,8 @@ const CarouselComponent = (props: any) => {
                                 }
                             }}>
                                 <img
-                                    src="cv7.png"
-                                    alt="cv7.png"
+                                    src="https://production-1d741-6fa29.firebaseapp.com/cv7.png"
+                                    alt="https://production-1d741-6fa29.firebaseapp.com/cv7.png"
                                     style={{
                                         maxWidth: '100%',
                                         height: 'auto',
@@ -271,8 +271,8 @@ const CarouselComponent = (props: any) => {
                     </Grid>
                     <Stack sx={{ alignItems: 'center', marginTop: '30px', marginBottom: '30px' }}>
                         <img
-                            src='premum.png'
-                            alt='premum.png'
+                            src='https://production-1d741-6fa29.firebaseapp.com/premum.png'
+                            alt='https://production-1d741-6fa29.firebaseapp.com/premum.png'
                             style={{
                                 maxWidth: '100%',
                                 height: 'auto',

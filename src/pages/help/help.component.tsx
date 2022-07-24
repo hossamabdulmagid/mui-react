@@ -98,7 +98,7 @@ const Help: React.FC = (): JSX.Element => {
                         />
                     </Grid>
                     <Grid xs={12} md={6} sx={{ textAlign: 'right', borderBottom: '1 px soild darkgrey', marginTop: '5px' }}>
-                        <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '50%' }}>
+                        <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '15px' }}>
                             A CV consists of several sections,
                             Work experience, Education, References and so forth.
                             You can change the order of how these appear in your CV by clicking on a section name,
@@ -112,7 +112,6 @@ const Help: React.FC = (): JSX.Element => {
                 <Grid container spacing={2} sx={{ textAlign: '' }}>
                     <Grid xs={12} md={12} sx={{ margin: '0 auto', }}>
                         <Stack sx={{ textAlign: '', margin: '0 auto' }}>
-
                             <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
                                 Renaming sections
                             </Typography>
@@ -133,6 +132,81 @@ const Help: React.FC = (): JSX.Element => {
                                 }}
                             />
                         </Stack>
+                    </Grid>
+                </Grid>
+                <hr />
+                <Grid container spacing={2} sx={{ textAlign: '' }}>
+                    <Grid xs={12} md={6} sx={{ margin: '0 auto' }}>
+                        <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
+                            Adding entries in special sections
+                        </Typography>
+                        <img src='https://production-1d741-6fa29.firebaseapp.com/help5.png'
+                            alt='https://production-1d741-6fa29.firebaseapp.com/help5.png'
+                            style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                                padding: 0,
+                                margin: 0,
+                                border: "12px solid snow",
+                            }}
+                        />
+                    </Grid>
+                    <Grid xs={12} md={6} sx={{ textAlign: 'right', borderBottom: '1 px soild darkgrey', marginTop: '5px' }}>
+                        <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '15px' }}>
+                            Work experience and Education are special sections to which you can add multiple entries, that is, details of your past jobs and schooling.
+                            To add a new entry, click the 'Add entry' button.
+                            You can delete an entry by clicking the Delete button underneath it.
+                        </Typography>
+                    </Grid>
+                </Grid>
+                <hr />
+                <Grid container spacing={1} sx={{ marginBottom: '10px' }}>
+                    <Grid item xs={11} md={10}>
+                        <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
+                            Forcing page-breaks
+                        </Typography>
+                        <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '15px' }}>
+                            Page-break button It's impossible to automatically deduce where a pagebreak is aesthetic, and for that reason,
+                            sometimes, you get pagebreaks in undesired places. In such cases, or for whatever reason, to force a page break in the output PDF,
+                            use the page-break button in the editor toolbar. This inserts the [page-break] tag, that becomes a hard page-break in the PDF you download.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={1} md={2}>
+                        <img src='https://production-1d741-6fa29.firebaseapp.com/help8.png'
+                            alt='https://production-1d741-6fa29.firebaseapp.com/help8.png'
+                            style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                                padding: 0,
+                                margin: 0,
+                                border: "12px solid snow",
+                            }}
+                        />
+                    </Grid>
+                </Grid>
+                <hr />
+                <Grid container spacing={1} sx={{ marginBottom: '10px' }}>
+                    <Grid item xs={12} md={10}>
+                        <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
+                            Save, preview, and download
+                        </Typography>
+                        <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '15px' }}>
+                            The Save button saves the CV you are editing to your account Preview lets you preview your CV in a template of your choice in the browser without having to download it.
+                            Quite useful to check progression as your work on your CV.
+                            Download lets you download a copy of your CV (PDF or HTML) to your computer in a style of your choice.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} md={2}>
+                        <img src='https://production-1d741-6fa29.firebaseapp.com/help9.png'
+                            alt='https://production-1d741-6fa29.firebaseapp.com/help9.png'
+                            style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                                padding: 0,
+                                margin: 0,
+                                border: "12px solid snow",
+                            }}
+                        />
                     </Grid>
                 </Grid>
                 <hr />

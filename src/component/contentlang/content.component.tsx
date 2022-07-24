@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { Container, Grid, Box, Typography, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
+type TypeLinks = {
+    title: string;
+    url: string;
+};
+
 const ContentLanguage: React.FC = (): JSX.Element => {
-    const [languages, setLanguages] = useState([
+    const [languages, setLanguages] = useState<string[]>([
         "English -",
         "العربية -",
         "Български -",
@@ -42,7 +47,7 @@ const ContentLanguage: React.FC = (): JSX.Element => {
         "Hrvatski",
     ]);
 
-    const [links, setLinks] = useState([
+    const [links, setLinks] = useState<TypeLinks[]>([
         { title: "Help", url: "help" },
         { title: "Resume tips", url: "tips" },
         { title: "Language credits", url: "lang" },
@@ -124,11 +129,10 @@ const ContentLanguage: React.FC = (): JSX.Element => {
                                         <Stack sx={{
                                             color: 'black',
                                             "&:hover": {
-                                                textDecoration: "none",
                                                 color: 'black'
                                             }
                                         }}>
-                                            <Link to={`/${singleLink.url}`} style={{ color: 'black', textDecoration: 'none' }} >
+                                            <Link to={`/${singleLink.url}`} style={{ color: 'black' }} >
                                                 {singleLink.title}
                                             </Link>
                                         </Stack>

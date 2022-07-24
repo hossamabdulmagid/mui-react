@@ -6,6 +6,7 @@ import SignInSignUpPage from './pages/signin-signup/signin-signup.component';
 import ContentLanguage from './component/contentlang/content.component';
 import Help from './pages/help/help.component';
 import ResumeTips from './pages/resume-tips/resume-tips.component';
+import LanguagePage from './pages/languages-pages/languages-pages.component';
 const App = () => {
   return (
     <div className="App">
@@ -15,7 +16,7 @@ const App = () => {
         <Route path="/login" element={<SignInSignUpPage />} />
         <Route path="/help" element={<Help />} />
         <Route path="/tips" element={<ResumeTips />} />
-
+        <Route path="/lang" element={<LanguagePage />} />
       </Routes>
       <ContentLanguage />
       <Footer />

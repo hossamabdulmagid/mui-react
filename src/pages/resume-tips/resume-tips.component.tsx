@@ -1,9 +1,11 @@
 import { Fragment } from 'react';
 import { Stack, Grid, Typography, Container, Box } from '@mui/material';
+import Header from '../../component/header/header.component';
 
 const ResumeTips: React.FC = (): JSX.Element => {
     return (
         <Fragment>
+            <Header />
             <Box sx={{ backgroundColor: "rgb(249, 249, 249)", padding: "20px" }}>
                 <Container>
                     <Grid>

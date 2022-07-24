@@ -7,8 +7,8 @@ const Header: React.FC = (): JSX.Element => {
     const [save, setSave] = useState(0);
 
     return (
-        <Box sx={{ backgroundColor: 'snow', display: 'block', padding: '20px', marginBottom: '20px' }}>
-            <Container sx={{ margin: '0 auto', textAlign: 'center', }}>
+        <Box sx={{ backgroundColor: 'snow', display: 'block', marginBottom: '' }}>
+            <Container sx={{ margin: '0 auto', textAlign: '', padding: '20px' }}>
                 <Grid container spacing={2}>
                     <Grid item xs={4} md={4} sx={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
                         <img src='cvcreator.png' alt='cvcreator.png' width={'102px'} />

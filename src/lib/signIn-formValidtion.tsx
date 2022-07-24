@@ -51,7 +51,7 @@ const SignIn = () => {
     return (
         <Box sx={{ maxWidth: '30rem', alignContent: 'center', textAlign: 'center', margin: '0 auto' }}>
             <Typography variant='h6' component='h6' sx={{ mb: '2rem' }}>
-                Login
+                Member login
             </Typography>
             <Box
                 component='form'

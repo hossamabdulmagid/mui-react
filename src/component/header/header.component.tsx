@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Container, Grid, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 const Header: React.FC = (): JSX.Element => {
+
     const navigate = useNavigate();
     const [download, setDownload] = useState(0);
     const [save, setSave] = useState(0);
@@ -23,7 +24,6 @@ const Header: React.FC = (): JSX.Element => {
                 </Grid>
             </Container>
         </Box>
-
     );
 }
 

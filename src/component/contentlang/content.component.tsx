@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Container, Grid, Box, Typography, Link } from '@mui/material';
+import { Container, Grid, Box, Typography, Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
 const ContentLanguage = () => {
     const [languages, setLanguages] = useState([
         "English -",
@@ -47,7 +48,7 @@ const ContentLanguage = () => {
         { title: "Language credits", url: "lang" },
     ]);
     return (
-        <Container sx={{ textAlign: 'center', margin: '0 auto',marginBottom:'30px',marginTop:"30px" }}>
+        <Container sx={{ textAlign: 'center', margin: '0 auto', marginBottom: '30px', marginTop: "30px" }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
                     <Box>
@@ -120,16 +121,17 @@ const ContentLanguage = () => {
                             {links && links.map((singleLink, idx) => {
                                 return (
                                     <Box sx={{ margin: '5px' }} key={idx}>
-                                        <Link href='#' underline="none"
-                                            sx={{
-                                                color: 'black',
-                                                "&:hover": {
-                                                    textDecoration: "none",
-                                                    color: 'black'
-                                                }
-                                            }}>
-                                            {singleLink.title}
-                                        </Link>
+                                        <Stack sx={{
+                                            color: 'black',
+                                            "&:hover": {
+                                                textDecoration: "none",
+                                                color: 'black'
+                                            }
+                                        }}>
+                                            <Link to={`/${singleLink.url}`} style={{ color: 'black', textDecoration: 'none' }} >
+                                                {singleLink.title}
+                                            </Link>
+                                        </Stack>
                                     </Box>
                                 )
                             })}
@@ -139,7 +141,7 @@ const ContentLanguage = () => {
 
             </Grid>
 
-        </Container>
+        </Container >
     );
 }
 

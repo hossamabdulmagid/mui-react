@@ -22,15 +22,50 @@ const NavbarLabel = (label: string) => {
                             sx={{
                                 display: { xs: "none", lg: "block" }
                             }}>
-                            <Typography variant="subtitle2" component='div' sx={{ flexGrow: 1, textAlign: 'left' }}>
-                                <Link href="/" underline="hover" sx={{ color: 'white', fontSize: "10px", "&:hover": { color: 'white' } }}>
+                            <Typography
+
+                                variant="subtitle2"
+                                component='div'
+                                sx={{
+                                    flexGrow: 1, textAlign: 'left'
+                                }}>
+                                <Link
+                                    href="/"
+                                    underline="hover"
+                                    sx={{
+                                        color: 'white',
+                                        fontSize: "10px",
+                                        "&:hover": { color: 'white' }
+                                    }}
+                                >
                                     Create, maintain, publish, and share your CVs for free
                                 </Link>
                             </Typography>
                         </Grid>
-                        <Grid item xs={12} md={6} sx={{ padding: '0px', marginTop: '', textAlign: 'center' }} >
-                            <LockIcon sx={{ padding: '0px', marginTop: '', textAlign: 'right' }} />
-                            <Link href="/login" underline="hover" sx={{ color: 'white', fontSize: '12px', "&:hover": { color: 'white' } }}>
+                        <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            sx={{
+                                padding: '0px',
+                                marginTop: '',
+                                textAlign: 'center'
+                            }}>
+                            <LockIcon
+                                sx={{
+                                    padding: '0px',
+                                    marginTop: '',
+                                    textAlign: 'right'
+                                }}
+                            />
+                            <Link
+                                href="/login"
+                                underline="hover"
+                                sx={{
+                                    color: 'white',
+                                    fontSize: '12px',
+                                    "&:hover": { color: 'white' }
+                                }}>
                                 {label}
                             </Link>
                         </Grid>

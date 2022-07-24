@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import SignInSignUpPage from './pages/signin-signup/signin-signup.component';
 import ContentLanguage from './component/contentlang/content.component';
 import Help from './pages/help/help.component';
-
+import ResumeTips from './pages/resume-tips/resume-tips.component';
 const App = () => {
   return (
     <div className="App">
@@ -14,6 +14,8 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<SignInSignUpPage />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/tips" element={<ResumeTips />} />
+
       </Routes>
       <ContentLanguage />
       <Footer />

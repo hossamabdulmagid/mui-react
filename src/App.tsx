@@ -3,7 +3,7 @@ import HomePage from './pages/homepage/homepage.component';
 import Footer from './component/footer/footer.component';
 import { Route, Routes } from "react-router-dom";
 import Login from './pages/login/login.component';
-
+import ContentLanguage from './component/contentlang/content.component';
 
 const App = () => {
   return (
@@ -13,6 +13,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      <ContentLanguage />
       <Footer />
     </div>
   );

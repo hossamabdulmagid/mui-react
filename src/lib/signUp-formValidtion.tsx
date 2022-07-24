@@ -59,7 +59,7 @@ import {
   
     return (
       <Box sx={{ maxWidth: '30rem' ,alignContent:'center',textAlign:'center',margin:'0 auto'}}>
-        <Typography variant='h4' component='h1' sx={{ mb: '2rem' }}>
+        <Typography variant='h6' component='h6' sx={{ mb: '2rem' }}>
           Register
         </Typography>
         <Box

@@ -16,7 +16,7 @@ const Help: React.FC = (): JSX.Element => {
     ]);
 
     return (
-        <Box sx={{ backgroundColor: "rgb(249, 249, 249)" }}>
+        <Box sx={{ backgroundColor: "rgb(249, 249, 249)", paddingBottom: "20px" }}>
             <Header />
             <Container sx={{ margin: '0 auto', }}>
                 <Grid container spacing={2} sx={{ textAlign: '' }}>
@@ -63,11 +63,12 @@ const Help: React.FC = (): JSX.Element => {
 
                             }} />
                     </Grid>
-                    <Grid xs={12} md={4} sx={{
-                        textAlign: 'right',
-                        borderBottom: '1 px soild darkgrey',
-                        display: { xs: "none", lg: "block" }
-                    }}>
+                    <Grid xs={12} md={4}
+                        sx={{
+                            textAlign: 'right',
+                            borderBottom: '1 px soild darkgrey',
+                            display: { xs: "none", lg: "block" }
+                        }}>
                         <img src="help1.png" alt='help1.png'
                             style={{
                                 maxWidth: '100%',
@@ -80,7 +81,7 @@ const Help: React.FC = (): JSX.Element => {
                     </Grid>
                 </Grid>
                 <hr />
-                <Grid container spacing={2} sx={{ textAlign: '' }}>
+                <Grid container spacing={2} sx={{ textAlign: 'left' }}>
                     <Grid xs={12} md={6} sx={{ margin: '0 auto' }}>
                         <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
                             Adding and ordering CV sections
@@ -93,7 +94,6 @@ const Help: React.FC = (): JSX.Element => {
                                 padding: 0,
                                 margin: 0,
                                 border: "12px solid white",
-
                             }}
                         />
                     </Grid>
@@ -128,7 +128,6 @@ const Help: React.FC = (): JSX.Element => {
                                     padding: 0,
                                     margin: 0,
                                     border: "12px solid white",
-
                                 }}
                             />
                         </Stack>
@@ -147,7 +146,7 @@ const Help: React.FC = (): JSX.Element => {
                                 height: 'auto',
                                 padding: 0,
                                 margin: 0,
-                                border: "12px solid snow",
+                                border: "12px solid white",
                             }}
                         />
                     </Grid>
@@ -161,7 +160,7 @@ const Help: React.FC = (): JSX.Element => {
                 </Grid>
                 <hr />
                 <Grid container spacing={1} sx={{ marginBottom: '10px' }}>
-                    <Grid item xs={11} md={10}>
+                    <Grid item xs={9} md={10}>
                         <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
                             Forcing page-breaks
                         </Typography>
@@ -171,7 +170,7 @@ const Help: React.FC = (): JSX.Element => {
                             use the page-break button in the editor toolbar. This inserts the [page-break] tag, that becomes a hard page-break in the PDF you download.
                         </Typography>
                     </Grid>
-                    <Grid item xs={1} md={2}>
+                    <Grid item xs={3} md={2}>
                         <img src='https://production-1d741-6fa29.firebaseapp.com/help8.png'
                             alt='https://production-1d741-6fa29.firebaseapp.com/help8.png'
                             style={{
@@ -179,7 +178,7 @@ const Help: React.FC = (): JSX.Element => {
                                 height: 'auto',
                                 padding: 0,
                                 margin: 0,
-                                border: "12px solid snow",
+                                border: "12px solid white",
                             }}
                         />
                     </Grid>
@@ -204,12 +203,51 @@ const Help: React.FC = (): JSX.Element => {
                                 height: 'auto',
                                 padding: 0,
                                 margin: 0,
-                                border: "12px solid snow",
+                                border: "12px solid white",
                             }}
                         />
                     </Grid>
                 </Grid>
                 <hr />
+                <Grid container spacing={1} sx={{ marginBottom: '25px' }}>
+                    <Grid item xs={12} md={6}>
+                        <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
+                            Publishing and sharing your CV online
+                        </Typography>
+                        <img src='https://production-1d741-6fa29.firebaseapp.com/help10.png'
+                            alt='https://production-1d741-6fa29.firebaseapp.com/help10.png'
+                            style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                                padding: 0,
+                                margin: 0,
+                                border: "12px solid white",
+                            }}
+                        />
+                        <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '15px' }}>
+                            The sharing options dialog shows the public URL of your CV which you can copy and share with anyone.
+                            You can also share your CV on Facebook, Twitter,and other social network sites by clicking on the appropriate buttons.
+                            The sharing options dialog also presents you to the different style choices available.
+                            Choose the style you wish to publish your CV in, and press OK to save your preference.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '15px' }}>
+                            CV Maker can host online copies of your CVs so that you can publish and share them.
+                            Clicking on the Share button beside your CV in the home screen will bring up the sharing options.
+                        </Typography>
+                        <img src='https://production-1d741-6fa29.firebaseapp.com/help11.png'
+                            alt='https://production-1d741-6fa29.firebaseapp.com/help11.png'
+                            style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                                padding: 0,
+                                margin: 0,
+                                border: "12px solid white",
+                            }}
+                        />
+                    </Grid>
+                </Grid>
             </Container>
         </Box>
     );

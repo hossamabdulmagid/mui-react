@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Grid, Box, Typography, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
-const ContentLanguage = () => {
+const ContentLanguage: React.FC = (): JSX.Element => {
     const [languages, setLanguages] = useState([
         "English -",
         "العربية -",

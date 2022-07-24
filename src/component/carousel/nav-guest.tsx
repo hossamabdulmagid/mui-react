@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 }));
 
-const FormRow = () => {
+const FormRow: React.FC = (): JSX.Element => {
     const [download, setDownload] = React.useState(0);
     const [save, setSave] = React.useState(0);
 
@@ -61,7 +61,7 @@ const FormRow = () => {
     );
 }
 
-const NavGuest = () => {
+const NavGuest: React.FC = (): JSX.Element => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Container sx={{ textAlign: 'center', justifyContent: 'space-betwen' }}>

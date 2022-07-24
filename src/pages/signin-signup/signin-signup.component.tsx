@@ -1,8 +1,8 @@
 import { Container, Grid } from '@mui/material';
-import RegisterPage from '../../lib/signUp-formValidtion';
+import SignUp from '../../lib/signUp-formValidtion';
 import SignIn from '../../lib/signIn-formValidtion';
 import Header from '../../component/header/header.component';
-const LoginPage = () => {
+const SignInSignUpPage = () => {
     return (
         <>
             <Header />
@@ -12,7 +12,7 @@ const LoginPage = () => {
                         <SignIn />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <RegisterPage />
+                        <SignUp />
                     </Grid>
                 </Grid>
             </Container>
@@ -21,4 +21,4 @@ const LoginPage = () => {
 }
 
 
-export default LoginPage
+export default SignInSignUpPage;

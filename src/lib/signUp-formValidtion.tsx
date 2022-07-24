@@ -33,7 +33,7 @@ const registerSchema = object({
 
 type RegisterInput = TypeOf<typeof registerSchema>;
 
-const RegisterPage = () => {
+const SignUp = () => {
   const [loading, setLoading] = useState(false);
 
   const {
@@ -139,5 +139,5 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default SignUp;
 

@@ -2,7 +2,8 @@ import React, { FC } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Container, Link, Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 import LockIcon from '@mui/icons-material/Lock';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
@@ -30,15 +31,15 @@ const NavbarLabel: React.FC<IProps> = (props): JSX.Element => {
                                 variant="subtitle2"
                                 component='div'
                                 sx={{
-                                    flexGrow: 1, textAlign: 'left'
+                                    flexGrow: 1, textAlign: 'left',
+                                    "&:hover": { color: 'white' }
                                 }}>
                                 <Link
-                                    href="/"
-                                    underline="hover"
-                                    sx={{
+                                    to="/"
+                                    style={{
                                         color: 'white',
                                         fontSize: "10px",
-                                        "&:hover": { color: 'white' }
+
                                     }}
                                 >
                                     Create, maintain, publish, and share your CVs for free
@@ -52,7 +53,9 @@ const NavbarLabel: React.FC<IProps> = (props): JSX.Element => {
                             sx={{
                                 padding: '0px',
                                 marginTop: '',
-                                textAlign: 'center'
+                                textAlign: 'center',
+                                "&:hover": { color: 'white' }
+
                             }}>
                             <LockIcon
                                 sx={{
@@ -62,12 +65,10 @@ const NavbarLabel: React.FC<IProps> = (props): JSX.Element => {
                                 }}
                             />
                             <Link
-                                href="/login"
-                                underline="hover"
-                                sx={{
+                                to="/login"
+                                style={{
                                     color: 'white',
                                     fontSize: '12px',
-                                    "&:hover": { color: 'white' }
                                 }}>
                                 {props.label}
                             </Link>

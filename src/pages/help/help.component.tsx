@@ -53,7 +53,9 @@ const Help: React.FC = (): JSX.Element => {
                             The same home screen lists all you the CVs you have created.
                             You can edit a CV by clicking on its name.
                         </Typography>
-                        <img src='help2.png' alt='help2.png'
+                        <img
+                            src='https://production-1d741-6fa29.firebaseapp.com/help2.png'
+                            alt='https://production-1d741-6fa29.firebaseapp.com/help2.png'
                             style={{
                                 maxWidth: '100%',
                                 height: 'auto',
@@ -69,7 +71,9 @@ const Help: React.FC = (): JSX.Element => {
                             borderBottom: '1 px soild darkgrey',
                             display: { xs: "none", lg: "block" }
                         }}>
-                        <img src="help1.png" alt='help1.png'
+                        <img
+                            src="https://production-1d741-6fa29.firebaseapp.com/help1.png"
+                            alt='https://production-1d741-6fa29.firebaseapp.com/help1.png'
                             style={{
                                 maxWidth: '100%',
                                 height: 'auto',
@@ -86,7 +90,8 @@ const Help: React.FC = (): JSX.Element => {
                         <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
                             Adding and ordering CV sections
                         </Typography>
-                        <img src='https://production-1d741-6fa29.firebaseapp.com/help3.png'
+                        <img
+                            src='https://production-1d741-6fa29.firebaseapp.com/help3.png'
                             alt='https://production-1d741-6fa29.firebaseapp.com/help3.png'
                             style={{
                                 maxWidth: '100%',
@@ -120,7 +125,8 @@ const Help: React.FC = (): JSX.Element => {
                             </Typography>
                         </Stack>
                         <Stack sx={{ textAlign: 'center', margin: '0 auto' }}>
-                            <img src='https://production-1d741-6fa29.firebaseapp.com/help4.png'
+                            <img
+                                src='https://production-1d741-6fa29.firebaseapp.com/help4.png'
                                 alt='https://production-1d741-6fa29.firebaseapp.com/help4.png'
                                 style={{
                                     maxWidth: '100%',
@@ -139,7 +145,8 @@ const Help: React.FC = (): JSX.Element => {
                         <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
                             Adding entries in special sections
                         </Typography>
-                        <img src='https://production-1d741-6fa29.firebaseapp.com/help5.png'
+                        <img
+                            src='https://production-1d741-6fa29.firebaseapp.com/help5.png'
                             alt='https://production-1d741-6fa29.firebaseapp.com/help5.png'
                             style={{
                                 maxWidth: '100%',
@@ -171,7 +178,8 @@ const Help: React.FC = (): JSX.Element => {
                         </Typography>
                     </Grid>
                     <Grid item xs={3} md={2}>
-                        <img src='https://production-1d741-6fa29.firebaseapp.com/help8.png'
+                        <img
+                            src='https://production-1d741-6fa29.firebaseapp.com/help8.png'
                             alt='https://production-1d741-6fa29.firebaseapp.com/help8.png'
                             style={{
                                 maxWidth: '100%',
@@ -190,7 +198,8 @@ const Help: React.FC = (): JSX.Element => {
                             Save, preview, and download
                         </Typography>
                         <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '15px' }}>
-                            The Save button saves the CV you are editing to your account Preview lets you preview your CV in a template of your choice in the browser without having to download it.
+                            The Save button saves the CV you are editing to your account Preview
+                            lets you preview your CV in a template of your choice in the browser without having to download it.
                             Quite useful to check progression as your work on your CV.
                             Download lets you download a copy of your CV (PDF or HTML) to your computer in a style of your choice.
                         </Typography>

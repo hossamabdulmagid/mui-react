@@ -137,7 +137,6 @@ const HomePage = () => {
                                                 {singleLink.title}
                                             </Link>
                                         </Box>
-
                                     )
                                 })}
                             </Box>

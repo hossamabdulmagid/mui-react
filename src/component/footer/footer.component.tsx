@@ -1,4 +1,5 @@
-import { Box, Grid, Typography, Link } from '@mui/material';
+import { Box, Grid, Typography, Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
 const Footer: React.FC = (): JSX.Element => {
     return (
         <Box
@@ -20,16 +21,26 @@ const Footer: React.FC = (): JSX.Element => {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Link href='#blank' sx={{ color: 'white', '&:hover': { color: 'white' } }}>
-                        Privacy policy
-                    </Link>
-                    {" || "}
-                    <Link href='#blank' sx={{ color: 'white', '&:hover': { color: 'white' } }}>
-                        Contact
-                    </Link>
+
+                    <Box sx={{
+                        '&:hover': { color: 'white' }, textAlign: '',
+                    }}>
+
+                        <Link to='/privacy-policy' style={{ color: 'white', display: 'inline' }}>
+                            Privacy policy
+                        </Link>
+                        {" || "}
+                        <Link to='/contact' style={{ color: 'white', }}>
+                            Contact
+                        </Link>
+                    </Box>
+
+                    <Typography sx={{ '&:hover': { color: 'white' } }}>
+
+                    </Typography>
                 </Grid>
             </Grid>
-        </Box>
+        </Box >
     );
 }
 

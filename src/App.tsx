@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import Navbar from './component/navbar/navbar';
 import HomePage from './pages/homepage/homepage.component';
 import Footer from './component/footer/footer.component';
@@ -12,10 +13,10 @@ import ContactPage from './pages/contact-page/contact-page.component';
 import ScrollToTop from './lib/scroll-to-top.component';
 import ForgetPassword from './pages/forget-password/forget-password.component';
 import OldCv from './pages/old-cv/old-cv.component';
-import React from 'react';
+import CreateCv from './pages/create-cv-page/create-cv.component';
 const App: React.FC = (): JSX.Element => {
   return (
-    <div className="App">
+    <Box>
       <Navbar label='Login | Signup' />
       <ScrollToTop />
       <Routes>
@@ -28,10 +29,11 @@ const App: React.FC = (): JSX.Element => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
         <Route path="/old-cv" element={<OldCv />} />
+        <Route path="/create-cv" element={<CreateCv />} />
       </Routes>
       <ContentLanguage />
       <Footer />
-    </div>
+    </Box>
   );
 }
 

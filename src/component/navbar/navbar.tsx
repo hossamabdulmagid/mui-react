@@ -53,7 +53,7 @@ const NavbarLabel: React.FC<IProps> = (props): JSX.Element => {
                             sx={{
                                 padding: '0px',
                                 marginTop: '',
-                                textAlign: 'center',
+                                textAlign: 'right',
                                 "&:hover": { color: 'white' }
 
                             }}>

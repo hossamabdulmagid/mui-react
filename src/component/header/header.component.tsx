@@ -11,7 +11,10 @@ const Header: React.FC = (): JSX.Element => {
             <Container sx={{ margin: '0 auto', textAlign: '', padding: '20px' }}>
                 <Grid container spacing={2}>
                     <Grid item xs={4} md={4} sx={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
-                        <img src='cvcreator.png' alt='cvcreator.png' width={'102px'} />
+                        <img
+                            src='https://production-1d741-6fa29.firebaseapp.com/cvcreator.png'
+                            alt='https://production-1d741-6fa29.firebaseapp.com/cvcreator.png'
+                            width={'102px'} />
                     </Grid>
                     <Grid item xs={4} md={4} onClick={() => setDownload(download + 1)}>
                         {download} download

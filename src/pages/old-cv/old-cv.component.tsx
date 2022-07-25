@@ -13,10 +13,11 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Header from '../../component/header/header.component';
-import { LoadingButton } from '@mui/lab';
 import SettingsIcon from '@mui/icons-material/Settings';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
+import { Link } from 'react-router-dom';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 const createData = (
     name: string,
     createAt: string,
@@ -68,24 +69,34 @@ const OldCv: React.FC = (): JSX.Element => {
                                             <TableCell>NAME</TableCell>
                                             <TableCell align="right">CREATE AT</TableCell>
                                             <TableCell align="right">LAST MODIFIED</TableCell>
-                                            <TableCell align="right">OPTIONS</TableCell>
+                                            <TableCell align="right" >OPTIONS</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody sx={{ textAlign: 'center', margin: '0 auto' }}>
                                         {rows.map((row, idx) => (
-                                            <TableRow key={row.name}>
+                                            <TableRow key={idx}>
                                                 <TableCell component="th" scope="row">
-                                                    {row.name}
+                                                    <Typography sx={{ fontSize: '12px' }}>
+                                                        {row.name}
+                                                    </Typography>
                                                 </TableCell>
                                                 <TableCell align="right">
-                                                    {row.createAt}
+                                                    <Typography sx={{ fontSize: '12px' }}>
+                                                        {row.createAt}<AccessTimeFilledIcon sx={{ color: 'grey' }} />
+                                                    </Typography>
                                                 </TableCell>
                                                 <TableCell align="right">
-                                                    {row.lastModified}
+                                                    <Typography sx={{ fontSize: '12px' }}>
+                                                        {row.lastModified}<AccessTimeFilledIcon sx={{ color: 'grey' }} />
+                                                    </Typography>
                                                 </TableCell>
                                                 <TableCell align="right">
-                                                    {row.options}
-                                                    <SettingsIcon sx={{ padding: '2px', margin: '0 auto' }} />
+                                                    <Typography sx={{ fontSize: '12px' }}>
+                                                        <Link to='/create-cv' style={{ color: 'black' }}>
+                                                            {row.options}
+                                                            <SettingsIcon sx={{ padding: '2px', margin: '0 auto', color: 'grey' }} />
+                                                        </Link>
+                                                    </Typography>
                                                 </TableCell>
                                             </TableRow>
                                         ))}

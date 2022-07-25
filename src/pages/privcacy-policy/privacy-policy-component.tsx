@@ -10,7 +10,7 @@ const PrivacyPage: React.FC = (): JSX.Element => {
                 <Container>
                     <Stack>
                         <Grid container spacing={2}>
-                            <Grid xs={12} md={12}>
+                            <Grid item xs={12} md={12}>
                                 <Typography sx={{ fontWeight: '200', paddingTop: '40px' }}>
                                     Terms & Privacy Policy
                                 </Typography>

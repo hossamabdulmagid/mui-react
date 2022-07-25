@@ -65,7 +65,7 @@ const Help: React.FC = (): JSX.Element => {
 
                             }} />
                     </Grid>
-                    <Grid xs={12} md={4}
+                    <Grid item xs={12} md={4}
                         sx={{
                             textAlign: 'right',
                             borderBottom: '1 px soild darkgrey',
@@ -86,7 +86,7 @@ const Help: React.FC = (): JSX.Element => {
                 </Grid>
                 <hr />
                 <Grid container spacing={2} sx={{ textAlign: 'left' }}>
-                    <Grid xs={12} md={6} sx={{ margin: '0 auto' }}>
+                    <Grid item xs={12} md={6} sx={{ margin: '0 auto' }}>
                         <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
                             Adding and ordering CV sections
                         </Typography>
@@ -102,7 +102,7 @@ const Help: React.FC = (): JSX.Element => {
                             }}
                         />
                     </Grid>
-                    <Grid xs={12} md={6} sx={{ textAlign: 'right', borderBottom: '1 px soild darkgrey', marginTop: '5px' }}>
+                    <Grid item xs={12} md={6} sx={{ textAlign: 'right', borderBottom: '1 px soild darkgrey', marginTop: '5px' }}>
                         <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '15px' }}>
                             A CV consists of several sections,
                             Work experience, Education, References and so forth.
@@ -115,7 +115,7 @@ const Help: React.FC = (): JSX.Element => {
                 </Grid>
                 <hr />
                 <Grid container spacing={2} sx={{ textAlign: '' }}>
-                    <Grid xs={12} md={12} sx={{ margin: '0 auto', }}>
+                    <Grid item xs={12} md={12} sx={{ margin: '0 auto', }}>
                         <Stack sx={{ textAlign: '', margin: '0 auto' }}>
                             <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
                                 Renaming sections
@@ -141,7 +141,7 @@ const Help: React.FC = (): JSX.Element => {
                 </Grid>
                 <hr />
                 <Grid container spacing={2} sx={{ textAlign: '' }}>
-                    <Grid xs={12} md={6} sx={{ margin: '0 auto' }}>
+                    <Grid item xs={12} md={6} sx={{ margin: '0 auto' }}>
                         <Typography sx={{ fontWeight: '200', fontSize: '21px', padding: '10px', }}>
                             Adding entries in special sections
                         </Typography>
@@ -157,7 +157,7 @@ const Help: React.FC = (): JSX.Element => {
                             }}
                         />
                     </Grid>
-                    <Grid xs={12} md={6} sx={{ textAlign: 'right', borderBottom: '1 px soild darkgrey', marginTop: '5px' }}>
+                    <Grid item xs={12} md={6} sx={{ textAlign: 'right', borderBottom: '1 px soild darkgrey', marginTop: '5px' }}>
                         <Typography sx={{ fontSize: '11px', padding: '5px', marginTop: '5px', marginBottom: '15px' }}>
                             Work experience and Education are special sections to which you can add multiple entries, that is, details of your past jobs and schooling.
                             To add a new entry, click the 'Add entry' button.

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Stack, Container, Grid, } from "@mui/material";
+import { Box, Stack, Container, Grid, Button } from "@mui/material";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -15,7 +15,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Header from '../../component/header/header.component';
 import { LoadingButton } from '@mui/lab';
 import SettingsIcon from '@mui/icons-material/Settings';
-
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import StarIcon from '@mui/icons-material/Star';
 const createData = (
     name: string,
     createAt: string,
@@ -33,7 +34,6 @@ const rows = [
 ];
 const OldCv: React.FC = (): JSX.Element => {
 
-    const [loading, setLoading] = useState(false);
 
     const [free, setFree] = useState<string[]>([
         'Basic templates',
@@ -43,11 +43,11 @@ const OldCv: React.FC = (): JSX.Element => {
     ]);
 
     const [premium, setPremium] = useState<string[]>([
-        '★ Premium templates in addition to the free ones',
-        '★ Add custom plain and special sections(similar to education and work) to your CV',
-        '★ Advanced rich text editor.Choose fonts, text colors and more',
-        '★ One - click e - mail.Send your resume directly to your e - mail easily from your mobile or tablet that doesnt allow file downloads',
-        '★ Continued access to upcoming premium features and templates',
+        'Premium templates in addition to the free ones',
+        'Add custom plain and special sections(similar to education and work) to your CV',
+        'Advanced rich text editor.Choose fonts, text colors and more',
+        'One - click e - mail.Send your resume directly to your e - mail easily from your mobile or tablet that doesnt allow file downloads',
+        'Continued access to upcoming premium features and templates',
         '$16 / year',
     ]);
 
@@ -104,15 +104,15 @@ const OldCv: React.FC = (): JSX.Element => {
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <Typography>Go Premium ❤</Typography>
+                                <Typography>Go Premium <FavoriteIcon sx={{ color: 'red' }} /></Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography sx={{ fontWeight: 300, fontSize: '13px' }}>
+                                <Typography sx={{ fontWeight: '200', fontSize: '17px', padding: '5px' }}>
                                     CV Creator is absolutely FREE with no restrictions,
                                     but you can get a lot more out of it and support its continued development
                                     by going premium for a nominal annual subscription fee.
                                 </Typography>
-                                <Grid container spacing={2} sx={{ marginTop: '50px', padding: '20px' }}>
+                                <Grid container spacing={2} sx={{ marginTop: '20px', padding: '20px' }}>
                                     <Grid item xs={12} md={6}>
                                         <Typography sx={{ padding: '15px', margin: '0 auto', marginBottom: '10px' }}>
                                             Free
@@ -132,21 +132,24 @@ const OldCv: React.FC = (): JSX.Element => {
                                         {premium && premium.map((singleText, idx) => {
                                             return (
                                                 <Stack key={idx} sx={{ padding: '15px', borderBottom: '1px dotted darkgrey' }}>
-                                                    {singleText}
+                                                    <Typography>
+                                                        <StarIcon sx={{ color: 'darkgreen', display: 'inline-flex' }} />
+                                                        {singleText}
+
+                                                    </Typography>
                                                 </Stack>
                                             )
                                         })}
                                         <Stack sx={{ alignItems: 'center', margin: '0 auto', padding: '20px' }}>
-                                            <LoadingButton
+                                            <Button
                                                 variant='contained'
                                                 size='small'
                                                 type='submit'
                                                 color='success'
-                                                loading={loading}
                                                 sx={{ py: '0.8rem', mt: '1rem' }}
                                             >
-                                                Upgrade to Premium ♥
-                                            </LoadingButton>
+                                                Upgrade to Premium <FavoriteIcon sx={{ color: 'snow', padding: '4px' }} />
+                                            </Button>
                                             <img
                                                 src='https://production-1d741-6fa29.firebaseapp.com/paypal.png'
                                                 alt="https://production-1d741-6fa29.firebaseapp.com/paypal.png"
@@ -156,7 +159,6 @@ const OldCv: React.FC = (): JSX.Element => {
                                                     padding: 10,
                                                     margin: 0,
                                                     border: "12px solid white",
-
                                                 }}
                                             />
                                         </Stack>

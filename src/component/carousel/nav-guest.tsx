@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Typography, Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import CreateIcon from '@mui/icons-material/Create';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -36,7 +37,11 @@ const FormRow: React.FC = (): JSX.Element => {
                 xs={4}
                 sx={{ marginBottom: '20px', marginTop: '38px', color: 'white' }}
             >
-                <img src='cvcreator.png' alt='cvcreator.png' width={'120px'} />
+                <img
+                    src='https://production-1d741-6fa29.firebaseapp.com/cvcreator.png'
+                    alt='https://production-1d741-6fa29.firebaseapp.com/cvcreator.png'
+                    width={'120px'}
+                />
 
             </Grid>
             <Grid
@@ -116,7 +121,7 @@ const NavGuest: React.FC = (): JSX.Element => {
                                     }
 
                                 }}>
-                                <img src='ico_start.png' alt='ico_start.png' style={{ paddingRight: '5px' }} />
+                                <CreateIcon sx={{ padding: '2px' }} />
                                 Create a cv now
                             </Button>
                         </Grid>

@@ -13,10 +13,10 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-
 }));
 
 const FormRow: React.FC = (): JSX.Element => {
+
     const [download, setDownload] = React.useState(0);
     const [save, setSave] = React.useState(0);
 

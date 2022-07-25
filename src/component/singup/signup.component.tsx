@@ -72,10 +72,11 @@ const SignUp: React.FC = (): JSX.Element => {
                     sx={{ mb: 2 }}
                     label='Name'
                     fullWidth
-                    required
                     error={!!errors['name']}
                     helperText={errors['name'] ? errors['name'].message : ''}
                     {...register('name')}
+                    required
+
                 />
                 <TextField
                     sx={{ mb: 2 }}

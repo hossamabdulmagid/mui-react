@@ -1,4 +1,5 @@
 import {
+    Alert,
     Box,
     FormControlLabel,
     FormGroup,
@@ -50,6 +51,7 @@ const ForgetPassword: React.FC = (): JSX.Element => {
                     backgroundColor: "rgb(249, 249, 249)",
                     padding: "30px",
                 }}>
+
                 <Box
                     sx={{
                         boxShadow: 1,
@@ -60,9 +62,13 @@ const ForgetPassword: React.FC = (): JSX.Element => {
                         backgroundColor: 'snow',
                         padding: '15px'
                     }}>
+
                     <Typography variant='h6' component='h6' sx={{ mb: '2rem' }}>
                         Forget Password
                     </Typography>
+                    <Alert severity="success" sx={{ marginBottom: '10px' }}>success check your Mail</Alert>
+                    <Alert severity="error" sx={{ marginBottom: '10px' }}>This is some thing wrong</Alert>
+
                     <Box
                         component='form'
                         noValidate

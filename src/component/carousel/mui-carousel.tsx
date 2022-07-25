@@ -4,8 +4,8 @@ import { Box, Paper, Stack, Grid, ButtonGroup, Button, Container, Typography } f
 import { useState } from 'react';
 import NavGuest from './nav-guest';
 
-
 const CarouselComponent = (props: any) => {
+
     const [Images, setImage] = useState([
         {
             src: "https://production-1d741-6fa29.firebaseapp.com/1.png",
@@ -21,6 +21,8 @@ const CarouselComponent = (props: any) => {
         },
     ]);
 
+
+   
     return (
         <>
             <Box sx={{ backgroundColor: 'rgb(24, 199, 225)', height: 'auto' }}>

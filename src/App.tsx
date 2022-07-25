@@ -11,6 +11,7 @@ import PrivacyPage from './pages/privcacy-policy/privacy-policy-component';
 import ContactPage from './pages/contact-page/contact-page.component';
 import ScrollToTop from './lib/scroll-to-top.component';
 import ForgetPassword from './pages/forget-password/forget-password.component';
+import OldCv from './pages/old-cv/old-cv.component';
 const App = () => {
   return (
     <div className="App">
@@ -25,6 +26,8 @@ const App = () => {
         <Route path="/privacy-policy" element={<PrivacyPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/old-cv" element={<OldCv />} />
+
       </Routes>
       <ContentLanguage />
       <Footer />

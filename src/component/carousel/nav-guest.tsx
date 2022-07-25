@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Typography, Button, Container } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,6 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const FormRow: React.FC = (): JSX.Element => {
     const [download, setDownload] = React.useState(0);
     const [save, setSave] = React.useState(0);
+
 
 
     const HandleDownLoadClick = () => {
@@ -62,6 +64,13 @@ const FormRow: React.FC = (): JSX.Element => {
 }
 
 const NavGuest: React.FC = (): JSX.Element => {
+
+    const navigate = useNavigate();
+
+    const GoToOldCvPage = () => {
+        navigate('/old-cv');
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Container sx={{ textAlign: 'center', justifyContent: 'space-betwen' }}>
@@ -94,6 +103,7 @@ const NavGuest: React.FC = (): JSX.Element => {
                             <Button
                                 size="small"
                                 variant="outlined"
+                                onClick={GoToOldCvPage}
                                 sx={{
                                     marginTop: '10px',
                                     fontSize: '10px',

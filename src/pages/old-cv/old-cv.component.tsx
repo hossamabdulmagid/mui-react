@@ -139,7 +139,7 @@ const OldCv: React.FC = (): JSX.Element => {
                                         <Stack sx={{ alignItems: 'center', margin: '0 auto', padding: '20px' }}>
                                             <LoadingButton
                                                 variant='contained'
-                                                fullWidth
+                                                size='small'
                                                 type='submit'
                                                 color='success'
                                                 loading={loading}

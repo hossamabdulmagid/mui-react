@@ -9,10 +9,13 @@ import ResumeTips from './pages/resume-tips/resume-tips.component';
 import LanguagePage from './pages/languages-pages/languages-pages.component';
 import PrivacyPage from './pages/privcacy-policy/privacy-policy-component';
 import ContactPage from './pages/contact-page/contact-page.component';
+import ScrollToTop from './lib/scroll-to-top.component';
 const App = () => {
   return (
     <div className="App">
       <Navbar label='Login | Signup' />
+      <ScrollToTop />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<SignInSignUpPage />} />

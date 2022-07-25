@@ -203,13 +203,14 @@ const CreateCv: React.FC = (): JSX.Element => {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Create New Section
+                        Create new section
                     </Typography>
                     <Box
                         component='form'
                         noValidate
                         autoComplete='off'
                         onSubmit={handleSubmit(onSubmitHandler)}
+                        sx={{ mt: 2, mb: 2 }}
                     >
                         <TextField
                             sx={{ mb: 2 }}
@@ -228,6 +229,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                                 fullWidth
                                 type='submit'
                                 // loading={loading}
+                                size="small"
 
                                 sx={{ py: '0.8rem', mt: '1rem' }}
                             >
@@ -240,7 +242,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                                 color="error"
                                 // loading={loading}
                                 onClick={handleClose}
-
+                                size="small"
                                 sx={{ py: '0.8rem', mt: '1rem' }}
                             >
                                 Cancle

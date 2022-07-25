@@ -3,9 +3,9 @@ import Carousel from 'react-material-ui-carousel'
 import { Box, Paper, Stack, Grid, ButtonGroup, Button, Container, Typography } from '@mui/material'
 import { useState } from 'react';
 import NavGuest from './nav-guest';
-
+import { useNavigate } from 'react-router-dom';
 const CarouselComponent = (props: any) => {
-
+    const navigate = useNavigate();
     const [Images, setImage] = useState([
         {
             src: "https://production-1d741-6fa29.firebaseapp.com/1.png",
@@ -22,7 +22,7 @@ const CarouselComponent = (props: any) => {
     ]);
 
 
-   
+
     return (
         <>
             <Box sx={{ backgroundColor: 'rgb(24, 199, 225)', height: 'auto' }}>
@@ -48,7 +48,7 @@ const CarouselComponent = (props: any) => {
                         <Typography sx={{ fontSize: '10px', textAlign: 'right' }}>
                             Already have your resumes on CV Creator?
                             <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ padding: '5px' }}>
-                                <Button variant="outlined" aria-label="outlined button" sx={{ padding: '3px' }} size="small">Login</Button>
+                                <Button variant="outlined" aria-label="outlined button" sx={{ padding: '3px' }} size="small" onClick={() => navigate('/login')}>Login</Button>
                             </ButtonGroup>
                         </Typography>
 

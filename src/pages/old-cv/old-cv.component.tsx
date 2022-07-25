@@ -58,7 +58,6 @@ const OldCv: React.FC = (): JSX.Element => {
         <>
             <Header />
             <Box sx={{ backgroundColor: "rgb(249, 249, 249)", padding: "20px", minHeight: 'auto' }}>
-
                 <Box sx={{ margin: '30px', marginBottom: '50px', textAlign: 'center' }}>
                     <Container>
                         <Stack>
@@ -96,6 +95,7 @@ const OldCv: React.FC = (): JSX.Element => {
                         </Stack>
                     </Container>
                 </Box>
+
                 <Box sx={{ marginTop: '50px', padding: '20px' }}>
                     <Container>
                         <Accordion>
@@ -136,10 +136,7 @@ const OldCv: React.FC = (): JSX.Element => {
                                                 </Stack>
                                             )
                                         })}
-
-
                                         <Stack sx={{ alignItems: 'center', margin: '0 auto', padding: '20px' }}>
-
                                             <LoadingButton
                                                 variant='contained'
                                                 fullWidth
@@ -154,7 +151,7 @@ const OldCv: React.FC = (): JSX.Element => {
                                                 src='https://production-1d741-6fa29.firebaseapp.com/paypal.png'
                                                 alt="https://production-1d741-6fa29.firebaseapp.com/paypal.png"
                                                 style={{
-                                                    width: '100px',
+                                                    width: '200px',
                                                     height: 'auto',
                                                     padding: 10,
                                                     margin: 0,
@@ -163,7 +160,6 @@ const OldCv: React.FC = (): JSX.Element => {
                                                 }}
                                             />
                                         </Stack>
-
                                     </Grid>
                                 </Grid>
                             </AccordionDetails>

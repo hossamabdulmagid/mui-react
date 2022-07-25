@@ -12,7 +12,8 @@ import ContactPage from './pages/contact-page/contact-page.component';
 import ScrollToTop from './lib/scroll-to-top.component';
 import ForgetPassword from './pages/forget-password/forget-password.component';
 import OldCv from './pages/old-cv/old-cv.component';
-const App = () => {
+import React from 'react';
+const App: React.FC = (): JSX.Element => {
   return (
     <div className="App">
       <Navbar label='Login | Signup' />
@@ -27,7 +28,6 @@ const App = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
         <Route path="/old-cv" element={<OldCv />} />
-
       </Routes>
       <ContentLanguage />
       <Footer />

@@ -10,12 +10,12 @@ import LanguagePage from './pages/languages-pages/languages-pages.component';
 import PrivacyPage from './pages/privcacy-policy/privacy-policy-component';
 import ContactPage from './pages/contact-page/contact-page.component';
 import ScrollToTop from './lib/scroll-to-top.component';
+import ForgetPassword from './pages/forget-password/forget-password.component';
 const App = () => {
   return (
     <div className="App">
       <Navbar label='Login | Signup' />
       <ScrollToTop />
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<SignInSignUpPage />} />
@@ -24,6 +24,7 @@ const App = () => {
         <Route path="/lang" element={<LanguagePage />} />
         <Route path="/privacy-policy" element={<PrivacyPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
       </Routes>
       <ContentLanguage />
       <Footer />

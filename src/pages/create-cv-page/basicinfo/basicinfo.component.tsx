@@ -16,11 +16,9 @@ const basicInformationSchema = object({
     addressLine2: string(),
     addressLine3: string(),
     website: string(),
-
-
 });
 
-type BasicInfoz = TypeOf<typeof basicInformationSchema>;
+type BasicInfo = TypeOf<typeof basicInformationSchema>;
 
 const BasicInformation: React.FC = (): JSX.Element => {
     const {
@@ -28,7 +26,7 @@ const BasicInformation: React.FC = (): JSX.Element => {
         formState: { errors, isSubmitSuccessful },
         reset,
         handleSubmit,
-    } = useForm<BasicInfoz>({
+    } = useForm<BasicInfo>({
         resolver: zodResolver(basicInformationSchema),
     });
 
@@ -39,7 +37,7 @@ const BasicInformation: React.FC = (): JSX.Element => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSubmitSuccessful]);
 
-    const onSubmitHandler: SubmitHandler<BasicInfoz> = (values) => {
+    const onSubmitHandler: SubmitHandler<BasicInfo> = (values) => {
         console.log(values);
     };
 
@@ -109,7 +107,8 @@ const BasicInformation: React.FC = (): JSX.Element => {
                                 error={!!errors['addressLine3']}
                                 helperText={errors['addressLine3'] ? errors['addressLine3'].message : ''}
                                 {...register('addressLine3')}
-                                required />
+                                required
+                            />
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>

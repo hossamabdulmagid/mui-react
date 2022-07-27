@@ -177,7 +177,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                                             </li>
                                         )
                                     })}
-                                    <Button variant='contained' sx={{ margin: '5px', padding: '10px' }} onClick={handleOpen}>
+                                    <Button variant='contained' sx={{ marginTop: '15px', padding: '10px' }} onClick={handleOpen}>
                                         + New Section
                                     </Button>
                                 </ul>

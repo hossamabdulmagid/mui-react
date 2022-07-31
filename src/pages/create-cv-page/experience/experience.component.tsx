@@ -52,7 +52,9 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
             noValidate
             autoComplete='off'
             onSubmit={handleSubmit(onSubmitHandler)}>
-
+            <Typography sx={{ fontWeight: 'bold', padding: '2px' }}>
+                Experince Information
+            </Typography>
             <>
                 <Grid container spacing={2} sx={{ textAlign: 'center' }}>
                     <Grid item xs={12} md={6}>

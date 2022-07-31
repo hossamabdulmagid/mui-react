@@ -56,6 +56,9 @@ const BasicInformation: React.FC = (): JSX.Element => {
             noValidate
             autoComplete='off'
             onSubmit={handleSubmit(onSubmitHandler)}>
+            <Typography sx={{fontWeight:'bold'}}>
+                Basic Information
+            </Typography>
 
             <>
                 <Grid container spacing={2} sx={{ textAlign: 'center' }}>

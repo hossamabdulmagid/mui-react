@@ -94,7 +94,6 @@ const ReferencesInformation: React.FC = (): JSX.Element => {
                         color='info'
                         type='submit'
                         disabled={flag}
-
                     >
                         Save
                     </Button>

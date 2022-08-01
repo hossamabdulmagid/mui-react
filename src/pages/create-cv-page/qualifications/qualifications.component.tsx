@@ -53,10 +53,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
             .replace(`&nbsp;`, " ")
             .trim();
         setQualifications({ note: `${dataOnEdtior}`, html: dataWithHtmlTags });
-        console.log(qualifications, `qualifications`);
     };
-
-
 
 
     return (
@@ -76,6 +73,11 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
                 <Typography sx={{ fontWeight: 'bold', padding: '2px' }}>
                     Qualifications Information
                 </Typography>
+                {flag ? (
+                    <Typography style={{ padding: "4px", color: 'darkred' }} >
+                        Please enter content in order to save this note.
+                    </Typography>
+                ) : null}
                 <RichEditor onChange={HandleRichTextState} initVal={" "} />
                 <Box sx={{ mt: 1, mb: 1, p: 1 }}>
                     <Button

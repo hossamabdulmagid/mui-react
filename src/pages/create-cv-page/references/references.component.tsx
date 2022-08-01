@@ -59,12 +59,7 @@ const ReferencesInformation: React.FC = (): JSX.Element => {
             .trim();
         setReferences({ note: `${dataOnEdtior}`, html: `${dataWithHtmlTags}` });
         console.log(references, `references`);
-        if (dataWithHtmlTags.length < 0 && dataOnEdtior.length < 0) {
-            setFlag(true);
-        } else {
-            // await createAdminNote(data);
-            setReferences({ note: ``, html: `` });
-        }
+      
     };
 
 

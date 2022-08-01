@@ -37,6 +37,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
     console.log(errors);
 
     const [qualifications, setQualifications] = useState<{}>({ note: "", html: "", });
+    const [flag, setFlag] = useState(false);
 
     const HandleRichTextState = (updatedText: any) => {
         const dataWithHtmlTags = updatedText;
@@ -45,7 +46,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
             .replace(`&nbsp;`, " ")
             .trim();
         setQualifications({ note: `${dataOnEdtior}`, html: dataWithHtmlTags });
-        console.log(qualifications);
+        console.log(qualifications, `qualifications`);
     };
 
 

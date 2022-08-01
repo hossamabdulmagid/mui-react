@@ -47,7 +47,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
 
         console.log(interests)
 
-    
+
     };
 
     console.log(errors, `errors`);
@@ -60,12 +60,6 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
             .trim();
         setInterests({ note: `${dataOnEdtior}`, html: dataWithHtmlTags });
         console.log(interests, `interests`);
-        if (dataWithHtmlTags.length < 0 && dataOnEdtior.length < 0) {
-            setFlag(true);
-        } else {
-            // await createAdminNote(data);
-            setInterests({ note: ``, html: `` });
-        }
     };
 
 

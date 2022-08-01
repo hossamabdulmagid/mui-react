@@ -23,29 +23,30 @@ const ReferencesInformation: React.FC = (): JSX.Element => {
     } = useForm<RefInfo>({
         resolver: zodResolver(refInformationSchema),
     });
+    const [references, setReferences] = useState<{ note: string, html: string }>({ note: "", html: "" });
+    const [flag, setFlag] = useState(false);
 
     useEffect(() => {
         if (isSubmitSuccessful) {
             // reset();
         }
+        if (references.note.length > 3) {
+            console.log('(if)from useEffect');
+            setFlag(false);
+
+        } else {
+            console.log('(else)')
+            setFlag(true)
+
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isSubmitSuccessful]);
-    const [references, setReferences] = useState<{ note: string, html: string }>({ note: "", html: "" });
-    const [flag, setFlag] = useState(false);
+    }, [isSubmitSuccessful, references, references.note, references.note.length]);
+
 
     const onSubmitHandler: SubmitHandler<RefInfo> = (values) => {
         console.log(values);
-
         values.note = references.note;
-
-
         values.html = references.html;
-
-
-
-
-        console.log(references)
-
 
     };
 
@@ -58,8 +59,7 @@ const ReferencesInformation: React.FC = (): JSX.Element => {
             .replace(`&nbsp;`, " ")
             .trim();
         setReferences({ note: `${dataOnEdtior}`, html: `${dataWithHtmlTags}` });
-        console.log(references, `references`);
-      
+
     };
 
 
@@ -93,6 +93,8 @@ const ReferencesInformation: React.FC = (): JSX.Element => {
                         variant="contained"
                         color='info'
                         type='submit'
+                        disabled={flag}
+
                     >
                         Save
                     </Button>

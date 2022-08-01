@@ -22,13 +22,21 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
     } = useForm<QualificationsInfo>({
         resolver: zodResolver(qualificationsInformationSchema),
     });
-
+    const [qualifications, setQualifications] = useState<{ note: string, html: string }>({ note: "", html: "", });
+    const [flag, setFlag] = useState(false);
     useEffect(() => {
         if (isSubmitSuccessful) {
             // reset();
         }
+        if (qualifications.note.length > 3) {
+            setFlag(false);
+
+        } else {
+            setFlag(true)
+
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isSubmitSuccessful]);
+    }, [isSubmitSuccessful, qualifications, qualifications.note, qualifications.note.length]);
 
     const onSubmitHandler: SubmitHandler<QualificationsInfo> = (values) => {
         console.log(values);
@@ -36,8 +44,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
 
     console.log(errors);
 
-    const [qualifications, setQualifications] = useState<{}>({ note: "", html: "", });
-    const [flag, setFlag] = useState(false);
+
 
     const HandleRichTextState = (updatedText: any) => {
         const dataWithHtmlTags = updatedText;
@@ -75,6 +82,8 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
                         variant="contained"
                         color='info'
                         type='submit'
+                        disabled={flag}
+
                     >
                         Save
                     </Button>

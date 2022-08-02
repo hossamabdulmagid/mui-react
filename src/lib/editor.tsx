@@ -27,7 +27,7 @@ const RichEditor = ({ initVal, onChange }: any) => {
                 initialValue={initVal}
                 init={{
                     height: 300,
-                    menubar: true,
+                    menubar: false,
                     plugins: [
                         'advlist autolink lists link image charmap print preview anchor',
                         'searchreplace visualblocks code fullscreen',

@@ -56,14 +56,14 @@ const BasicInformation: React.FC = (): JSX.Element => {
             noValidate
             autoComplete='off'
             onSubmit={handleSubmit(onSubmitHandler)}>
-            <Typography sx={{fontWeight:'bold'}}>
+            <Typography sx={{ fontWeight: 'bold', padding: '2px' }} component={'div'} >
                 Basic Information
             </Typography>
 
             <>
                 <Grid container spacing={2} sx={{ textAlign: 'center' }}>
                     <Grid item xs={12} md={6}>
-                        <Typography>
+                        <Typography component={'div'}>
                             <TextField
                                 type='text'
                                 label='Full Name'
@@ -115,7 +115,7 @@ const BasicInformation: React.FC = (): JSX.Element => {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <Typography>
+                        <Typography component={'div'}>
                             <TextField
                                 type='email'
                                 label='E-mail address'

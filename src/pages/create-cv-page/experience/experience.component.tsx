@@ -3,9 +3,6 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { literal, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChangeEvent, useEffect, useState } from "react";
-import { AnyARecord, AnyCnameRecord } from "dns";
-
-
 
 type ExperienceEmployee = {
     companyName: string;
@@ -16,10 +13,10 @@ type ExperienceEmployee = {
 
 
 const experienceInformationSchema = object({
-    companyName: string().nonempty('Collage Name is required'),
-    startWork: string().nonempty('Please add the start of education year'),
-    endWork: string().nonempty('Please add the end of education year'),
-    position: string().nonempty('Please confirm your password'),
+    companyName: string().nonempty('Company name is required'),
+    startWork: string().nonempty('Please add the start of work year'),
+    endWork: string().nonempty('Please add the end of work year'),
+    position: string().nonempty('Please add your position'),
 });
 
 
@@ -116,7 +113,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             helperText={errors['companyName'] ? errors['companyName'].message : ''}
                                             {...register('companyName')}
                                             required
-                                            // value={singleExp.companyName}
+                                            value={singleExp.companyName || ""}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             name='companyName'
                                         />
@@ -131,7 +128,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             helperText={errors['startWork'] ? errors['startWork'].message : ''}
                                             {...register('startWork')}
                                             required
-                                            // value={singleExp.startWork}
+                                            value={singleExp.startWork || ""}
                                             name='startWork'
                                             onChange={(e) => handleWorkChange(e, index)}
                                         />
@@ -152,7 +149,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             required
                                             id="outlined-size-small"
                                             onChange={(e) => handleWorkChange(e, index)}
-                                            // value={singleExp.position}
+                                            value={singleExp.position || ""}
                                             name='position'
                                         />
                                         <TextField
@@ -167,7 +164,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             id="outlined-size-small"
                                             name='endWork'
                                             onChange={(e) => handleWorkChange(e, index)}
-                                            value={singleExp.endWork}
+                                            value={singleExp.endWork || ""}
                                         />
                                     </Typography>
                                     {expList.length > 1 && (

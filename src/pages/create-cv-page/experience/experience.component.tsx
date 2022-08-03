@@ -2,7 +2,7 @@ import { Box, TextField, Container, Grid, Typography, Stack, Button } from "@mui
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { literal, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ChangeEvent, useEffect, useState, useRef } from "react";
+import { ChangeEvent, useEffect, useState, useRef, Fragment } from "react";
 import generateRandom from "../../../lib/generate-random";
 import RichEditor from '../../../lib/editor';
 
@@ -143,109 +143,112 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
             <>
                 {expList && expList.map((singleExp, index) => {
                     return (
-                        <Grid container spacing={2} sx={{ textAlign: 'center' }} key={index}>
-                            <Grid item xs={12} md={6}>
-                                <Typography component={'div'}>
-                                    <TextField
-                                        autoComplete="off"
-                                        autoCorrect="off"
-                                        autoCapitalize="off"
-                                        spellCheck="false"
-                                        type='text'
-                                        label='Company Name'
-                                        sx={{ mt: 2, padding: '2px' }}
-                                        variant="filled"
-                                        fullWidth
-                                        error={!!errors['companyName']}
-                                        helperText={errors['companyName'] ? errors['companyName'].message : ''}
-                                        {...register('companyName')}
-                                        onChange={(e) => handleWorkChange(e, index)}
-                                        value={singleExp.companyName || ""}
+                        <Fragment key={index}>
+                            <Grid container spacing={2} sx={{ textAlign: 'center' }} >
+                                <Grid item xs={12} md={6}>
+                                    <Typography component={'div'}>
+                                        <TextField
+                                            autoComplete="off"
+                                            autoCorrect="off"
+                                            autoCapitalize="off"
+                                            spellCheck="false"
+                                            type='text'
+                                            label='Company Name'
+                                            sx={{ mt: 2, padding: '2px' }}
+                                            variant="filled"
+                                            fullWidth
+                                            error={!!errors['companyName']}
+                                            helperText={errors['companyName'] ? errors['companyName'].message : ''}
+                                            {...register('companyName')}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                            value={singleExp.companyName || ""}
 
-                                    />
-                                    <TextField
-                                        autoComplete="off"
-                                        autoCorrect="off"
-                                        autoCapitalize="off"
-                                        spellCheck="false"
-                                        type='text'
-                                        label='Start Work'
-                                        sx={{ mt: 2, padding: '2px' }}
-                                        variant="filled"
-                                        fullWidth
-                                        error={!!errors['startWork']}
-                                        helperText={errors['startWork'] ? errors['startWork'].message : ''}
-                                        {...register('startWork')}
-                                        onChange={(e) => handleWorkChange(e, index)}
-                                        value={singleExp.startWork || ""}
+                                        />
+                                        <TextField
+                                            autoComplete="off"
+                                            autoCorrect="off"
+                                            autoCapitalize="off"
+                                            spellCheck="false"
+                                            type='text'
+                                            label='Start Work'
+                                            sx={{ mt: 2, padding: '2px' }}
+                                            variant="filled"
+                                            fullWidth
+                                            error={!!errors['startWork']}
+                                            helperText={errors['startWork'] ? errors['startWork'].message : ''}
+                                            {...register('startWork')}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                            value={singleExp.startWork || ""}
 
-                                    />
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <Typography component={'div'}>
-                                    <TextField
-                                        autoComplete="off"
-                                        autoCorrect="off"
-                                        autoCapitalize="off"
-                                        spellCheck="false"
-                                        type='text'
-                                        required
-                                        label='Position'
-                                        sx={{ mt: 2, padding: '2px' }}
-                                        variant="filled"
-                                        fullWidth
-                                        error={!!errors['position']}
-                                        helperText={errors['position'] ? errors['position'].message : ''}
-                                        {...register('position')}
-                                        onChange={(e) => handleWorkChange(e, index)}
-                                        value={singleExp.position || ""}
+                                        />
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={12} md={6}>
+                                    <Typography component={'div'}>
+                                        <TextField
+                                            autoComplete="off"
+                                            autoCorrect="off"
+                                            autoCapitalize="off"
+                                            spellCheck="false"
+                                            type='text'
+                                            required
+                                            label='Position'
+                                            sx={{ mt: 2, padding: '2px' }}
+                                            variant="filled"
+                                            fullWidth
+                                            error={!!errors['position']}
+                                            helperText={errors['position'] ? errors['position'].message : ''}
+                                            {...register('position')}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                            value={singleExp.position || ""}
 
-                                    />
-                                    <TextField
-                                        type='text'
-                                        autoComplete="off"
-                                        autoCorrect="off"
-                                        autoCapitalize="off"
-                                        spellCheck="false"
-                                        label='End Work'
-                                        sx={{ mt: 2, padding: '2px' }}
-                                        variant="filled"
-                                        fullWidth
-                                        error={!!errors['endWork']}
-                                        helperText={errors['endWork'] ? errors['endWork'].message : ''}
-                                        {...register('endWork')}
-                                        onChange={(e) => handleWorkChange(e, index)}
-                                        value={singleExp.endWork || ""}
-                                    />
+                                        />
+                                        <TextField
+                                            type='text'
+                                            autoComplete="off"
+                                            autoCorrect="off"
+                                            autoCapitalize="off"
+                                            spellCheck="false"
+                                            label='End Work'
+                                            sx={{ mt: 2, padding: '2px' }}
+                                            variant="filled"
+                                            fullWidth
+                                            error={!!errors['endWork']}
+                                            helperText={errors['endWork'] ? errors['endWork'].message : ''}
+                                            {...register('endWork')}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                            value={singleExp.endWork || ""}
+                                        />
 
-                                </Typography>
+                                    </Typography>
 
-                                {expList.length > 1 && (
-                                    <Box sx={{ mt: 1, mb: 1, p: 1 }}>
-                                        <Button onClick={() => handleRemoveWorkExp(index)} variant="contained" color="error">
-                                            remove Work
-                                        </Button>
-                                    </Box>
-
-                                )}
-
-                            </Grid>
-                            <Grid item xs={12} md={12}>
-                                <Typography component={'div'}>
-                                    <RichEditor onChange={HandleRichTextState} initVal={" "} />
-                                </Typography>
-                                <Box sx={{ mt: 1, mb: 1, p: 1 }}>
-                                    {expList.length - 1 === index && expList.length < 4 && (
-                                        <Box sx={{ marginTop: '1px', marginBottom: '1px', padding: '2px', textAlign: 'right', display: '' }}>
-                                            <Button onClick={() => handleAddWorkExp()} variant="contained" color="success">
-                                                add Work
+                                    {expList.length > 1 && (
+                                        <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+                                            <Button onClick={() => handleRemoveWorkExp(index)} variant="contained" color="error">
+                                                remove Work
                                             </Button>
                                         </Box>
+
                                     )}
-                                </Box>
+
+                                </Grid>
+                                <Grid item xs={12} md={12}>
+                                    <Typography component={'div'}>
+                                        <RichEditor onChange={HandleRichTextState} initVal={" "} />
+                                    </Typography>
+                                    <Box sx={{ mt: 1, mb: 1, p: 1 }}>
+                                        {expList.length - 1 === index && expList.length < 4 && (
+                                            <Box sx={{ marginTop: '1px', marginBottom: '1px', padding: '2px', textAlign: 'right', display: '' }}>
+                                                <Button onClick={() => handleAddWorkExp()} variant="contained" color="success">
+                                                    add Work
+                                                </Button>
+                                            </Box>
+                                        )}
+                                    </Box>
+                                </Grid>
                             </Grid>
-                        </Grid>
+                            <hr />
+                        </Fragment>
                     )
                 })}
                 <Box sx={{ mt: 1, mb: 1, p: 1 }}>

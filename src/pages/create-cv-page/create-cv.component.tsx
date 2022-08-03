@@ -130,10 +130,10 @@ const CreateCv: React.FC = (): JSX.Element => {
     }, [isSubmitSuccessful]);
 
     const onSubmitHandler: SubmitHandler<SectionInput> = (values) => {
-        console.log(values);
+        // console.log(values);
     };
 
-    console.log(errors);
+    // console.log(errors);
 
     return (
         <Fragment>

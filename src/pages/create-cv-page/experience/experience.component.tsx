@@ -84,23 +84,46 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
 
     console.log(errors, `errors`);
 
-    const HandleRichTextState = (updatedText: any, index: number) => {
+
+    const [otherInfo, setOtherInfo] = useState<{ note: string, html: string }>({ note: "", html: "" })
+
+    const HandleRichTextState = async (updatedText: string) => {
+
         const dataWithHtmlTags = updatedText;
         const dataOnEdtior = updatedText
             .replace(/(<([^>]+)>)/gi, "")
             .replace(`&nbsp;`, " ")
             .trim();
+        setOtherInfo({ ...otherInfo, note: `${dataOnEdtior}`, html: `${dataWithHtmlTags}` });
+
+        // console.log(otherInfo, 'other Information');
+        // const list = [...expList];
+        // list[index as number].html = otherInfo.html;
+        // list[index as number].note = otherInfo.note;
+        // setExpList([...list]);
+
+        const list = await [...expList];
+
+        expList.map((x) => {
+            return (
+                x.html = dataWithHtmlTags,
+                x.note = dataOnEdtior
+            )
+        });
+
+        console.log(expList, `expList`)
 
 
-        const list = [...expList];
-        list[index as number][updatedText as any] = updatedText;
-        setExpList([...expList, { companyName: '', startWork: '', endWork: '', position: '', note: dataWithHtmlTags, html: dataOnEdtior }]);
-        setExpList(list);
     };
 
 
-
     console.log(expList, `expList`);
+
+    console.log(otherInfo, 'other Information');
+
+
+
+
     return (
         <Box
             sx={{
@@ -137,6 +160,8 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                         helperText={errors['companyName'] ? errors['companyName'].message : ''}
                                         {...register('companyName')}
                                         onChange={(e) => handleWorkChange(e, index)}
+                                        value={singleExp.companyName || ""}
+
                                     />
                                     <TextField
                                         autoComplete="off"
@@ -144,7 +169,6 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                         autoCapitalize="off"
                                         spellCheck="false"
                                         type='text'
-
                                         label='Start Work'
                                         sx={{ mt: 2, padding: '2px' }}
                                         variant="filled"
@@ -153,6 +177,8 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                         helperText={errors['startWork'] ? errors['startWork'].message : ''}
                                         {...register('startWork')}
                                         onChange={(e) => handleWorkChange(e, index)}
+                                        value={singleExp.startWork || ""}
+
                                     />
                                 </Typography>
                             </Grid>
@@ -173,6 +199,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                         helperText={errors['position'] ? errors['position'].message : ''}
                                         {...register('position')}
                                         onChange={(e) => handleWorkChange(e, index)}
+                                        value={singleExp.position || ""}
 
                                     />
                                     <TextField
@@ -189,6 +216,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                         helperText={errors['endWork'] ? errors['endWork'].message : ''}
                                         {...register('endWork')}
                                         onChange={(e) => handleWorkChange(e, index)}
+                                        value={singleExp.endWork || ""}
                                     />
 
                                 </Typography>
@@ -205,7 +233,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                             </Grid>
                             <Grid item xs={12} md={12}>
                                 <Typography component={'div'}>
-                                    <RichEditor onChange={() => HandleRichTextState('x', index)} initVal={" "} />
+                                    <RichEditor onChange={HandleRichTextState} initVal={" "} />
                                 </Typography>
                                 <Box sx={{ mt: 1, mb: 1, p: 1 }}>
                                     {expList.length - 1 === index && expList.length < 4 && (

@@ -21,6 +21,7 @@ const RichEditor = ({ initVal, onChange }: any) => {
     return (
         <>
             <Editor
+
                 apiKey="d40cl0u08wbotr0vyoqfsipstatgwi9p629vpfdpoa9zdrt1"
                 onInit={(evt, editor: any) => editorRef.current = editor}
                 onEditorChange={editorChanged}

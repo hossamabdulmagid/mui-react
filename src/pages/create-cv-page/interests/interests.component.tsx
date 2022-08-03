@@ -31,11 +31,9 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
             // reset();
         }
         if (interests.note.length > 3) {
-            console.log('(if)from useEffect');
             setFlag(false);
 
         } else {
-            console.log('(else)')
             setFlag(true)
 
         }
@@ -73,14 +71,6 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
             .replace(`&nbsp;`, " ")
             .trim();
         setInterests({ note: `${dataOnEdtior}`, html: dataWithHtmlTags });
-
-        if (interests.note.length < 2) {
-            console.log(` if (interests.note.length < 2)`);
-        } else {
-            console.log(` else (interests.note.length < 2)`);
-
-        }
-        console.log(interests, `interests`);
     };
 
     return (
@@ -106,7 +96,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
                     </Typography>
                 ) : null}
                 <RichEditor onChange={HandleRichTextState} initVal={" "} />
-                <Box sx={{ mt: 1, mb: 1, p: 1 }}>
+                <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                     <Button
                         variant="contained"
                         color='info'

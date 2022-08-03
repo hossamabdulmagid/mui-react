@@ -59,7 +59,6 @@ const ReferencesInformation: React.FC = (): JSX.Element => {
             .replace(`&nbsp;`, " ")
             .trim();
         setReferences({ note: `${dataOnEdtior}`, html: `${dataWithHtmlTags}` });
-
     };
 
 
@@ -88,7 +87,7 @@ const ReferencesInformation: React.FC = (): JSX.Element => {
                     </Typography>
                 ) : null}
                 <RichEditor onChange={HandleRichTextState} initVal={" "} />
-                <Box sx={{ mt: 1, mb: 1, p: 1 }}>
+                <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                     <Button
                         variant="contained"
                         color='info'

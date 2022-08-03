@@ -113,7 +113,7 @@ const EducationInformation: React.FC = (): JSX.Element => {
 
 
                         </Typography>
-                        <Box sx={{ mt: 1, mb: 1, p: 1 }}>
+                        <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                             <Button
                                 variant="contained"
                                 color='info'

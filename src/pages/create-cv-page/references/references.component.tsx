@@ -59,6 +59,7 @@ const ReferencesInformation: React.FC = (): JSX.Element => {
             .replace(`&nbsp;`, " ")
             .trim();
         setReferences({ note: `${dataOnEdtior}`, html: `${dataWithHtmlTags}` });
+        console.log(references, `references`);
     };
 
 

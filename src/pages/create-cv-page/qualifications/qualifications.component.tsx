@@ -42,7 +42,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
         console.log(values);
     };
 
-    console.log(errors);
+    // console.log(errors);
 
 
 
@@ -53,6 +53,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
             .replace(`&nbsp;`, " ")
             .trim();
         setQualifications({ note: `${dataOnEdtior}`, html: dataWithHtmlTags });
+        console.log(qualifications, `qualifications`)
     };
 
 
@@ -79,7 +80,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
                     </Typography>
                 ) : null}
                 <RichEditor onChange={HandleRichTextState} initVal={" "} />
-                <Box sx={{ mt: 1, mb: 1, p: 1 ,textAlign:'right'}}>
+                <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                     <Button
                         variant="contained"
                         color='info'

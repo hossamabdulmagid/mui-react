@@ -41,7 +41,7 @@ const BasicInformation: React.FC = (): JSX.Element => {
         console.log(values);
     };
 
-    console.log(errors);
+    // console.log(errors);
 
     return (
         <Box

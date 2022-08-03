@@ -58,7 +58,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
 
     };
 
-    console.log(errors, `errors`);
+    // console.log(errors, `errors`);
 
     const [isdisabled, setIsDisabled] = useState<boolean>(false);
 
@@ -71,6 +71,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
             .replace(`&nbsp;`, " ")
             .trim();
         setInterests({ note: `${dataOnEdtior}`, html: dataWithHtmlTags });
+        console.log(interests, `interset`);
     };
 
     return (

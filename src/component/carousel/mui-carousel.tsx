@@ -45,7 +45,7 @@ const CarouselComponent = (props: any) => {
                         </Stack>
                     </Grid>
                     <Grid item xs={6} sx={{ textAlign: '' }}>
-                        <Typography sx={{ fontSize: '10px', textAlign: 'right' }}>
+                        <Typography sx={{ fontSize: '10px', textAlign: 'right' }} component={'div'}>
                             Already have your resumes on CV Creator?
                             <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ padding: '5px' }}>
                                 <Button variant="outlined" aria-label="outlined button" sx={{ padding: '3px' }} size="small" onClick={() => navigate('/login')}>Login</Button>
@@ -68,7 +68,7 @@ const CarouselComponent = (props: any) => {
                             margin: 0,
                         }}
                     />
-                    <Typography sx={{ textAlign: 'center', padding: '15px', fontSize: '12px', marginTop: '20px', marginBottom: '20px' }}>
+                    <Typography sx={{ textAlign: 'center', padding: '15px', fontSize: '12px', marginTop: '20px', marginBottom: '20px' }} component={'div'}>
                         A wide range of templates to choose from
                     </Typography>
                     <Grid container spacing={2} sx={{ textAlign: 'center' }}>

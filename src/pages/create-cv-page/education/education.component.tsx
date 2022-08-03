@@ -52,12 +52,12 @@ const EducationInformation: React.FC = (): JSX.Element => {
             onSubmit={handleSubmit(onSubmitHandler)}>
 
             <>
-            <Typography sx={{ fontWeight: 'bold', padding: '2px' }}>
-                Education Information
-            </Typography>
+                <Typography sx={{ fontWeight: 'bold', padding: '2px' }}>
+                    Education Information
+                </Typography>
                 <Grid container spacing={2} sx={{ textAlign: 'center' }}>
                     <Grid item xs={12} md={6}>
-                        <Typography>
+                        <Typography component={'div'}>
                             <TextField
                                 type='text'
                                 label='Collage Name'
@@ -86,7 +86,7 @@ const EducationInformation: React.FC = (): JSX.Element => {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <Typography>
+                        <Typography component={'div'}>
                             <TextField
                                 type='email'
                                 label='Education Majoring'

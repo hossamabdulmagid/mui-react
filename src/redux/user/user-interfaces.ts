@@ -2,7 +2,6 @@ import { TypeAction } from './user-type'
 
 interface LoginStart {
     type: TypeAction.USER_START_LOGIN
-    payload: string
 }
 
 
@@ -15,6 +14,7 @@ interface LoginSuccess {
 
 interface LoginError {
     type: TypeAction.USER_ERROR_LOGIN
+    payload: string
 }
 
 

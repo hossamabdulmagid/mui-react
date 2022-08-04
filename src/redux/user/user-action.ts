@@ -5,11 +5,15 @@ import { TypeAction } from './user-type';
 import { Dispatch } from 'redux';
 import { Action } from './user-interfaces';
 import axios from 'axios';
-import { any } from 'zod';
 
-const UserStartLogin = () => ({
-    type: TypeAction.USER_START_LOGIN
-})
+
+const UserStartLogin = () => {
+    console.log('@Runing@')
+    return {
+        type: TypeAction.USER_SUCCESS_LOGIN
+    }
+}
+
 
 const UserSuccessLogin = (data: any) => ({
     type: TypeAction.USER_SUCCESS_LOGIN,
@@ -22,12 +26,8 @@ const UserErrorLogin = (error: any) => ({
 })
 export const DoLogin = () => {
     return (dispatch: Dispatch<Action>) => {
-
+        dispatch(UserStartLogin() as any)
         try {
-            // dispatch(UserStartLogin(): any)
-
-
-
             axios.get(`https://jsonplaceholder.typicode.com/posts/1`)
                 .then((res: any) => {
                     if (res.status === 200) {

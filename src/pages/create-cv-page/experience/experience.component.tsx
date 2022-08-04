@@ -233,6 +233,9 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                 </Grid>
                                 <Grid item xs={12} md={12}>
                                     <Typography component={'div'}>
+                                        <Typography component={'div'} sx={{ fontWeight: 700, padding: '10px', marginTop: '5px', marginbottom: '5px' }}>
+                                            Other Information
+                                        </Typography>
                                         <RichEditor onChange={HandleRichTextState} value={otherInfo.note} />
                                     </Typography>
                                     <Box sx={{ mt: 1, mb: 1, p: 1 }}>
@@ -258,7 +261,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                     </Box>
                 </Box>
             </>
-        </Box>
+        </Box >
     );
 }
 

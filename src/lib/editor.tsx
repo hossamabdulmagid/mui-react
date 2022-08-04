@@ -38,10 +38,9 @@ const RichEditor = ({ onChange, value, className }: any) => {
                 placeholder={"Write something awesome..."}
                 modules={modules}
                 formats={formats}
-                style={{ height: '200px', display: 'block' }}
+                style={{ height: '200px', display: 'block', marginBottom: '40px' }}
             />
-            <br />
-            <br />
+
 
         </div>
 

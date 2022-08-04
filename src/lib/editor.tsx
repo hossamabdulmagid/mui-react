@@ -1,48 +1,39 @@
-import { Editor } from '@tinymce/tinymce-react';
+import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { useRef } from "react";
+import EditorToolbar, { modules, formats } from "./edit-toolbar";
 
 
 
-const RichEditor = ({ initVal, onChange }: any) => {
-    const editorRef = useRef(null);
 
-    const log = () => {
-        if (editorRef.current) {
-            // console.log(editorRef.current.getContent());
-        }
-    };
+const RichEditor = ({ onChange, value }: any) => {
 
-    const editorChanged = (a: any) => {
-        if (a && onChange) {
-            onChange(a);
-        }
-    }
-    // onEditorChange: (a: string, editor: TinyMCEEditor) => void;
+
     return (
-        <>
-            <Editor
-
-                apiKey="d40cl0u08wbotr0vyoqfsipstatgwi9p629vpfdpoa9zdrt1"
-                onInit={(evt, editor: any) => editorRef.current = editor}
-                onEditorChange={editorChanged}
-                initialValue={initVal}
-                init={{
-                    height: 300,
-                    menubar: false,
-                    plugins: [
-                        'advlist autolink lists link image charmap print preview anchor',
-                        'searchreplace visualblocks code fullscreen',
-                        'insertdatetime media table paste code help wordcount'
-                    ],
-                    toolbar: 'undo redo | formatselect | ' +
-                        'bold italic backcolor | alignleft aligncenter ' +
-                        'alignright alignjustify | bullist numlist outdent indent | ' +
-                        'removeformat | help',
-                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-                }}
+        <div className="form-group col-md-12 editor">
+            <EditorToolbar toolbarId={'t1'} />
+            <ReactQuill
+                theme="snow"
+                defaultValue={value}
+                onChange={onChange}
+                placeholder={"Write something awesome..."}
+                modules={modules('t1')}
+                formats={formats}
+                style={{ height: '200px' }}
             />
-        </>
+        </div>
+
+
+
+
     );
 }
+
+
+
+
+
+
 
 export default RichEditor

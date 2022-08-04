@@ -46,9 +46,9 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
 
 
 
-    const HandleRichTextState = (updatedText: any) => {
-        const dataWithHtmlTags = updatedText;
-        const dataOnEdtior = updatedText
+    const HandleRichTextState = (value: any) => {
+        const dataWithHtmlTags = value;
+        const dataOnEdtior = value
             .replace(/(<([^>]+)>)/gi, "")
             .replace(`&nbsp;`, " ")
             .trim();
@@ -79,7 +79,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
                         Please enter content in order to save this note.
                     </Typography>
                 ) : null}
-                <RichEditor onChange={HandleRichTextState} initVal={" "} />
+                <RichEditor onChange={HandleRichTextState} value={qualifications.note} />
                 <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                     <Button
                         variant="contained"

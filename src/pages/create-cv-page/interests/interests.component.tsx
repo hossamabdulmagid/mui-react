@@ -5,6 +5,12 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+
+interface typeI {
+    onChange: (params: string) => string;
+}
+
+
 const interestsInformationSchema = object({
     note: string()
         .nonempty('Interests Information is required'),
@@ -35,7 +41,6 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
 
         } else {
             setFlag(true)
-
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSubmitSuccessful, interests, interests.note, interests.note.length]);
@@ -64,15 +69,17 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
 
 
 
-    const HandleRichTextState = (updatedText: any) => {
-        const dataWithHtmlTags = updatedText;
-        const dataOnEdtior = updatedText
+    const HandleRichTextState = (value: any) => {
+        const dataWithHtmlTags = value;
+        const dataOnEdtior = value
             .replace(/(<([^>]+)>)/gi, "")
             .replace(`&nbsp;`, " ")
             .trim();
         setInterests({ note: `${dataOnEdtior}`, html: dataWithHtmlTags });
         console.log(interests, `interset`);
     };
+
+
 
     return (
         <>
@@ -96,7 +103,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
                         Please enter content in order to save this note.
                     </Typography>
                 ) : null}
-                <RichEditor onChange={HandleRichTextState} initVal={" "} />
+                <RichEditor onChange={HandleRichTextState} value={interests.note} />
                 <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                     <Button
                         variant="contained"

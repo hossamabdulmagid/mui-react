@@ -115,7 +115,7 @@ const NavGuest: React.FC = (): JSX.Element => {
                                 onClick={GoToOldCvPage}
                                 sx={{
                                     marginTop: '10px',
-                                    fontSize: '10px',
+                                    fontSize: '12px',
                                     textTransform: 'none',
                                     borderRadius: "20px",
                                     color: 'black',
@@ -126,7 +126,7 @@ const NavGuest: React.FC = (): JSX.Element => {
 
                                 }}>
                                 <CreateIcon sx={{ padding: '2px' }} />
-                                Create a cv now
+                                create a cv
                             </Button>
                         </Grid>
                     </Grid>

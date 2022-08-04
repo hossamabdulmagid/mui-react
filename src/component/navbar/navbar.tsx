@@ -28,36 +28,40 @@ const NavbarLabel: React.FC<IProps> = (props): JSX.Element => {
                             <Grid
                                 item xs={6} md={6}
                                 sx={{
-                                    display: { xs: "none", lg: "block" }
+                                    display: {
+                                        lg: "block", padding: '5px', mt: 1,
+                                    }
                                 }}>
-                                <Typography
-                                    variant="subtitle2"
-                                    component='div'
+                                <Box
                                     sx={{
-                                        flexGrow: 1, textAlign: 'left',
+                                        flexGrow: 1,
+                                        textAlign: 'left',
                                         color: 'white',
+                                        padding: '4px',
                                         "&:hover": { color: 'white' }
                                     }}>
                                     <Link
                                         to="/"
                                         style={{
                                             color: 'white',
-                                            fontSize: "10px",
+                                            fontSize: '12px',
 
                                         }}
                                     >
                                         Create, maintain, publish, and share your CVs for free
                                     </Link>
-                                </Typography>
+                                </Box>
                             </Grid>
                             <Grid
                                 item
-                                xs={12}
+                                xs={6}
                                 md={6}
                                 sx={{
-                                    padding: '0px',
+                                    flexGrow: 1,
                                     marginTop: '',
                                     textAlign: 'right',
+                                    padding: '4px',
+                                    mt: 1,
                                     "&:hover": { color: 'white' }
 
                                 }}>

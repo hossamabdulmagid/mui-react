@@ -3,7 +3,12 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { literal, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from 'redux';
+import { RootState } from '../../../redux/root-reducer';
+import { actionCreators } from '../../../redux/index';
 
+import { DoLogin } from '../../../redux/user/user-action';
 const basicInformationSchema = object({
     fullName: string()
         .nonempty('full Name is required'),
@@ -42,6 +47,17 @@ const BasicInformation: React.FC = (): JSX.Element => {
     };
 
     // console.log(errors);
+
+
+    const state = useSelector((state: RootState) => state.user)
+    const dispatch = useDispatch();
+
+    const { DoLogin } = bindActionCreators(actionCreators, dispatch)
+
+
+    useEffect(() => {
+        DoLogin()
+    }, []);
 
     return (
         <Box

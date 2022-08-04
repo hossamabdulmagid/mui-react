@@ -87,45 +87,20 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
 
     const [otherInfo, setOtherInfo] = useState<{ note: string, html: string }>({ note: "", html: "" })
 
-
-    const HandleRichTextState = async (value: string) => {
-
+    const HandleRichTextState = (value: any) => {
         const dataWithHtmlTags = value;
-
         const dataOnEdtior = value
             .replace(/(<([^>]+)>)/gi, "")
             .replace(`&nbsp;`, " ")
             .trim();
-
-        setOtherInfo({ ...otherInfo, note: `${dataOnEdtior}`, html: `${dataWithHtmlTags}` });
-
-        // console.log(otherInfo, 'other Information');
-        // const list = [...expList];
-        // list[index as number].html = otherInfo.html;
-        // list[index as number].note = otherInfo.note;
-        // setExpList([...list]);
-
-        const list = await [...expList];
-
-        expList.map((x) => {
-            return (
-                x.html = dataWithHtmlTags,
-                x.note = dataOnEdtior
-            )
-        });
-
-        console.log(expList, `expList`)
-
-
+        setOtherInfo({ note: `${dataOnEdtior}`, html: `${dataWithHtmlTags}` });
+        console.log(otherInfo, `otherInfo`);
     };
 
 
     console.log(expList, `expList`);
 
     console.log(otherInfo, 'other Information');
-
-
-
 
     return (
         <Box

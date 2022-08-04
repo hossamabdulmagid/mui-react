@@ -104,7 +104,7 @@ export const QuillToolbar = (props: any) => {
                         <select className="ql-size">
                             <option value="extra-small">Extra Small</option>
                             <option value="small">Small</option>
-                            <option value="medium" selected>Medium</option>
+                            <option value="medium" defaultValue={'medium'}>Medium</option>
                             <option value="large">Large</option>
                         </select>
                         <select className="ql-header">
@@ -114,7 +114,7 @@ export const QuillToolbar = (props: any) => {
                             <option value="4">Heading 4</option>
                             <option value="5">Heading 5</option>
                             <option value="6">Heading 6</option>
-                            <option value="" selected>Normal</option>
+                            <option value="" defaultValue={''}>Normal</option>
                         </select>
                     </span>
                     <span className="ql-formats">

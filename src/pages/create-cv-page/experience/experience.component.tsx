@@ -193,7 +193,6 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             value={singleExp.endWork || ""}
                                             onChange={(e) => handleWorkChange(e, index)}
                                         />
-
                                     </Typography>
 
                                     {expList.length > 1 && (
@@ -207,23 +206,25 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
 
                                 </Grid>
                                 <Grid item xs={12} md={12}>
-                                    <Typography component={'div'}>
+                                    <Typography component={'div'} sx={{ display: 'block' }}>
                                         <Typography component={'div'} sx={{ fontWeight: 700, padding: '10px', marginTop: '5px', marginbottom: '5px' }}>
                                             Other Information
                                         </Typography>
                                         <RichEditor onChange={HandleRichTextState} value={otherInfo.note} />
                                     </Typography>
-                                    <Box sx={{ mt: 1, mb: 1, p: 1 }}>
+                                    <Box sx={{ marginTop: '15px', marginBottom: '15px', padding: '1px', textAlign: 'right', }}>
                                         {expList.length - 1 === index && expList.length < 4 && (
-                                            <Box sx={{ marginTop: '1px', marginBottom: '1px', padding: '2px', textAlign: 'right', display: '' }}>
-                                                <Button onClick={() => handleAddWorkExp()} variant="contained" color="success">
+                                            <Box sx={{ marginTop: '10px', marginBottom: '10px', padding: '2px', }}>
+                                                <Button onClick={handleAddWorkExp} variant="contained" color="success">
                                                     add Work
                                                 </Button>
                                             </Box>
                                         )}
                                     </Box>
                                 </Grid>
+
                             </Grid>
+
                             <hr />
                         </Fragment>
                     )

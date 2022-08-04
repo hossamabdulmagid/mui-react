@@ -82,7 +82,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
 
 
 
-    console.log(errors, `errors`);
+    // console.log(errors, `errors`);
 
 
     const [otherInfo, setOtherInfo] = useState<{ note: string, html: string }>({ note: "", html: "" })

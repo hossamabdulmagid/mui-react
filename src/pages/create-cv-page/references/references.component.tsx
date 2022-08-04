@@ -50,7 +50,7 @@ const ReferencesInformation: React.FC = (): JSX.Element => {
 
     };
 
-    console.log(errors, `errors`);
+    // console.log(errors, `errors`);
 
     const HandleRichTextState = (value: any) => {
         const dataWithHtmlTags = value;

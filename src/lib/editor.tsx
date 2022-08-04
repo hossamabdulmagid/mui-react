@@ -7,9 +7,7 @@ import EditorToolbar, { formats } from "./edit-toolbar";
 
 
 
-const RichEditor = ({ onChange, value, className }: any) => {
-
-
+const RichEditor = ({ onChange, value }: any) => {
 
     const modules = {
         toolbar: {
@@ -28,6 +26,8 @@ const RichEditor = ({ onChange, value, className }: any) => {
         },
         clipboard: { matchVisual: false }
     };
+
+
     return (
         <div className="form-group col-md-12 editor">
             <EditorToolbar Inter={'t1'} />
@@ -40,13 +40,7 @@ const RichEditor = ({ onChange, value, className }: any) => {
                 formats={formats}
                 style={{ height: '200px', display: 'block', marginBottom: '40px' }}
             />
-
-
         </div>
-
-
-
-
     );
 }
 

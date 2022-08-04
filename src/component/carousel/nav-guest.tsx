@@ -32,38 +32,43 @@ const FormRow: React.FC = (): JSX.Element => {
 
     return (
         <React.Fragment>
-            <Grid
-                item
-                xs={4}
-                sx={{ marginBottom: '20px', marginTop: '38px', color: 'white' }}
-            >
-                <img
-                    src='https://production-1d741-6fa29.firebaseapp.com/cvcreator.png'
-                    alt='https://production-1d741-6fa29.firebaseapp.com/cvcreator.png'
-                    width={'120px'}
-                />
+            <Container>
+                <Grid spacing={2} container>
+                    <Grid
+                        item
+                        xs={4}
+                        sx={{ marginBottom: '20px', marginTop: '38px', color: 'white' }}
+                    >
+                        <img
+                            src='https://production-1d741-6fa29.firebaseapp.com/cvcreator.png'
+                            alt='https://production-1d741-6fa29.firebaseapp.com/cvcreator.png'
+                            width={'120px'}
+                        />
 
-            </Grid>
-            <Grid
-                item
-                xs={4}
-                sx={{ marginBottom: '20px', marginTop: '30px', color: 'black' }}
-                onClick={HandleDownLoadClick}>
-                <Typography style={{ marginTop: '14px', color: 'white' }}>
-                    {download}
-                    Download
-                </Typography>
-            </Grid>
-            <Grid
-                item
-                xs={4}
-                sx={{ marginBottom: '20px', marginTop: '30px', color: 'black' }}
-                onClick={HandleSaveClick}>
-                <Typography style={{ marginTop: '14px', color: 'white' }}>
-                    {save}
-                    Save
-                </Typography>
-            </Grid>
+                    </Grid>
+                    <Grid
+                        item
+                        xs={4}
+                        sx={{ marginBottom: '20px', marginTop: '30px', color: 'black', textAlign: 'center' }}
+                        onClick={HandleDownLoadClick}>
+                        <Typography style={{ marginTop: '14px', color: 'white' }}>
+                            {download}
+                            Download
+                        </Typography>
+                    </Grid>
+                    <Grid
+                        item
+                        xs={4}
+                        sx={{ marginBottom: '20px', marginTop: '30px', color: 'black', textAlign: 'right' }}
+                        onClick={HandleSaveClick}>
+                        <Typography style={{ marginTop: '14px', color: 'white' }}>
+                            {save}
+                            Save
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Container>
+
         </React.Fragment>
     );
 }
@@ -77,17 +82,16 @@ const NavGuest: React.FC = (): JSX.Element => {
     }
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, padding: '20px' }}>
             <Container sx={{ textAlign: 'center', justifyContent: 'space-betwen' }}>
                 <Grid container spacing={1}>
-                    <Grid container item spacing={3}>
+                    <Grid container item spacing={3} >
                         <FormRow />
                         <Grid
                             item
                             xs={4}
                             sx={{
                                 marginBottom: '20px', marginTop: '30px', color: 'white'
-                                ,
                             }}
                         >
                             <Typography style={{ marginTop: '10px', fontSize: '15px' }}>
@@ -103,7 +107,7 @@ const NavGuest: React.FC = (): JSX.Element => {
                         <Grid
                             item
                             xs={4}
-                            sx={{ marginBottom: '20px', marginTop: '30px', color: 'white' }}
+                            sx={{ marginBottom: '20px', marginTop: '30px', color: 'white', textAlign: 'right' }}
                         >
                             <Button
                                 size="small"

@@ -32,6 +32,7 @@ export const DoLogin = () => {
                 .then((res: any) => {
                     if (res.status === 200) {
                         dispatch(UserSuccessLogin(res.data))
+                        console.log(res.data,`res.data`)
                     }
                 })
                 .catch(error => {

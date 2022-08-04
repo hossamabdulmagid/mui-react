@@ -1,4 +1,3 @@
-import { convertTypeAcquisitionFromJson } from 'typescript'
 import { TypeAction } from './user-type'
 
 const initialState = {

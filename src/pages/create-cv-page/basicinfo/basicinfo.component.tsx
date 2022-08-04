@@ -11,7 +11,7 @@ import { actionCreators } from '../../../redux/index';
 import { DoLogin } from '../../../redux/user/user-action';
 const basicInformationSchema = object({
     fullName: string()
-        .nonempty('full Name is required'),
+        .nonempty('Full Name is required'),
     email: string().nonempty('Email is required').email('Email is invalid'),
     phone: string()
         .nonempty('Phone is required')
@@ -49,7 +49,8 @@ const BasicInformation: React.FC = (): JSX.Element => {
     // console.log(errors);
 
 
-    const state = useSelector((state: RootState) => state.user)
+    const state = useSelector((state: RootState) => state.user);
+
     const dispatch = useDispatch();
 
     const { DoLogin } = bindActionCreators(actionCreators, dispatch)
@@ -57,6 +58,7 @@ const BasicInformation: React.FC = (): JSX.Element => {
 
     useEffect(() => {
         DoLogin()
+        console.log(state, `state from basic informations`);
     }, []);
 
     return (

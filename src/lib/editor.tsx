@@ -7,7 +7,8 @@ import EditorToolbar, { formats } from "./edit-toolbar";
 
 
 
-const RichEditor = ({ onChange, value }: any) => {
+const RichEditor = ({ onChange, value,index }: any) => {
+
 
     const modules = {
         toolbar: {
@@ -34,7 +35,7 @@ const RichEditor = ({ onChange, value }: any) => {
             <ReactQuill
                 theme="snow"
                 defaultValue={value}
-                onChange={onChange}
+                onChange={(v)=>onChange(index,v)}
                 placeholder={"Write something awesome..."}
                 modules={modules}
                 formats={formats}

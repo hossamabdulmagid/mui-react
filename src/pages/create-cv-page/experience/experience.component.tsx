@@ -80,27 +80,21 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
         setExpList([...list]);
     }
 
+    const HandleRichTextState = (index: number, value: string) => {
 
-
-    // console.log(errors, `errors`);
-
-
-    const [otherInfo, setOtherInfo] = useState<{ note: string, html: string }>({ note: "", html: "" })
-
-    const HandleRichTextState = (value: any) => {
         const dataWithHtmlTags = value;
+
         const dataOnEdtior = value
             .replace(/(<([^>]+)>)/gi, "")
             .replace(`&nbsp;`, " ")
             .trim();
-        setOtherInfo({ note: `${dataOnEdtior}`, html: `${dataWithHtmlTags}` });
-        console.log(otherInfo, `otherInfo`);
+
+        const list = [...expList];
+        list[index as number].note = dataOnEdtior;
+        list[index as number].html = value;
+        setExpList([...list]);
     };
-
-
     console.log(expList, `expList`);
-
-    console.log(otherInfo, 'other Information');
 
     return (
         <Box
@@ -210,7 +204,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                         <Typography component={'div'} sx={{ fontWeight: 700, padding: '10px', marginTop: '5px', marginbottom: '5px' }}>
                                             Other Information
                                         </Typography>
-                                        <RichEditor onChange={HandleRichTextState} value={otherInfo.note} />
+                                        <RichEditor onChange={HandleRichTextState} index={index} initVal={''} />
                                     </Typography>
                                     <Box sx={{ marginTop: '15px', marginBottom: '15px', padding: '1px', textAlign: 'right', }}>
                                         {expList.length - 1 === index && expList.length < 4 && (

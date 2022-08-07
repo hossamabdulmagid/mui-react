@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { ChangeEvent, Fragment, useEffect, useState } from 'react';
 import { Box, Stack, Grid, Typography, Container, Button, Modal, TextField } from '@mui/material';
 import Header from '../../component/header/header.component';
 import { Link } from 'react-router-dom';
@@ -27,12 +27,37 @@ const style = {
 };
 
 const SectionSchema = object({
-    section: string().nonempty('Section is required'),
+    concept: string().nonempty('Section is required'),
 
 });
 
 type SectionInput = TypeOf<typeof SectionSchema>;
 
+
+type DefaultSidebarSections = {
+    section: string;
+    type: string;
+    lastModified: string;
+
+    data: {
+        concept: string;
+        content_new: string;
+        type: string;
+        identiferId: string;
+    };
+}[];
+
+
+type NewSection = {
+    concept: string;
+    name: string;
+    start: string;
+    end: string;
+    description: string;
+    type: string;
+    lastModified: string;
+    identiferId: string;
+}[];
 
 
 const CreateCv: React.FC = (): JSX.Element => {
@@ -50,71 +75,71 @@ const CreateCv: React.FC = (): JSX.Element => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const [sidebarRoutes, setSidebarRouter] = useState([
+    const [sidebarRoutes, setSidebarRouter] = useState<DefaultSidebarSections>([
         {
             section: "Basicinfo",
             type: "basicinfo",
-            lastModified: new Date(),
+            lastModified: new Date().toString(),
             data: {
                 concept: "",
                 content_new: "",
                 type: "",
-                identiferId: null,
+                identiferId: '',
             },
         },
         {
             section: "Workexperience",
             type: "workexperience",
-            lastModified: new Date(),
+            lastModified: new Date().toString(),
             data: {
                 concept: "",
                 content_new: "",
                 type: "",
-                identiferId: null,
+                identiferId: '',
             },
         },
         {
             section: "Qualifications",
             type: "qualifications",
-            lastModified: new Date(),
+            lastModified: new Date().toString(),
             data: {
                 concept: "",
                 content_new: "",
                 type: "",
-                identiferId: null,
+                identiferId: '',
             },
         },
         {
             section: "Education",
             type: "education",
-            lastModified: new Date(),
+            lastModified: new Date().toString(),
             data: {
                 concept: "",
                 content_new: "",
                 type: "",
-                identiferId: null,
+                identiferId: '',
             },
         },
         {
             section: "Interests",
             type: "interests",
-            lastModified: new Date(),
+            lastModified: new Date().toString(),
             data: {
                 concept: "",
                 content_new: "",
                 type: "",
-                identiferId: null,
+                identiferId: '',
             },
         },
         {
             section: "References",
             type: "references",
-            lastModified: new Date(),
+            lastModified: new Date().toString(),
             data: {
                 concept: "",
                 content_new: "",
                 type: "",
-                identiferId: null,
+                identiferId: '',
             },
         },
     ]);
@@ -129,11 +154,70 @@ const CreateCv: React.FC = (): JSX.Element => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSubmitSuccessful]);
 
+    const [formState, setFormState] = useState({
+        concept: "",
+        name: "",
+        start: "",
+        end: "",
+        description: "",
+        type: "text",
+        lastModified: new Date().toString(),
+        identiferId: "",
+    });
+
+    const [ckeditorState, setCkeditorState] = useState({
+        concept: "",
+        content_new: "",
+        type: "entry",
+        identiferId: '',
+    });
+    const [array, setArray] = useState<NewSection>([]);
+
+
     const onSubmitHandler: SubmitHandler<SectionInput> = (values) => {
         // console.log(values);
+        sidebarRoutes.push({
+            section: values.concept,
+            type: values.concept,
+            lastModified: new Date().toString(),
+            data: {
+                concept: "",
+                content_new: "",
+                type: "",
+                identiferId: '',
+            },
+        });
+
+
+
+        array.push({
+            concept: values.concept,
+            name: values.concept,
+            start: values.concept,
+            end: values.concept,
+            description: values.concept,
+            type: "text",
+            lastModified: new Date().toString(),
+            identiferId: "",
+        });
+
+
+        console.log(array, `array`);
+
+        console.log(sidebarRoutes, `sidebar Routes`);
+        setCkeditorState({ ...ckeditorState, content_new: "" });
     };
 
-    // console.log(errors);
+
+
+    const handleChangeSection = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = event.target;
+        setFormState({ ...formState, [name]: value });
+        setCkeditorState({ ...ckeditorState, [name]: value });
+        console.log(` ${formState.concept}`, `formState  while Changing`);
+        console.log(` ${ckeditorState.concept}`, `ckeditorState   while Changing`);
+        console.log(value, `value from onChange`);
+    };
 
     return (
         <Fragment>
@@ -218,9 +302,11 @@ const CreateCv: React.FC = (): JSX.Element => {
                             fullWidth
                             required
                             type='text'
-                            error={!!errors['section']}
-                            helperText={errors['section'] ? errors['section'].message : ''}
-                            {...register('section')}
+                            error={!!errors['concept']}
+                            helperText={errors['concept'] ? errors['concept'].message : ''}
+                            {...register('concept')}
+                            name="concept"
+                            onChange={handleChangeSection}
 
                         />
                         <Container sx={{ textAlign: 'right' }}>

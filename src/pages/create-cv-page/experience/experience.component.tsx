@@ -81,9 +81,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
     }
 
     const HandleRichTextState = (index: number, value: string) => {
-
         const dataWithHtmlTags = value;
-
         const dataOnEdtior = value
             .replace(/(<([^>]+)>)/gi, "")
             .replace(`&nbsp;`, " ")
@@ -94,6 +92,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
         list[index as number].html = value;
         setExpList([...list]);
     };
+
     console.log(expList, `expList`);
 
     return (
@@ -120,6 +119,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                 <Grid item xs={12} md={6}>
                                     <Typography component={'div'}>
                                         <TextField
+                                            {...register('companyName')}
                                             autoComplete="off"
                                             autoCorrect="off"
                                             autoCapitalize="off"
@@ -129,11 +129,11 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={!!errors['companyName']}
+                                            error={singleExp.companyName === ""}
                                             helperText={errors['companyName'] ? errors['companyName'].message : ''}
-                                            {...register('companyName')}
-                                            value={singleExp.companyName || ""}
                                             onChange={(e) => handleWorkChange(e, index)}
+                                            value={singleExp.companyName}
+
                                         />
                                         <TextField
                                             autoComplete="off"
@@ -145,11 +145,11 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={!!errors['startWork']}
+                                            error={singleExp.startWork === ""}
                                             helperText={errors['startWork'] ? errors['startWork'].message : ''}
                                             {...register('startWork')}
-                                            value={singleExp.startWork || ""}
                                             onChange={(e) => handleWorkChange(e, index)}
+                                            defaultValue={singleExp.startWork}
                                         />
                                     </Typography>
                                 </Grid>
@@ -165,11 +165,12 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={!!errors['position']}
+                                            error={singleExp.position === ""}
                                             helperText={errors['position'] ? errors['position'].message : ''}
                                             {...register('position')}
-                                            value={singleExp.position || ""}
                                             onChange={(e) => handleWorkChange(e, index)}
+                                            value={singleExp.position}
+
                                         />
                                         <TextField
                                             type='text'
@@ -181,11 +182,12 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={!!errors['endWork']}
+                                            error={singleExp.endWork === ""}
                                             helperText={errors['endWork'] ? errors['endWork'].message : ''}
                                             {...register('endWork')}
-                                            value={singleExp.endWork || ""}
                                             onChange={(e) => handleWorkChange(e, index)}
+                                            value={singleExp.endWork}
+
                                         />
                                     </Typography>
 

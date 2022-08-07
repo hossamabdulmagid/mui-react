@@ -17,9 +17,7 @@ import CreateCv from './pages/create-cv-page/create-cv.component';
 const App: React.FC = (): JSX.Element => {
   return (
     <Box>
-      <Box sx={{ backgroundColor: 'black' }}>
         <Navbar label='Login | Signup' />
-      </Box>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />

@@ -1,5 +1,5 @@
-import { ChangeEvent, Fragment, useEffect, useState } from 'react';
-import { Box, Stack, Grid, Typography, Container, Button, Modal, TextField } from '@mui/material';
+import { ChangeEvent, SyntheticEvent, Fragment, useEffect, useState } from 'react';
+import { Box, Stack, Grid, Typography, Container, Button, Modal, TextField, FormControl, FormControlLabel, RadioGroup, Radio, FormLabel } from '@mui/material';
 import Header from '../../component/header/header.component';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoadingButton } from '@mui/lab';
-
+import InputRadio from '../../lib/radiogroup.component';
+import InputCheckBox from '../../lib/checkbox.component';
+import EditorSection from '../../lib/EditorSection';
 const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -22,16 +24,11 @@ const style = {
     width: 400,
     bgcolor: 'background.paper',
     border: '2px solid #000',
-    boxShadow: 24,
+    boxShadow: 20,
     padding: '26px',
 };
 
-const SectionSchema = object({
-    concept: string().nonempty('Section is required'),
 
-});
-
-type SectionInput = TypeOf<typeof SectionSchema>;
 
 
 type DefaultSidebarSections = {
@@ -59,6 +56,17 @@ type NewSection = {
     identiferId: string;
 }[];
 
+const SectionSchema = object({
+    concept: string().nonempty('Section is required'),
+    type: string(),
+    example: string(),
+    exampleRequired: string(),
+
+
+});
+
+type SectionInput = TypeOf<typeof SectionSchema>;
+
 
 const CreateCv: React.FC = (): JSX.Element => {
 
@@ -70,7 +78,6 @@ const CreateCv: React.FC = (): JSX.Element => {
     } = useForm<SectionInput>({
         resolver: zodResolver(SectionSchema),
     });
-
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -149,7 +156,7 @@ const CreateCv: React.FC = (): JSX.Element => {
 
     useEffect(() => {
         if (isSubmitSuccessful) {
-            // reset();
+            reset();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSubmitSuccessful]);
@@ -167,46 +174,66 @@ const CreateCv: React.FC = (): JSX.Element => {
 
     const [ckeditorState, setCkeditorState] = useState({
         concept: "",
-        content_new: "",
-        type: "entry",
+        content: "",
+        type: "editor",
         identiferId: '',
     });
+
     const [array, setArray] = useState<NewSection>([]);
 
+    const onSubmit: SubmitHandler<SectionInput> = data => console.log(data);
 
     const onSubmitHandler: SubmitHandler<SectionInput> = (values) => {
-        // console.log(values);
-        sidebarRoutes.push({
-            section: values.concept,
-            type: values.concept,
-            lastModified: new Date().toString(),
-            data: {
-                concept: "",
-                content_new: "",
-                type: "",
-                identiferId: '',
-            },
-        });
 
-        array.push({
-            concept: values.concept,
-            name: values.concept,
-            start: values.concept,
-            end: values.concept,
-            description: values.concept,
-            type: "text",
-            lastModified: new Date().toString(),
-            identiferId: "",
-        });
+        if (true) {
+            console.log('function runing');
+        } else {
+            console.log('function not running')
+        }
+        console.log(values);
+
+
+        // sidebarRoutes.push({
+        //     section: values.concept,
+        //     type: values.type,
+        //     lastModified: new Date().toString(),
+        //     data: {
+        //         concept: "",
+        //         content_new: "",
+        //         type: "",
+        //         identiferId: '',
+        //     },
+        // });
+
+        // array.push({
+        //     concept: values.concept,
+        //     name: values.concept,
+        //     start: values.concept,
+        //     end: values.concept,
+        //     description: values.concept,
+        //     type: values.type,
+        //     lastModified: new Date().toString(),
+        //     identiferId: "",
+        // });
 
         handleClose();
+
         console.log(array, `array`);
 
         console.log(sidebarRoutes, `sidebar Routes`);
-        setCkeditorState({ ...ckeditorState, content_new: "" });
+
+        setCkeditorState({ ...ckeditorState, content: "" });
+
+
     };
 
+    const [acceptInc, setAcceptInc] = useState(false);
 
+    const HandleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target.checked);
+        console.log({ acceptInc })
+        setAcceptInc(event.target.checked);
+    }
 
     const handleChangeSection = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
@@ -215,9 +242,64 @@ const CreateCv: React.FC = (): JSX.Element => {
         console.log(` ${formState.concept}`, `formState  while Changing`);
         console.log(` ${ckeditorState.concept}`, `ckeditorState   while Changing`);
         console.log(value, `value from onChange`);
+        console.log(event.target.value, `while selected RadioGroup`);
     };
 
+    const [typeOfCv, setTypeOfCv] = useState<{ concept: string, type: string }>({ concept: '', type: '' });
 
+    const handleAddNewSectionChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = event.target;
+        setCkeditorState({ ...ckeditorState, [name]: value })
+        setFormState({ ...formState, [name]: value });
+        console.log(ckeditorState, `value`);
+    }
+
+
+    const handleManualForm = (e: SyntheticEvent) => {
+
+        e.preventDefault();
+
+        console.log(typeOfCv, `typeOf Cv`)
+        console.log(formState, `formState`)
+        console.log(ckeditorState, `ckeditorState`)
+
+
+        console.log(formState);
+
+        sidebarRoutes.push({
+            section: formState && formState.concept,
+            type: formState && formState.type,
+            lastModified: new Date().toString(),
+            data: {
+                concept: "",
+                content_new: "",
+                type: formState.type,
+                identiferId: '',
+            },
+        });
+
+        array.push({
+            concept: formState.concept,
+            name: formState.concept,
+            start: formState.concept,
+            end: formState.concept,
+            description: formState.concept,
+            type: formState.type,
+            lastModified: new Date().toString(),
+            identiferId: "",
+        });
+
+        handleClose();
+        console.log(array, `array`);
+
+        console.log(sidebarRoutes, `sidebar Routes`);
+        setCkeditorState({ ...ckeditorState, content: "" });
+        reset();
+
+
+
+
+    }
 
     return (
         <Fragment>
@@ -253,7 +335,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                                                 key={idx}
                                                 onClick={(e) => {
                                                     e.preventDefault();
-                                                    setActiveSection(singleRoute.type);
+                                                    setActiveSection(singleRoute && singleRoute.type);
                                                 }}>
                                                 <Stack sx={{ color: 'black', textDecoration: 'none', padding: '5px', fontSize: '13px' }}>
                                                     {singleRoute.section}
@@ -274,6 +356,8 @@ const CreateCv: React.FC = (): JSX.Element => {
                                 {activeSection === sidebarRoutes[3].type ? <EducationInformation /> : null}
                                 {activeSection === sidebarRoutes[4].type ? <InterestsInformation /> : null}
                                 {activeSection === sidebarRoutes[5].type ? <ReferencesInformation /> : null}
+                                {activeSection === 'editor' ? <EditorSection /> : null}
+
                             </Grid>
                         </Grid>
                     </Stack>
@@ -289,38 +373,87 @@ const CreateCv: React.FC = (): JSX.Element => {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Create new section
                     </Typography>
-                    <Box
+                    {/* <Box
+                        sx={{ mt: 2, mb: 2 }}
+
                         component='form'
                         noValidate
                         autoComplete='off'
                         onSubmit={handleSubmit(onSubmitHandler)}
-                        sx={{ mt: 2, mb: 2 }}
-                    >
-                        <TextField
+                    > */}
+                    <form onSubmit={(e) => handleManualForm(e)}>
+
+                        {/* <TextField
                             sx={{ mb: 2 }}
                             label='Section Name'
                             fullWidth
+                            {...register('concept')}
                             required
                             type='text'
                             error={!!errors['concept']}
                             helperText={errors['concept'] ? errors['concept'].message : ''}
-                            {...register('concept')}
-                            name="concept"
-                            onChange={handleChangeSection}
+                            onChange={(event) => handleChangeSection(event)}
 
+                        /> */}
+                        <TextField
+                            type='text'
+                            label='Section Name'
+                            sx={{ mt: 2, padding: '2px' }}
+                            variant="filled"
+                            id="outlined-size-small"
+                            fullWidth
+                            error={!!errors['concept']}
+                            helperText={errors['concept'] ? errors['concept'].message : ''}
+                            {...register('concept')}
+                            required
+                            onChange={handleChangeSection}
                         />
-                        <Container sx={{ textAlign: 'right' }}>
-                            <LoadingButton
+                        <Box>
+                            <InputCheckBox onChange={HandleChange} checked={acceptInc} acceptInc={acceptInc} />
+                        </Box>
+                        {acceptInc ? (
+                            <Box
+                                sx={{
+                                    padding: '5px'
+                                }}>
+
+                                <InputRadio
+                                    value={['text', 'editor']}
+                                    {...register('type')}
+                                    label={['Rich Editor', 'Text Field'] as unknown as any}
+                                    onChange={(event) => handleAddNewSectionChange(event)}
+
+                                />
+                            </Box>
+                        )
+                            : (
+                                <Box>
+                                    <FormControl>
+                                        <FormLabel id="d">select Role Required</FormLabel>
+
+                                        <RadioGroup aria-labelledby="type" name='agree' defaultValue={"s"}>
+                                            <FormControlLabel control={<Radio />} disabled value="Rich Editor" label="Rich Editor" />
+                                            <FormControlLabel control={<Radio />} disabled value='Text Feild' label="Text Feild'" />
+                                        </RadioGroup>
+                                    </FormControl>
+                                </Box >
+                            )
+                        }
+
+
+                        <Container sx={{ textAlign: 'left' }}>
+
+
+                            <Button
                                 variant='contained'
                                 fullWidth
                                 type='submit'
                                 // loading={loading}
                                 size="small"
-
                                 sx={{ py: '0.8rem', mt: '1rem' }}
                             >
                                 Add
-                            </LoadingButton>
+                            </Button>
                             <LoadingButton
                                 variant='contained'
                                 fullWidth
@@ -333,13 +466,15 @@ const CreateCv: React.FC = (): JSX.Element => {
                             >
                                 Cancle
                             </LoadingButton>
-                        </Container>
 
-                    </Box>
+                        </Container>
+                    </form>
+
+                    {/* </Box> */}
 
                 </Box>
             </Modal>
-        </Fragment>
+        </Fragment >
 
 
     );

@@ -188,8 +188,6 @@ const CreateCv: React.FC = (): JSX.Element => {
             },
         });
 
-
-
         array.push({
             concept: values.concept,
             name: values.concept,
@@ -201,7 +199,7 @@ const CreateCv: React.FC = (): JSX.Element => {
             identiferId: "",
         });
 
-
+        handleClose();
         console.log(array, `array`);
 
         console.log(sidebarRoutes, `sidebar Routes`);
@@ -218,6 +216,8 @@ const CreateCv: React.FC = (): JSX.Element => {
         console.log(` ${ckeditorState.concept}`, `ckeditorState   while Changing`);
         console.log(value, `value from onChange`);
     };
+
+
 
     return (
         <Fragment>

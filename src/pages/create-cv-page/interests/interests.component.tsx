@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import SingleRichEditor from '../../../lib/single-editor';
 
 interface typeI {
     onChange: (params: string) => string;
@@ -103,7 +104,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
                         Please enter content in order to save this note.
                     </Typography>
                 ) : null}
-                <RichEditor onChange={HandleRichTextState} value={interests.note} />
+                <SingleRichEditor onChange={HandleRichTextState} value={interests.note} />
                 <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                     <Button
                         variant="contained"

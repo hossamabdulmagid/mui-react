@@ -219,8 +219,8 @@ const CreateCv: React.FC = (): JSX.Element => {
 
         } else {
             formState.type = "editor";
-
         }
+        
         console.log(typeOfCv, `typeOf Cv`)
         console.log(formState, `formState`)
         console.log(ckeditorState, `ckeditorState`)
@@ -254,6 +254,7 @@ const CreateCv: React.FC = (): JSX.Element => {
         console.log(sidebarRoutes, `sidebar Routes`);
         setCkeditorState({ ...ckeditorState, content: "" });
         reset();
+        setAcceptInc(false);
     }
 
     return (
@@ -369,7 +370,6 @@ const CreateCv: React.FC = (): JSX.Element => {
                             >
                                 Cancle
                             </Button>
-
                         </Container>
                     </form>
                 </Box>

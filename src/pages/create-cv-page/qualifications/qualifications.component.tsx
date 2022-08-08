@@ -1,5 +1,5 @@
 import { useState, useRef, ChangeEvent, useEffect } from 'react';
-import RichEditor from '../../../lib/editor';
+import SingleRichEditor from '../../../lib/single-editor';
 import { Box, Typography, Stack, Button } from "@mui/material";
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
@@ -79,7 +79,7 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
                         Please enter content in order to save this note.
                     </Typography>
                 ) : null}
-                <RichEditor onChange={HandleRichTextState} value={qualifications.note} />
+                <SingleRichEditor onChange={HandleRichTextState} value={qualifications.note} />
                 <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                     <Button
                         variant="contained"

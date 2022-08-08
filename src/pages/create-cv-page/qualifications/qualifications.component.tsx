@@ -22,7 +22,9 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
     } = useForm<QualificationsInfo>({
         resolver: zodResolver(qualificationsInformationSchema),
     });
+
     const [qualifications, setQualifications] = useState<{ note: string, html: string }>({ note: "", html: "", });
+
     const [flag, setFlag] = useState(false);
     useEffect(() => {
         if (isSubmitSuccessful) {
@@ -38,13 +40,6 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSubmitSuccessful, qualifications, qualifications.note, qualifications.note.length]);
 
-    const onSubmitHandler: SubmitHandler<QualificationsInfo> = (values) => {
-        console.log(values);
-    };
-
-    // console.log(errors);
-
-
 
     const HandleRichTextState = (value: any) => {
         const dataWithHtmlTags = value;
@@ -55,6 +50,14 @@ const QualificationsInformation: React.FC = (): JSX.Element => {
         setQualifications({ note: `${dataOnEdtior}`, html: dataWithHtmlTags });
         console.log(qualifications, `qualifications`)
     };
+
+    const onSubmitHandler: SubmitHandler<QualificationsInfo> = (values) => {
+        console.log(values);
+    };
+
+    // console.log(errors);
+
+
 
 
     return (

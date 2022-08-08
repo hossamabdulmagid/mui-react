@@ -2,7 +2,8 @@ import { Box, TextField, Container, Grid, Typography, Stack, Button } from "@mui
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { literal, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useEffect } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import SingleRichEditor from "../../../lib/single-editor";
 
 
 const educationInformationSchema = object({
@@ -10,10 +11,15 @@ const educationInformationSchema = object({
     start: string().nonempty('Please add the start of education year'),
     end: string().nonempty('Please add the end of education year'),
     educationMajoring: string().nonempty('Please confirm your password'),
+    note: string(),
+    html: string(),
 });
 
 
 type EducationInfo = TypeOf<typeof educationInformationSchema>;
+
+
+
 
 const EducationInformation: React.FC = (): JSX.Element => {
     const {
@@ -25,12 +31,43 @@ const EducationInformation: React.FC = (): JSX.Element => {
         resolver: zodResolver(educationInformationSchema),
     });
 
+
+
+    const [educationInformation, setEducationInformation] = useState<{ collageName: string, start: string, end: string, educationMajoring: string, note: string, html: string }>({ collageName: '', start: '', end: '', educationMajoring: '', note: '', html: '' });
+
+    const [flag, setFlag] = useState(false);
+
     useEffect(() => {
         if (isSubmitSuccessful) {
             // reset();
         }
+        if (educationInformation.note.length > 3) {
+            setFlag(false);
+
+        } else {
+            setFlag(true)
+
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isSubmitSuccessful]);
+    }, [isSubmitSuccessful, educationInformation, educationInformation.note, educationInformation.note.length]);
+
+
+    const HandleRichTextState = (value: any) => {
+        const dataWithHtmlTags = value;
+        const dataOnEdtior = value
+            .replace(/(<([^>]+)>)/gi, "")
+            .replace(`&nbsp;`, " ")
+            .trim();
+        setEducationInformation({ ...educationInformation, note: `${dataOnEdtior}`, html: dataWithHtmlTags });
+        console.log(educationInformation, `qualifications`)
+    };
+
+
+    const HandleChangeEducationInformation = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setEducationInformation({ ...educationInformation, [name]: value })
+        console.log(educationInformation, `educationInformation while typing`);
+    }
 
     const onSubmitHandler: SubmitHandler<EducationInfo> = (values) => {
         console.log(values);
@@ -69,6 +106,7 @@ const EducationInformation: React.FC = (): JSX.Element => {
                                 helperText={errors['collageName'] ? errors['collageName'].message : ''}
                                 {...register('collageName')}
                                 required
+                                onChange={HandleChangeEducationInformation}
                             />
                             <TextField
                                 type='text'
@@ -81,6 +119,8 @@ const EducationInformation: React.FC = (): JSX.Element => {
                                 helperText={errors['start'] ? errors['start'].message : ''}
                                 {...register('start')}
                                 required
+                                onChange={HandleChangeEducationInformation}
+
                             />
 
                         </Typography>
@@ -98,6 +138,8 @@ const EducationInformation: React.FC = (): JSX.Element => {
                                 {...register('educationMajoring')}
                                 required
                                 id="outlined-size-small"
+                                onChange={HandleChangeEducationInformation}
+
                             />
                             <TextField
                                 type='text'
@@ -109,9 +151,20 @@ const EducationInformation: React.FC = (): JSX.Element => {
                                 helperText={errors['end'] ? errors['end'].message : ''}
                                 {...register('end')}
                                 id="outlined-size-small"
+                                onChange={HandleChangeEducationInformation}
                             />
 
 
+                        </Typography>
+
+                    </Grid>
+
+                    <Grid item xs={12} md={12}>
+                        <Typography component={'div'} sx={{ display: 'block' }}>
+                            <Typography component={'div'} sx={{ fontWeight: 700, padding: '10px', marginTop: '5px', marginbottom: '5px', textAlign: 'left' }}>
+                                Other Information
+                            </Typography>
+                            <SingleRichEditor onChange={HandleRichTextState} value={educationInformation.note} />
                         </Typography>
                         <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                             <Button

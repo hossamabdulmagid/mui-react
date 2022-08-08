@@ -21,8 +21,6 @@ const experienceInformationSchema = object({
     startWork: string().nonempty('Please add the start of work year'),
     endWork: string().nonempty('Please add the end of work year'),
     position: string().nonempty('Please add your position'),
-    note: string(),
-    html: string(),
 });
 
 
@@ -132,7 +130,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             error={!!errors['companyName']}
                                             helperText={errors['companyName'] ? errors['companyName'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
-                                            value={singleExp.companyName}
+                                        // value={singleExp.companyName}
 
                                         />
                                         <TextField
@@ -149,7 +147,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             error={!!errors['startWork']}
                                             helperText={errors['startWork'] ? errors['startWork'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
-                                            value={singleExp.startWork}
+                                        // value={singleExp.startWork}
                                         />
                                     </Typography>
                                 </Grid>
@@ -162,14 +160,14 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             autoCorrect="off"
                                             autoCapitalize="off"
                                             spellCheck="false"
-                                            label='Position'
+                                            label='Position '
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
                                             error={!!errors['position']}
                                             helperText={errors['position'] ? errors['position'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
-                                            value={singleExp.position}
+                                        // value={singleExp.position}
 
                                         />
                                         <TextField
@@ -186,7 +184,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             error={!!errors['endWork']}
                                             helperText={errors['endWork'] ? errors['endWork'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
-                                            value={singleExp.endWork}
+                                        // value={singleExp.endWork}
 
                                         />
                                     </Typography>

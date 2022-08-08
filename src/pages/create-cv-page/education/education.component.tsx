@@ -119,7 +119,6 @@ const EducationInformation: React.FC = (): JSX.Element => {
                                 {...register('start')}
                                 required
                                 onChange={HandleChangeEducationInformation}
-
                             />
 
                         </Typography>
@@ -138,7 +137,6 @@ const EducationInformation: React.FC = (): JSX.Element => {
                                 required
                                 id="outlined-size-small"
                                 onChange={HandleChangeEducationInformation}
-
                             />
                             <TextField
                                 type='text'
@@ -152,12 +150,8 @@ const EducationInformation: React.FC = (): JSX.Element => {
                                 id="outlined-size-small"
                                 onChange={HandleChangeEducationInformation}
                             />
-
-
                         </Typography>
-
                     </Grid>
-
                     <Grid item xs={12} md={12}>
                         <Typography component={'div'} sx={{ display: 'block' }}>
                             <Typography component={'div'} sx={{ fontWeight: 700, padding: '10px', marginTop: '5px', marginbottom: '5px', textAlign: 'left' }}>
@@ -169,7 +163,6 @@ const EducationInformation: React.FC = (): JSX.Element => {
                             />
                         </Typography>
                         <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
-
                             <Button
                                 variant="contained"
                                 color='info'
@@ -178,9 +171,7 @@ const EducationInformation: React.FC = (): JSX.Element => {
                                 Save
                             </Button>
                         </Box>
-
                     </Grid>
-
                 </Grid>
             </>
         </Box>

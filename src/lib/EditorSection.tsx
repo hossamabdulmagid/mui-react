@@ -80,15 +80,15 @@ const EditorSection = () => {
             <Box>
                 <TextField
                     type='text'
-                    label='Title'
+                    label='Section Name'
                     sx={{ mt: 2, padding: '2px' }}
                     variant="filled"
                     id="outlined-size-small"
                     fullWidth
-                    // error={!!errors['fullName']}
-                    // helperText={errors['fullName'] ? errors['fullName'].message : ''}
+                    error={!!errors['concept']}
+                    helperText={errors['concept'] ? errors['concept'].message : ''}
                     {...register('concept')}
-                    required />
+                     />
             </Box>
             <EditorToolbar Inter={'t1'} />
             <ReactQuill

@@ -12,10 +12,9 @@ import QualificationsInformation from './qualifications/qualifications.component
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { LoadingButton } from '@mui/lab';
-import InputRadio from '../../lib/radiogroup.component';
 import InputCheckBox from '../../lib/checkbox.component';
 import EditorSection from '../../lib/EditorSection';
+import TextFeildSection from '../../lib/TextFeildSection.component';
 const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -183,49 +182,6 @@ const CreateCv: React.FC = (): JSX.Element => {
 
     const onSubmit: SubmitHandler<SectionInput> = data => console.log(data);
 
-    const onSubmitHandler: SubmitHandler<SectionInput> = (values) => {
-
-        if (true) {
-            console.log('function runing');
-        } else {
-            console.log('function not running')
-        }
-        console.log(values);
-
-
-        // sidebarRoutes.push({
-        //     section: values.concept,
-        //     type: values.type,
-        //     lastModified: new Date().toString(),
-        //     data: {
-        //         concept: "",
-        //         content_new: "",
-        //         type: "",
-        //         identiferId: '',
-        //     },
-        // });
-
-        // array.push({
-        //     concept: values.concept,
-        //     name: values.concept,
-        //     start: values.concept,
-        //     end: values.concept,
-        //     description: values.concept,
-        //     type: values.type,
-        //     lastModified: new Date().toString(),
-        //     identiferId: "",
-        // });
-
-        handleClose();
-
-        console.log(array, `array`);
-
-        console.log(sidebarRoutes, `sidebar Routes`);
-
-        setCkeditorState({ ...ckeditorState, content: "" });
-
-
-    };
 
     const [acceptInc, setAcceptInc] = useState(false);
 
@@ -256,16 +212,19 @@ const CreateCv: React.FC = (): JSX.Element => {
 
 
     const handleManualForm = (e: SyntheticEvent) => {
-
         e.preventDefault();
 
+        if (acceptInc) {
+            formState.type = "text";
+
+        } else {
+            formState.type = "editor";
+
+        }
         console.log(typeOfCv, `typeOf Cv`)
         console.log(formState, `formState`)
         console.log(ckeditorState, `ckeditorState`)
-
-
         console.log(formState);
-
         sidebarRoutes.push({
             section: formState && formState.concept,
             type: formState && formState.type,
@@ -277,7 +236,6 @@ const CreateCv: React.FC = (): JSX.Element => {
                 identiferId: '',
             },
         });
-
         array.push({
             concept: formState.concept,
             name: formState.concept,
@@ -288,6 +246,7 @@ const CreateCv: React.FC = (): JSX.Element => {
             lastModified: new Date().toString(),
             identiferId: "",
         });
+        setActiveSection(formState.type);
 
         handleClose();
         console.log(array, `array`);
@@ -295,10 +254,6 @@ const CreateCv: React.FC = (): JSX.Element => {
         console.log(sidebarRoutes, `sidebar Routes`);
         setCkeditorState({ ...ckeditorState, content: "" });
         reset();
-
-
-
-
     }
 
     return (
@@ -357,6 +312,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                                 {activeSection === sidebarRoutes[4].type ? <InterestsInformation /> : null}
                                 {activeSection === sidebarRoutes[5].type ? <ReferencesInformation /> : null}
                                 {activeSection === 'editor' ? <EditorSection /> : null}
+                                {activeSection === 'text' ? <TextFeildSection /> : null}
 
                             </Grid>
                         </Grid>
@@ -373,28 +329,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Create new section
                     </Typography>
-                    {/* <Box
-                        sx={{ mt: 2, mb: 2 }}
-
-                        component='form'
-                        noValidate
-                        autoComplete='off'
-                        onSubmit={handleSubmit(onSubmitHandler)}
-                    > */}
                     <form onSubmit={(e) => handleManualForm(e)}>
-
-                        {/* <TextField
-                            sx={{ mb: 2 }}
-                            label='Section Name'
-                            fullWidth
-                            {...register('concept')}
-                            required
-                            type='text'
-                            error={!!errors['concept']}
-                            helperText={errors['concept'] ? errors['concept'].message : ''}
-                            onChange={(event) => handleChangeSection(event)}
-
-                        /> */}
                         <TextField
                             type='text'
                             label='Section Name'
@@ -411,39 +346,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                         <Box>
                             <InputCheckBox onChange={HandleChange} checked={acceptInc} acceptInc={acceptInc} />
                         </Box>
-                        {acceptInc ? (
-                            <Box
-                                sx={{
-                                    padding: '5px'
-                                }}>
-
-                                <InputRadio
-                                    value={['text', 'editor']}
-                                    {...register('type')}
-                                    label={['Rich Editor', 'Text Field'] as unknown as any}
-                                    onChange={(event) => handleAddNewSectionChange(event)}
-
-                                />
-                            </Box>
-                        )
-                            : (
-                                <Box>
-                                    <FormControl>
-                                        <FormLabel id="d">select Role Required</FormLabel>
-
-                                        <RadioGroup aria-labelledby="type" name='agree' defaultValue={"s"}>
-                                            <FormControlLabel control={<Radio />} disabled value="Rich Editor" label="Rich Editor" />
-                                            <FormControlLabel control={<Radio />} disabled value='Text Feild' label="Text Feild'" />
-                                        </RadioGroup>
-                                    </FormControl>
-                                </Box >
-                            )
-                        }
-
-
                         <Container sx={{ textAlign: 'left' }}>
-
-
                             <Button
                                 variant='contained'
                                 fullWidth
@@ -454,7 +357,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                             >
                                 Add
                             </Button>
-                            <LoadingButton
+                            <Button
                                 variant='contained'
                                 fullWidth
                                 type='submit'
@@ -465,13 +368,10 @@ const CreateCv: React.FC = (): JSX.Element => {
                                 sx={{ py: '0.8rem', mt: '1rem' }}
                             >
                                 Cancle
-                            </LoadingButton>
+                            </Button>
 
                         </Container>
                     </form>
-
-                    {/* </Box> */}
-
                 </Box>
             </Modal>
         </Fragment >

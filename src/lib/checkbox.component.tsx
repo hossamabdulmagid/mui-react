@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react';
-import { Stack, Box, FormControl, FormLabel, FormControlLabel, Checkbox, Radio, Typography } from "@mui/material"
+import { Box, FormControlLabel, Checkbox, } from "@mui/material"
 const InputCheckBox = ({ onChange, acceptInc }: {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     acceptInc: boolean;
@@ -10,9 +10,9 @@ const InputCheckBox = ({ onChange, acceptInc }: {
         <Box>
             <Box>
                 <FormControlLabel
-                    label="accept Terms"
-                    control={<Checkbox checked={acceptInc} onChange={onChange} inputProps={{ 'aria-label': 'controlled' }} required />}
-                ></FormControlLabel>
+                    label="Special section (like Education, Work)"
+                    control={<Checkbox checked={acceptInc} onChange={onChange} inputProps={{ 'aria-label': 'controlled' }} />}
+                />
             </Box>
         </Box>
     )

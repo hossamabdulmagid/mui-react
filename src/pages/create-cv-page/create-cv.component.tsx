@@ -58,11 +58,6 @@ type NewSection = {
 
 const SectionSchema = object({
     concept: string().nonempty('Section is required'),
-    type: string(),
-    example: string(),
-    exampleRequired: string(),
-
-
 });
 
 type SectionInput = TypeOf<typeof SectionSchema>;
@@ -226,9 +221,55 @@ const CreateCv: React.FC = (): JSX.Element => {
         setOpenToast(false);
     };
 
-    const handleManualForm = (e: SyntheticEvent) => {
-        e.preventDefault();
+    // const handleManualForm = (e: SyntheticEvent) => {
+    //     e.preventDefault();
 
+    //     if (acceptInc) {
+    //         formState.type = "text";
+
+    //     } else {
+    //         formState.type = "editor";
+    //     }
+
+    //     console.log(typeOfCv, `typeOf Cv`)
+    //     console.log(formState, `formState`)
+    //     console.log(ckeditorState, `ckeditorState`)
+    //     console.log(formState);
+    //     sidebarRoutes.push({
+    //         section: formState && formState.concept,
+    //         type: formState && formState.type,
+    //         lastModified: new Date().toString(),
+    //         data: {
+    //             concept: "",
+    //             content_new: "",
+    //             type: formState.type,
+    //             identiferId: '',
+    //         },
+    //     });
+    //     array.push({
+    //         concept: formState.concept,
+    //         name: formState.concept,
+    //         start: formState.concept,
+    //         end: formState.concept,
+    //         description: formState.concept,
+    //         type: formState.type,
+    //         lastModified: new Date().toString(),
+    //         identiferId: "",
+    //     });
+
+    //     setActiveSection(formState.type);
+
+    //     handleClose();
+    //     console.log(array, `array`);
+    //     handleClick();
+    //     console.log(sidebarRoutes, `sidebar Routes`);
+    //     setCkeditorState({ ...ckeditorState, content: "" });
+    //     reset();
+    //     setAcceptInc(false);
+    //     // handleCloseToast();
+    // }
+    const onSubmitHandler: SubmitHandler<SectionInput> = (values) => {
+        console.log(values);
         if (acceptInc) {
             formState.type = "text";
 
@@ -272,7 +313,7 @@ const CreateCv: React.FC = (): JSX.Element => {
         reset();
         setAcceptInc(false);
         // handleCloseToast();
-    }
+    };
 
     return (
         <Fragment>
@@ -354,7 +395,11 @@ const CreateCv: React.FC = (): JSX.Element => {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Create new section
                     </Typography>
-                    <form onSubmit={(e) => handleManualForm(e)}>
+                    <Box
+                        component='form'
+                        noValidate
+                        autoComplete='off'
+                        onSubmit={handleSubmit(onSubmitHandler)}>
                         <TextField
                             type='text'
                             label='Section Name'
@@ -395,7 +440,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                                 Cancle
                             </Button>
                         </Container>
-                    </form>
+                    </Box>
                 </Box>
             </Modal>
             <CustomizedSnackbars
@@ -403,8 +448,6 @@ const CreateCv: React.FC = (): JSX.Element => {
                 onClose={handleCloseToast}
                 value={formState.concept} />
         </Fragment >
-
-
     );
 }
 export default CreateCv;

@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ChangeEvent, useEffect, useState } from "react";
 import SingleRichEditor from "../../../lib/single-editor";
 
-
 const educationInformationSchema = object({
     collageName: string().nonempty('Collage Name is required'),
     start: string().nonempty('Please add the start of education year'),
@@ -14,11 +13,7 @@ const educationInformationSchema = object({
 
 });
 
-
 type EducationInfo = TypeOf<typeof educationInformationSchema>;
-
-
-
 
 const EducationInformation: React.FC = (): JSX.Element => {
     const {

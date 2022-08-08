@@ -119,61 +119,62 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                 <Grid item xs={12} md={6}>
                                     <Typography component={'div'}>
                                         <TextField
+                                            type='text'
                                             {...register('companyName')}
                                             autoComplete="off"
                                             autoCorrect="off"
                                             autoCapitalize="off"
                                             spellCheck="false"
-                                            type='text'
                                             label='Company Name'
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={singleExp.companyName === ""}
+                                            error={!!errors['companyName']}
                                             helperText={errors['companyName'] ? errors['companyName'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.companyName}
 
                                         />
                                         <TextField
+                                            type='text'
+                                            {...register('startWork')}
                                             autoComplete="off"
                                             autoCorrect="off"
                                             autoCapitalize="off"
                                             spellCheck="false"
-                                            type='text'
                                             label='Start Work'
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={singleExp.startWork === ""}
+                                            error={!!errors['startWork']}
                                             helperText={errors['startWork'] ? errors['startWork'].message : ''}
-                                            {...register('startWork')}
                                             onChange={(e) => handleWorkChange(e, index)}
-                                            defaultValue={singleExp.startWork}
+                                            value={singleExp.startWork}
                                         />
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} md={6}>
                                     <Typography component={'div'}>
                                         <TextField
+                                            type='text'
+                                            {...register('position')}
                                             autoComplete="off"
                                             autoCorrect="off"
                                             autoCapitalize="off"
                                             spellCheck="false"
-                                            type='text'
                                             label='Position'
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={singleExp.position === ""}
+                                            error={!!errors['position']}
                                             helperText={errors['position'] ? errors['position'].message : ''}
-                                            {...register('position')}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.position}
 
                                         />
                                         <TextField
                                             type='text'
+                                            {...register('endWork')}
                                             autoComplete="off"
                                             autoCorrect="off"
                                             autoCapitalize="off"
@@ -182,9 +183,8 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={singleExp.endWork === ""}
+                                            error={!!errors['endWork']}
                                             helperText={errors['endWork'] ? errors['endWork'].message : ''}
-                                            {...register('endWork')}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.endWork}
 

@@ -1,5 +1,5 @@
 import { ChangeEvent, SyntheticEvent, Fragment, useEffect, useState } from 'react';
-import { Box, Stack, Grid, Typography, Container, Button, Modal, TextField, FormControl, FormControlLabel, RadioGroup, Radio, FormLabel } from '@mui/material';
+import { Box, Stack, Grid, Typography, Container, Button, Modal, TextField, Alert, FormControlLabel, RadioGroup, Radio, FormLabel } from '@mui/material';
 import Header from '../../component/header/header.component';
 import { Link } from 'react-router-dom';
 
@@ -220,7 +220,7 @@ const CreateCv: React.FC = (): JSX.Element => {
         } else {
             formState.type = "editor";
         }
-        
+
         console.log(typeOfCv, `typeOf Cv`)
         console.log(formState, `formState`)
         console.log(ckeditorState, `ckeditorState`)
@@ -261,13 +261,20 @@ const CreateCv: React.FC = (): JSX.Element => {
         <Fragment>
             <Header />
             <Box sx={{ backgroundColor: "rgb(249, 249, 249)", padding: "20px", minHeight: '500px', }}>
-                <Box sx={{ margin: '0 auto', padding: "5px", textAlign: '' }}>
+                <Box sx={{ margin: '0 auto', padding: "5px", textAlign: 'center' }}>
                     <Container>
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={12}>
-                                <Typography>
-                                    {/* your resume name : simple cv */}
-                                </Typography>
+                                <Alert severity="error" sx={{ textAlign: 'center', margin: '0 auto' }}>
+                                    <Typography sx={{ textAlign: 'center' }}>
+
+                                        <span style={{ color: 'darkred', padding: '1px', fontWeight: 750 }}>
+                                            [Basic Information , Education Information]
+                                        </span>
+                                        {" "}is Required Section, if you leave any other section empty it will not appear
+                                    </Typography>
+                                </Alert>
+
                             </Grid>
                         </Grid>
                     </Container>

@@ -20,7 +20,7 @@ const textFiledSchema = object({
     start: string().nonempty('Please add the start '),
     end: string().nonempty('Please add the end '),
     title: string().nonempty('Please add your title'),
-    description: string(),
+    // description: string(),
 });
 
 
@@ -125,13 +125,14 @@ const TextFeildSection: React.FC = (): JSX.Element => {
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={singleExp.name === ""}
-                                            helperText={errors['companyName'] ? errors['companyName'].message : ''}
+                                            error={!!errors['name']}
+                                            helperText={errors['name'] ? errors['name'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.name}
 
                                         />
                                         <TextField
+                                            {...register('start')}
                                             autoComplete="off"
                                             autoCorrect="off"
                                             autoCapitalize="off"
@@ -141,9 +142,8 @@ const TextFeildSection: React.FC = (): JSX.Element => {
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={singleExp.start === ""}
+                                            error={!!errors['start']}
                                             helperText={errors['start'] ? errors['start'].message : ''}
-                                            {...register('start')}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.start}
                                         />
@@ -152,6 +152,7 @@ const TextFeildSection: React.FC = (): JSX.Element => {
                                 <Grid item xs={12} md={6}>
                                     <Typography component={'div'}>
                                         <TextField
+                                            {...register('title')}
                                             autoComplete="off"
                                             autoCorrect="off"
                                             autoCapitalize="off"
@@ -161,14 +162,14 @@ const TextFeildSection: React.FC = (): JSX.Element => {
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={singleExp.title === ""}
+                                            error={!!errors['title']}
                                             helperText={errors['title'] ? errors['title'].message : ''}
-                                            {...register('title')}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.title}
 
                                         />
                                         <TextField
+                                            {...register('end')}
                                             type='text'
                                             autoComplete="off"
                                             autoCorrect="off"
@@ -178,9 +179,8 @@ const TextFeildSection: React.FC = (): JSX.Element => {
                                             sx={{ mt: 2, padding: '2px' }}
                                             variant="filled"
                                             fullWidth
-                                            error={singleExp.end === ""}
+                                            error={!!errors['end']}
                                             helperText={errors['end'] ? errors['end'].message : ''}
-                                            {...register('end')}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.end}
 

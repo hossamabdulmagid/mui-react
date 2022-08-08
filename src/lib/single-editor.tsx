@@ -7,7 +7,7 @@ import EditorToolbar, { formats } from "./edit-toolbar";
 
 
 
-const SingleRichEditor = ({ onChange, value, index }: any) => {
+const SingleRichEditor = ({ onChange, value }: any) => {
 
 
     const modules = {

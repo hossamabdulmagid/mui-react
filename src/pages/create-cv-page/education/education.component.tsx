@@ -11,8 +11,7 @@ const educationInformationSchema = object({
     start: string().nonempty('Please add the start of education year'),
     end: string().nonempty('Please add the end of education year'),
     educationMajoring: string().nonempty('Please confirm your password'),
-    note: string(),
-    html: string(),
+
 });
 
 
@@ -73,7 +72,7 @@ const EducationInformation: React.FC = (): JSX.Element => {
         console.log(values);
     };
 
-    // console.log(errors);
+    console.log(errors);
     return (
         <Box
             sx={{
@@ -164,9 +163,13 @@ const EducationInformation: React.FC = (): JSX.Element => {
                             <Typography component={'div'} sx={{ fontWeight: 700, padding: '10px', marginTop: '5px', marginbottom: '5px', textAlign: 'left' }}>
                                 Other Information
                             </Typography>
-                            <SingleRichEditor onChange={HandleRichTextState} value={educationInformation.note} />
+                            <SingleRichEditor
+                                onChange={HandleRichTextState}
+                                value={educationInformation.note}
+                            />
                         </Typography>
                         <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+
                             <Button
                                 variant="contained"
                                 color='info'
@@ -175,7 +178,9 @@ const EducationInformation: React.FC = (): JSX.Element => {
                                 Save
                             </Button>
                         </Box>
+
                     </Grid>
+
                 </Grid>
             </>
         </Box>

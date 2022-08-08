@@ -130,7 +130,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             error={!!errors['companyName']}
                                             helperText={errors['companyName'] ? errors['companyName'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
-                                        // value={singleExp.companyName}
+                                            value={singleExp.companyName}
 
                                         />
                                         <TextField
@@ -147,7 +147,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             error={!!errors['startWork']}
                                             helperText={errors['startWork'] ? errors['startWork'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
-                                        // value={singleExp.startWork}
+                                            value={singleExp.startWork}
                                         />
                                     </Typography>
                                 </Grid>
@@ -167,7 +167,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             error={!!errors['position']}
                                             helperText={errors['position'] ? errors['position'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
-                                        // value={singleExp.position}
+                                            value={singleExp.position}
 
                                         />
                                         <TextField
@@ -184,7 +184,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                             error={!!errors['endWork']}
                                             helperText={errors['endWork'] ? errors['endWork'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
-                                        // value={singleExp.endWork}
+                                            value={singleExp.endWork}
 
                                         />
                                     </Typography>

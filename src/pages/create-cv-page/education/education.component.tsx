@@ -1,6 +1,6 @@
 import { Box, TextField, Container, Grid, Typography, Stack, Button } from "@mui/material";
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { literal, object, string, TypeOf } from 'zod';
+import { unknown, any, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChangeEvent, useEffect, useState } from "react";
 import SingleRichEditor from "../../../lib/single-editor";
@@ -10,7 +10,7 @@ const educationInformationSchema = object({
     start: string().nonempty('Please add the start of education year'),
     end: string().nonempty('Please add the end of education year'),
     educationMajoring: string().nonempty('Please confirm your password'),
-
+    note: unknown(),
 });
 
 type EducationInfo = TypeOf<typeof educationInformationSchema>;
@@ -53,7 +53,9 @@ const EducationInformation: React.FC = (): JSX.Element => {
             .replace(`&nbsp;`, " ")
             .trim();
         setEducationInformation({ ...educationInformation, note: `${dataOnEdtior}`, html: dataWithHtmlTags });
-        console.log(educationInformation, `qualifications`)
+        // values.note = educationInformation.note;
+
+        console.log(educationInformation, `educationInformation`)
     };
 
 
@@ -63,11 +65,13 @@ const EducationInformation: React.FC = (): JSX.Element => {
         console.log(educationInformation, `educationInformation while typing`);
     }
 
-    const onSubmitHandler: SubmitHandler<EducationInfo> = (values) => {
-        console.log(values);
+    const onSubmitHandler: SubmitHandler<EducationInfo> = async (values) => {
+        values.note = await educationInformation.note;
+        console.log(values, `educationInformationeducationInformationeducationInformation`);
+
     };
 
-    console.log(errors);
+    // console.log(errors);
     return (
         <Box
             sx={{

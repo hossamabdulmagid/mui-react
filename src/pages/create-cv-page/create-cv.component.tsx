@@ -1,5 +1,5 @@
 import { ChangeEvent, SyntheticEvent, Fragment, useEffect, useState } from 'react';
-import { Box, Stack, Grid, Typography, Container, Button, Modal, TextField, Alert, FormControlLabel, RadioGroup, Radio, FormLabel } from '@mui/material';
+import { Box, Stack, Grid, Typography, Container, Button, Modal, TextField, Alert, FormControlLabel, RadioGroup, Radio, Snackbar } from '@mui/material';
 import Header from '../../component/header/header.component';
 import { Link } from 'react-router-dom';
 
@@ -15,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import InputCheckBox from '../../lib/checkbox.component';
 import EditorSection from '../../lib/EditorSection';
 import TextFeildSection from '../../lib/TextFeildSection.component';
+import CustomizedSnackbars from '../../lib/toast.component';
 const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -210,6 +211,20 @@ const CreateCv: React.FC = (): JSX.Element => {
         console.log(ckeditorState, `value`);
     }
 
+    const [openToast, setOpenToast] = useState<boolean>(false);
+
+    const handleClick = () => {
+        setOpenToast(true);
+    };
+
+    const handleCloseToast = (event?: SyntheticEvent | Event, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+
+        }
+
+        setOpenToast(false);
+    };
 
     const handleManualForm = (e: SyntheticEvent) => {
         e.preventDefault();
@@ -246,15 +261,17 @@ const CreateCv: React.FC = (): JSX.Element => {
             lastModified: new Date().toString(),
             identiferId: "",
         });
+
         setActiveSection(formState.type);
 
         handleClose();
         console.log(array, `array`);
-
+        handleClick();
         console.log(sidebarRoutes, `sidebar Routes`);
         setCkeditorState({ ...ckeditorState, content: "" });
         reset();
         setAcceptInc(false);
+        // handleCloseToast();
     }
 
     return (
@@ -381,6 +398,10 @@ const CreateCv: React.FC = (): JSX.Element => {
                     </form>
                 </Box>
             </Modal>
+            <CustomizedSnackbars
+                openToast={openToast}
+                onClose={handleCloseToast}
+                value={formState.concept} />
         </Fragment >
 
 

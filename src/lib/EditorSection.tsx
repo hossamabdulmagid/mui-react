@@ -118,6 +118,7 @@ const EditorSection = () => {
                 onSubmit={handleSubmit(onSubmitHandler)}>
 
                 <TextField
+                    {...register('sectionName')}
                     type='text'
                     label='Section Name'
                     sx={{ mt: 2, padding: '2px' }}
@@ -126,7 +127,6 @@ const EditorSection = () => {
                     fullWidth
                     error={!!errors['sectionName']}
                     helperText={errors['sectionName'] ? errors['sectionName'].message : ''}
-                    {...register('sectionName')}
                     required
                     onChange={(event) => handleChange(event)}
                     value={editorSection && editorSection.sectionName}
@@ -148,7 +148,7 @@ const EditorSection = () => {
                                 variant="contained"
                                 color='info'
                                 type='submit'
-                                disabled={flag}
+                            // disabled={flag}
                             >
                                 Save
                             </Button>
@@ -167,7 +167,6 @@ const EditorSection = () => {
                             </Button>
                         </Box>
                     </Box>
-
                 }
             </Box>
 

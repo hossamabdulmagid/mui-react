@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ChangeEvent, useEffect, useState, useRef, Fragment } from "react";
 import generateRandom from "../../../lib/generate-random";
 import RichEditor from '../../../lib/editor';
+import InputForm from "../../../lib/TextFeild.component";
 
 type ExperienceEmployee = {
     companyName: string;
@@ -48,6 +49,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
     }, [isSubmitSuccessful]);
 
     const onSubmitHandler: SubmitHandler<ExperienceInfo> = (values) => {
+
         console.log(values);
     };
 
@@ -74,8 +76,9 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
         const { name, value } = e.target;
         const list = [...expList];
         console.log(list[index]);
-        list[index as number][name as string] = value;
+        list[index as number][name as string] = await value;
         setExpList([...list]);
+        console.log(expList, `listwhile attacking`);
     }
 
     const HandleRichTextState = (index: number, value: string) => {
@@ -116,34 +119,19 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                             <Grid container spacing={2} sx={{ textAlign: '' }} >
                                 <Grid item xs={12} md={6}>
                                     <Typography component={'div'}>
-                                        <TextField
+                                        <InputForm
                                             type='text'
-                                            {...register('companyName')}
-                                            autoComplete="off"
-                                            autoCorrect="off"
-                                            autoCapitalize="off"
-                                            spellCheck="false"
+                                            register={register('companyName')}
                                             label='Company Name'
-                                            sx={{ mt: 2, padding: '2px' }}
-                                            variant="filled"
-                                            fullWidth
                                             error={!!errors['companyName']}
                                             helperText={errors['companyName'] ? errors['companyName'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.companyName}
-
                                         />
-                                        <TextField
+                                        <InputForm
                                             type='text'
-                                            {...register('startWork')}
-                                            autoComplete="off"
-                                            autoCorrect="off"
-                                            autoCapitalize="off"
-                                            spellCheck="false"
+                                            register={register('startWork')}
                                             label='Start Work'
-                                            sx={{ mt: 2, padding: '2px' }}
-                                            variant="filled"
-                                            fullWidth
                                             error={!!errors['startWork']}
                                             helperText={errors['startWork'] ? errors['startWork'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
@@ -153,39 +141,23 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                 </Grid>
                                 <Grid item xs={12} md={6}>
                                     <Typography component={'div'}>
-                                        <TextField
+                                        <InputForm
                                             type='text'
-                                            {...register('position')}
-                                            autoComplete="off"
-                                            autoCorrect="off"
-                                            autoCapitalize="off"
-                                            spellCheck="false"
-                                            label='Position '
-                                            sx={{ mt: 2, padding: '2px' }}
-                                            variant="filled"
-                                            fullWidth
+                                            register={register('position')}
+                                            label='Positon'
                                             error={!!errors['position']}
                                             helperText={errors['position'] ? errors['position'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.position}
-
                                         />
-                                        <TextField
+                                        <InputForm
                                             type='text'
-                                            {...register('endWork')}
-                                            autoComplete="off"
-                                            autoCorrect="off"
-                                            autoCapitalize="off"
-                                            spellCheck="false"
-                                            label='End Work'
-                                            sx={{ mt: 2, padding: '2px' }}
-                                            variant="filled"
-                                            fullWidth
+                                            register={register('endWork')}
+                                            label='endWork'
                                             error={!!errors['endWork']}
                                             helperText={errors['endWork'] ? errors['endWork'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.endWork}
-
                                         />
                                     </Typography>
 

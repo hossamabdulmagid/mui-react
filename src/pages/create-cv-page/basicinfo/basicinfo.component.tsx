@@ -2,13 +2,15 @@ import { Box, TextField, Container, Grid, Typography, Stack, Button } from "@mui
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { literal, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useEffect } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from 'redux';
 import { RootState } from '../../../redux/root-reducer';
 import { actionCreators } from '../../../redux/index';
+import InputForm from "../../../lib/TextFeild.component";
 
 import { DoLogin } from '../../../redux/user/user-action';
+
 const basicInformationSchema = object({
     fullName: string()
         .nonempty('Full Name is required'),
@@ -24,6 +26,16 @@ const basicInformationSchema = object({
 });
 
 type BasicInfo = TypeOf<typeof basicInformationSchema>;
+
+type basicInformationSection = {
+    fullName: string;
+    email: string;
+    phone: string;
+    addressLine1: string;
+    addressLine2: string;
+    addressLine3: string;
+    website: string;
+};
 
 const BasicInformation: React.FC = (): JSX.Element => {
     const {
@@ -61,6 +73,23 @@ const BasicInformation: React.FC = (): JSX.Element => {
         console.log(state, `state from basic informations`);
     }, []);
 
+
+
+    const [basicInformation, setBasicInformation] = useState<basicInformationSection>({
+        fullName: '',
+        email: '',
+        phone: '',
+        addressLine1: '',
+        addressLine2: '',
+        addressLine3: '',
+        website: ''
+    });
+
+    const HandleChangeBasicInformation = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setBasicInformation({ ...basicInformation, [name]: value })
+        console.log(basicInformation, `basicInformation while typing`);
+    }
     return (
         <Box
             sx={{
@@ -82,93 +111,79 @@ const BasicInformation: React.FC = (): JSX.Element => {
                 <Grid container spacing={2} sx={{ textAlign: 'center' }}>
                     <Grid item xs={12} md={6}>
                         <Typography component={'div'}>
-                            <TextField
+                            <InputForm
                                 type='text'
+                                register={register('fullName')}
                                 label='Full Name'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                id="outlined-size-small"
-                                fullWidth
                                 error={!!errors['fullName']}
                                 helperText={errors['fullName'] ? errors['fullName'].message : ''}
-                                {...register('fullName')}
-                                required
+                                onChange={HandleChangeBasicInformation}
+                                value={basicInformation.fullName}
                             />
-                            <TextField
+
+                            <InputForm
                                 type='text'
+                                register={register('phone')}
                                 label='Phone numbers'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                id="outlined-size-small"
-                                fullWidth
                                 error={!!errors['phone']}
                                 helperText={errors['phone'] ? errors['phone'].message : ''}
-                                {...register('phone')}
-                                required
+                                onChange={HandleChangeBasicInformation}
+                                value={basicInformation.phone}
                             />
-                            <TextField
+
+                            <InputForm
                                 type='text'
+                                register={register('addressLine1')}
                                 label='Address Line 1'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                id="outlined-size-small"
-                                fullWidth
                                 error={!!errors['addressLine1']}
                                 helperText={errors['addressLine1'] ? errors['addressLine1'].message : ''}
-                                {...register('addressLine1')}
-                                required
+                                onChange={HandleChangeBasicInformation}
+                                value={basicInformation.addressLine1}
                             />
-                            <TextField
+
+                            <InputForm
                                 type='text'
-                                label='Address Line3'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                id="outlined-size-small"
-                                fullWidth
+                                register={register('addressLine3')}
+                                label='Address Line 3'
                                 error={!!errors['addressLine3']}
                                 helperText={errors['addressLine3'] ? errors['addressLine3'].message : ''}
-                                {...register('addressLine3')}
-                                required
+                                onChange={HandleChangeBasicInformation}
+                                value={basicInformation.addressLine3}
                             />
+
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Typography component={'div'}>
-                            <TextField
-                                type='email'
+                            <InputForm
+                                type='text'
+                                register={register('email')}
                                 label='E-mail address'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                fullWidth
                                 error={!!errors['email']}
                                 helperText={errors['email'] ? errors['email'].message : ''}
-                                {...register('email')}
-                                required
-                                id="outlined-size-small"
-                            />
-                            <TextField
-                                type='text'
-                                label='Web site'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                fullWidth
-                                error={!!errors['website']}
-                                helperText={errors['website'] ? errors['website'].message : ''}
-                                {...register('website')}
-                                id="outlined-size-small"
-                            />
-                            <TextField
-                                type='text'
-                                label='Address Line 2'
-                                sx={{ mt: 2, padding: '2px' }}
-                                id="outlined-size-small"
-                                variant="filled"
-                                fullWidth
-                                error={!!errors['addressLine2']}
-                                helperText={errors['addressLine2'] ? errors['addressLine2'].message : ''}
-                                {...register('addressLine2')}
+                                onChange={HandleChangeBasicInformation}
+                                value={basicInformation.email}
                             />
 
+                            <InputForm
+                                type='text'
+                                register={register('website')}
+                                label='website'
+                                error={!!errors['website']}
+                                helperText={errors['website'] ? errors['website'].message : ''}
+                                onChange={HandleChangeBasicInformation}
+                                value={basicInformation.website}
+                            />
+
+                            <InputForm
+                                type='text'
+                                register={register('addressLine2')}
+                                label='Address Line 3'
+                                error={!!errors['addressLine2']}
+                                helperText={errors['addressLine2'] ? errors['addressLine2'].message : ''}
+                                onChange={HandleChangeBasicInformation}
+                                value={basicInformation.addressLine2}
+                            />
                         </Typography>
                         <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
                             <Button

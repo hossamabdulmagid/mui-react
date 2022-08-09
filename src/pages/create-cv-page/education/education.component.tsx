@@ -16,6 +16,14 @@ const educationInformationSchema = object({
 
 type EducationInfo = TypeOf<typeof educationInformationSchema>;
 
+type educationInformationSection = {
+    collageName: string;
+    start: string;
+    end: string;
+    educationMajoring: string;
+    note: string;
+    html: string;
+};
 const EducationInformation: React.FC = (): JSX.Element => {
     const {
         register,
@@ -28,7 +36,7 @@ const EducationInformation: React.FC = (): JSX.Element => {
 
 
 
-    const [educationInformation, setEducationInformation] = useState<{ collageName: string, start: string, end: string, educationMajoring: string, note: string, html: string }>({ collageName: '', start: '', end: '', educationMajoring: '', note: '', html: '' });
+    const [educationInformation, setEducationInformation] = useState<educationInformationSection>({ collageName: '', start: '', end: '', educationMajoring: '', note: '', html: '' });
 
     const [flag, setFlag] = useState<boolean>(false);
 

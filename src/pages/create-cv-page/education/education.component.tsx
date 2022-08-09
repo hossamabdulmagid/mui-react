@@ -91,7 +91,7 @@ const EducationInformation: React.FC = (): JSX.Element => {
                 <Typography sx={{ fontWeight: 'bold', padding: '2px' }}>
                     Education Information
                 </Typography>
-                <Grid container spacing={2} sx={{ textAlign: 'center' }}>
+                <Grid container spacing={2} sx={{ textAlign: '' }}>
                     <Grid item xs={12} md={6}>
                         <Typography component={'div'}>
                             <TextField

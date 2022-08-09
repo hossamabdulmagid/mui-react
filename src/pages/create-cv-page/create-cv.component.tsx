@@ -90,6 +90,17 @@ const CreateCv: React.FC = (): JSX.Element => {
             },
         },
         {
+            section: "Education Information",
+            type: "education",
+            lastModified: new Date().toString(),
+            data: {
+                concept: "",
+                content_new: "",
+                type: "",
+                identiferId: '',
+            },
+        },
+        {
             section: "Work Experience",
             type: "workexperience",
             lastModified: new Date().toString(),
@@ -103,17 +114,6 @@ const CreateCv: React.FC = (): JSX.Element => {
         {
             section: "Qualifications",
             type: "qualifications",
-            lastModified: new Date().toString(),
-            data: {
-                concept: "",
-                content_new: "",
-                type: "",
-                identiferId: '',
-            },
-        },
-        {
-            section: "Education Information",
-            type: "education",
             lastModified: new Date().toString(),
             data: {
                 concept: "",
@@ -372,9 +372,9 @@ const CreateCv: React.FC = (): JSX.Element => {
                             </Grid>
                             <Grid item xs={12} md={9} sx={{ padding: '10px', margin: '0 auto' }}>
                                 {activeSection === sidebarRoutes[0].type ? <BasicInformation /> : null}
-                                {activeSection === sidebarRoutes[1].type ? (<ExperienceInformation />) : null}
-                                {activeSection === sidebarRoutes[2].type ? (<QualificationsInformation />) : null}
-                                {activeSection === sidebarRoutes[3].type ? <EducationInformation /> : null}
+                                {activeSection === sidebarRoutes[1].type ? (<EducationInformation />) : null}
+                                {activeSection === sidebarRoutes[2].type ? (<ExperienceInformation />) : null}
+                                {activeSection === sidebarRoutes[3].type ? <QualificationsInformation /> : null}
                                 {activeSection === sidebarRoutes[4].type ? <InterestsInformation /> : null}
                                 {activeSection === sidebarRoutes[5].type ? <ReferencesInformation /> : null}
                                 {activeSection === 'editor' ? <EditorSection /> : null}

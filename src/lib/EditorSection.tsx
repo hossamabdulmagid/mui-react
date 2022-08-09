@@ -108,7 +108,7 @@ const EditorSection = () => {
         <div className="form-group col-md-12 editor">
             {!flag ? (
                 <Typography style={{ padding: "5px", color: 'darkred' }} >
-                    Please enter content in order to save this note.
+                    Please enter content in order to save this section,or it will not appear
                 </Typography>
             ) : null}
             <Box

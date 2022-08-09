@@ -4,6 +4,7 @@ import { unknown, any, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChangeEvent, useEffect, useState } from "react";
 import SingleRichEditor from "../../../lib/single-editor";
+import InputForm from "../../../lib/TextFeild.component";
 
 const educationInformationSchema = object({
     collageName: string().nonempty('Collage Name is required'),
@@ -94,61 +95,49 @@ const EducationInformation: React.FC = (): JSX.Element => {
                 <Grid container spacing={2} sx={{ textAlign: '' }}>
                     <Grid item xs={12} md={6}>
                         <Typography component={'div'}>
-                            <TextField
+                            <InputForm
                                 type='text'
+                                register={register('collageName')}
                                 label='Collage Name'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                id="outlined-size-small"
-                                fullWidth
                                 error={!!errors['collageName']}
                                 helperText={errors['collageName'] ? errors['collageName'].message : ''}
-                                {...register('collageName')}
-                                required
                                 onChange={HandleChangeEducationInformation}
+                                value={educationInformation.collageName}
                             />
-                            <TextField
+
+                            <InputForm
                                 type='text'
+                                register={register('start')}
                                 label='Start Education'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                id="outlined-size-small"
-                                fullWidth
                                 error={!!errors['start']}
                                 helperText={errors['start'] ? errors['start'].message : ''}
-                                {...register('start')}
-                                required
                                 onChange={HandleChangeEducationInformation}
+                                value={educationInformation.start}
                             />
 
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Typography component={'div'}>
-                            <TextField
-                                type='email'
+
+
+                            <InputForm
+                                type='text'
+                                register={register('educationMajoring')}
                                 label='Education Majoring'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                fullWidth
                                 error={!!errors['educationMajoring']}
                                 helperText={errors['educationMajoring'] ? errors['educationMajoring'].message : ''}
-                                {...register('educationMajoring')}
-                                required
-                                id="outlined-size-small"
                                 onChange={HandleChangeEducationInformation}
+                                value={educationInformation.educationMajoring}
                             />
-                            <TextField
+                            <InputForm
                                 type='text'
+                                register={register('end')}
                                 label='End Education'
-                                sx={{ mt: 2, padding: '2px' }}
-                                variant="filled"
-                                fullWidth
                                 error={!!errors['end']}
                                 helperText={errors['end'] ? errors['end'].message : ''}
-                                {...register('end')}
-                                id="outlined-size-small"
                                 onChange={HandleChangeEducationInformation}
+                                value={educationInformation.end}
                             />
                         </Typography>
                     </Grid>

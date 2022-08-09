@@ -26,7 +26,7 @@ const InputForm = ({ type, onChange, label, error, helperText, value, register }
                 {...register}
                 onChange={(e) => onChange(e)}
                 label={label}
-                id={`outlined-size-small-${htmlId}`}
+                id={htmlId}
                 error={error}
                 helperText={helperText}
                 value={value}

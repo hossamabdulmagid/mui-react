@@ -51,6 +51,8 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
     const onSubmitHandler: SubmitHandler<ExperienceInfo> = (values) => {
 
         console.log(values);
+
+        console.log(expList,`expList froom @@@ ON SUBMIT`)
     };
 
 
@@ -76,7 +78,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
         const { name, value } = e.target;
         const list = [...expList];
         console.log(list[index]);
-        list[index as number][name as string] = await value;
+        list[index as number][name as string] = value;
         setExpList([...list]);
         console.log(expList, `listwhile attacking`);
     }
@@ -153,7 +155,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                         <InputForm
                                             type='text'
                                             register={register('endWork')}
-                                            label='end Work'
+                                            label='endWork'
                                             error={!!errors['endWork']}
                                             helperText={errors['endWork'] ? errors['endWork'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}

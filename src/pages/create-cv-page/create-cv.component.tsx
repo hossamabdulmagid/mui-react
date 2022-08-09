@@ -79,7 +79,7 @@ const CreateCv: React.FC = (): JSX.Element => {
 
     const [sidebarRoutes, setSidebarRouter] = useState<DefaultSidebarSections>([
         {
-            section: "Basicinfo",
+            section: "Basic Information",
             type: "basicinfo",
             lastModified: new Date().toString(),
             data: {
@@ -90,7 +90,7 @@ const CreateCv: React.FC = (): JSX.Element => {
             },
         },
         {
-            section: "Workexperience",
+            section: "Work Experience",
             type: "workexperience",
             lastModified: new Date().toString(),
             data: {
@@ -112,7 +112,7 @@ const CreateCv: React.FC = (): JSX.Element => {
             },
         },
         {
-            section: "Education",
+            section: "Education Information",
             type: "education",
             lastModified: new Date().toString(),
             data: {

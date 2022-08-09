@@ -1,25 +1,34 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import EditorToolbar, { formats } from "./edit-toolbar";
 import { TextField, Box, Button } from '@mui/material';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { literal, object, string, TypeOf } from 'zod';
+import { unknown, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { StringLiteral } from 'typescript';
 
 const newSectionSchema = object({
-    concept: string().nonempty("title Required"),
-    content: string().nonempty('required')
+    sectionName: string().nonempty("title Required"),
+    description: unknown(),
+    descriptionHtml: unknown(),
 });
+
+
 
 type EditorType = TypeOf<typeof newSectionSchema>;
 
-
-
-
+type EditorSectionType = {
+    sectionName: string;
+    description: string;
+    descriptionHtml: string;
+};
 
 
 const EditorSection = () => {
+
+    const [editorSection, setEditorSection] = useState<EditorSectionType>({ sectionName: '', description: "", descriptionHtml: '' })
+
     const {
         register,
         formState: { errors, isSubmitSuccessful },
@@ -33,16 +42,28 @@ const EditorSection = () => {
     useEffect(() => {
         if (isSubmitSuccessful) {
             // reset();
+            if (editorSection.descriptionHtml.length > 3) {
+                setFlag(false);
+
+            } else {
+                setFlag(true)
+            }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isSubmitSuccessful]);
-
-    const [editorSection, setEditorSection] = useState<{ concept: string, content: string }>({ concept: '', content: "" })
+    }, [isSubmitSuccessful, editorSection, editorSection.descriptionHtml, editorSection.descriptionHtml.length]);
 
 
 
-    const onSubmitHandler: SubmitHandler<EditorType> = (values) => {
-        console.log(values);
+    const [flag, setFlag] = useState<boolean>(false);
+
+    const onSubmitHandler: SubmitHandler<EditorType> = async (values) => {
+        values.descriptionHtml = await editorSection.description;
+        values.description = await editorSection.description.replace(/(<([^>]+)>)/gi, "")
+            .replace(`&nbsp;`, " ")
+            .trim();
+        console.log(values, `from OnSubmit xD`);
+
+
     };
 
     const HandleRichTextState = (value: any) => {
@@ -51,9 +72,18 @@ const EditorSection = () => {
             .replace(/(<([^>]+)>)/gi, "")
             .replace(`&nbsp;`, " ")
             .trim();
-        // setInterests({ note: `${dataOnEdtior}`, html: dataWithHtmlTags });
-        // console.log(interests, `interset`);
+        setEditorSection({ ...editorSection, description: `${dataOnEdtior}`, descriptionHtml: `${dataWithHtmlTags}` });
+        console.log(editorSection, `editorSection`);
     };
+
+
+
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = event.target;
+        setEditorSection({ ...editorSection, [name]: value });
+        console.log(editorSection, `editor section`);
+    }
 
 
     const modules = {
@@ -77,7 +107,11 @@ const EditorSection = () => {
 
     return (
         <div className="form-group col-md-12 editor">
-            <Box>
+            <Box
+                component='form'
+                noValidate
+                autoComplete='off'
+                onSubmit={handleSubmit(onSubmitHandler)}>
                 <TextField
                     type='text'
                     label='Section Name'
@@ -85,31 +119,48 @@ const EditorSection = () => {
                     variant="filled"
                     id="outlined-size-small"
                     fullWidth
-                    error={!!errors['concept']}
-                    helperText={errors['concept'] ? errors['concept'].message : ''}
-                    {...register('concept')}
-                     />
+                    error={!!errors['sectionName']}
+                    helperText={errors['sectionName'] ? errors['sectionName'].message : ''}
+                    {...register('sectionName')}
+                    required
+                    onChange={(event) => handleChange(event)}
+                    value={editorSection && editorSection.sectionName}
+                />
+                <EditorToolbar Inter={'t1'} />
+                <ReactQuill
+                    theme="snow"
+                    defaultValue={editorSection && editorSection.descriptionHtml}
+                    placeholder={"Write something awesome..."}
+                    modules={modules}
+                    formats={formats}
+                    style={{ height: '200px', display: 'block', marginBottom: '40px' }}
+                    onChange={HandleRichTextState}
+                />
+                {editorSection && editorSection.description && editorSection.description.length <= 0 ? < Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+                    <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+                        <Button
+                            variant="contained"
+                            color='info'
+                            type='submit'
+                            disabled={flag}
+                        >
+                            Save
+                        </Button>
+                    </Box>
+                </Box> :
+                    <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+                        <Button
+                            variant="contained"
+                            color='info'
+                            type='submit'
+                            disabled={flag}
+                        >
+                            Save
+                        </Button>
+                    </Box>}
             </Box>
-            <EditorToolbar Inter={'t1'} />
-            <ReactQuill
-                theme="snow"
-                defaultValue={''}
-                placeholder={"Write something awesome..."}
-                modules={modules}
-                formats={formats}
-                style={{ height: '200px', display: 'block', marginBottom: '40px' }}
-                onChange={HandleRichTextState}
-            />
-            <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
-                <Button
-                    variant="contained"
-                    color='info'
-                    type='submit'
-                >
-                    Save
-                </Button>
-            </Box>
-        </div>
+
+        </div >
     );
 }
 

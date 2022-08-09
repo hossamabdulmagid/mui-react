@@ -153,7 +153,7 @@ const ExperienceInformation: React.FC = (): JSX.Element => {
                                         <InputForm
                                             type='text'
                                             register={register('endWork')}
-                                            label='endWork'
+                                            label='end Work'
                                             error={!!errors['endWork']}
                                             helperText={errors['endWork'] ? errors['endWork'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}

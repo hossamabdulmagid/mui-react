@@ -29,7 +29,7 @@ const EducationInformation: React.FC = (): JSX.Element => {
 
     const [educationInformation, setEducationInformation] = useState<{ collageName: string, start: string, end: string, educationMajoring: string, note: string, html: string }>({ collageName: '', start: '', end: '', educationMajoring: '', note: '', html: '' });
 
-    const [flag, setFlag] = useState(false);
+    const [flag, setFlag] = useState<boolean>(false);
 
     useEffect(() => {
         if (isSubmitSuccessful) {
@@ -67,11 +67,12 @@ const EducationInformation: React.FC = (): JSX.Element => {
 
     const onSubmitHandler: SubmitHandler<EducationInfo> = async (values) => {
         values.note = await educationInformation.note;
-        console.log(values, `educationInformationeducationInformationeducationInformation`);
+        console.log(values, `values`);
 
     };
 
     // console.log(errors);
+
     return (
         <Box
             sx={{
@@ -139,7 +140,7 @@ const EducationInformation: React.FC = (): JSX.Element => {
                             />
                             <TextField
                                 type='text'
-                                label='End Collage'
+                                label='End Education'
                                 sx={{ mt: 2, padding: '2px' }}
                                 variant="filled"
                                 fullWidth

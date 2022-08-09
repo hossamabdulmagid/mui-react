@@ -2,7 +2,7 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import EditorToolbar, { formats } from "./edit-toolbar";
-import { TextField, Box, Button } from '@mui/material';
+import { TextField, Box, Button, Typography } from '@mui/material';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { unknown, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -44,7 +44,6 @@ const EditorSection = () => {
             // reset();
             if (editorSection.descriptionHtml.length > 3) {
                 setFlag(false);
-
             } else {
                 setFlag(true)
             }
@@ -107,11 +106,17 @@ const EditorSection = () => {
 
     return (
         <div className="form-group col-md-12 editor">
+            {!flag ? (
+                <Typography style={{ padding: "5px", color: 'darkred' }} >
+                    Please enter content in order to save this note.
+                </Typography>
+            ) : null}
             <Box
                 component='form'
                 noValidate
                 autoComplete='off'
                 onSubmit={handleSubmit(onSubmitHandler)}>
+
                 <TextField
                     type='text'
                     label='Section Name'
@@ -136,28 +141,34 @@ const EditorSection = () => {
                     style={{ height: '200px', display: 'block', marginBottom: '40px' }}
                     onChange={HandleRichTextState}
                 />
-                {editorSection && editorSection.description && editorSection.description.length <= 0 ? < Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+                {(editorSection && editorSection.description && editorSection.description.length > 3) ?
                     <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
-                        <Button
-                            variant="contained"
-                            color='info'
-                            type='submit'
-                            disabled={flag}
-                        >
-                            Save
-                        </Button>
+                        <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+                            <Button
+                                variant="contained"
+                                color='info'
+                                type='submit'
+                                disabled={flag}
+                            >
+                                Save
+                            </Button>
+                        </Box>
+                    </Box> :
+                    <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+                        <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+
+                            <Button
+                                variant="contained"
+                                color='info'
+                                type='submit'
+                                disabled={true}
+                            >
+                                Save
+                            </Button>
+                        </Box>
                     </Box>
-                </Box> :
-                    <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
-                        <Button
-                            variant="contained"
-                            color='info'
-                            type='submit'
-                            disabled={flag}
-                        >
-                            Save
-                        </Button>
-                    </Box>}
+
+                }
             </Box>
 
         </div >

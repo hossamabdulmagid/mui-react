@@ -98,13 +98,25 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
                     </label>
                 </Tooltip>
                 <FormLabel id="">
-                    {selectedFile ?
-                        <Typography component={'span'} color='success.main'>
-                            {(selectedFile.name.length > length)
-                                ? (selectedFile.name.substring(0, length - 10))
-                                : (selectedFile.name)}
-                        </Typography> :
-                        <Typography component={'span'} color='error' sx={{ fontSize: "11px", marginTop: '8px', padding: '', fontWeight: 800 }}>uploadImage. . .</Typography>}
+                    {
+                        selectedFile ?
+                            (<Typography component={'span'} color='success.main'>
+                                {(selectedFile.name.length > length)
+                                    ? (selectedFile.name.substring(0, length - 10))
+                                    : (selectedFile.name)}
+                            </Typography>) :
+                            (<Typography
+                                component={'span'}
+                                color='error'
+                                sx={{
+                                    fontSize: "11px",
+                                    marginTop: '8px',
+                                    padding: '',
+                                    fontWeight: 600
+                                }}>
+                                uploadImage. . .
+                            </Typography>)
+                    }
                 </FormLabel>
             </Grid>
             <Grid item xs={4} md={4}>
@@ -114,9 +126,9 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
                         color='error'
                         sx={{
                             fontSize: "11px",
-                            marginTop: '8px',
+                            marginTop: '9px',
                             padding: '10px',
-                            fontWeight: 800,
+                            fontWeight: 600,
                             backgroundColor: 'rgba(0, 0, 0, 0.06);',
                             borderRadius: '10px'
                         }}>

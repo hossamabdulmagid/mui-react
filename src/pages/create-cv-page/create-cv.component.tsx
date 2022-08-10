@@ -285,7 +285,6 @@ const CreateCv: React.FC = (): JSX.Element => {
                                         {" "}is Required Section, if you leave any other section empty it will not appear
                                     </Typography>
                                 </Alert>
-
                             </Grid>
                         </Grid>
                     </Container>

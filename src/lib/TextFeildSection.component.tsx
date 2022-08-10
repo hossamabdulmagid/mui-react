@@ -106,14 +106,13 @@ const TextFeildSection: React.FC = (): JSX.Element => {
             noValidate
             autoComplete='off'
             onSubmit={handleSubmit(onSubmitHandler)}>
-
             <>
                 {entryList && entryList.map((singleExp, index) => {
                     return (
                         <Fragment key={index}>
                             <Grid container spacing={2} sx={{ textAlign: '' }} >
                                 <Grid item xs={12} md={6}>
-                                    <Typography component={'div'}>
+                                    <Box>
                                         <TextField
                                             {...register('name')}
                                             autoComplete="off"
@@ -147,10 +146,10 @@ const TextFeildSection: React.FC = (): JSX.Element => {
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.start}
                                         />
-                                    </Typography>
+                                    </Box>
                                 </Grid>
                                 <Grid item xs={12} md={6}>
-                                    <Typography component={'div'}>
+                                    <Box>
                                         <TextField
                                             {...register('title')}
                                             autoComplete="off"
@@ -183,9 +182,8 @@ const TextFeildSection: React.FC = (): JSX.Element => {
                                             helperText={errors['end'] ? errors['end'].message : ''}
                                             onChange={(e) => handleWorkChange(e, index)}
                                             value={singleExp.end}
-
                                         />
-                                    </Typography>
+                                    </Box>
 
                                     {entryList.length > 1 && (
                                         <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>

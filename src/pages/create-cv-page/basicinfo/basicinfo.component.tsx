@@ -186,21 +186,25 @@ const BasicInformation: React.FC = (): JSX.Element => {
                                 value={basicInformation.addressLine2}
                             />
                         </Typography>
-                        <Box sx={{ p: 1 }}>
-                            <FileUpload />
-                        </Box>
-                        <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
 
-                            <Button
-                                variant="contained"
-                                color='info'
-                                type='submit'
-                            >
-                                Save
-                            </Button>
-                        </Box>
+
                     </Grid>
+                    <hr />
+
+                    <FileUpload />
+
                 </Grid>
+
+                <Box sx={{ mt: 4, mb: 1, p: 1, textAlign: 'right' }}>
+
+                    <Button
+                        variant="contained"
+                        color='info'
+                        type='submit'
+                    >
+                        Save
+                    </Button>
+                </Box>
             </>
         </Box>
     );

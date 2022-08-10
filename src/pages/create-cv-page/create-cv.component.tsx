@@ -221,53 +221,6 @@ const CreateCv: React.FC = (): JSX.Element => {
         setOpenToast(false);
     };
 
-    // const handleManualForm = (e: SyntheticEvent) => {
-    //     e.preventDefault();
-
-    //     if (acceptInc) {
-    //         formState.type = "text";
-
-    //     } else {
-    //         formState.type = "editor";
-    //     }
-
-    //     console.log(typeOfCv, `typeOf Cv`)
-    //     console.log(formState, `formState`)
-    //     console.log(ckeditorState, `ckeditorState`)
-    //     console.log(formState);
-    //     sidebarRoutes.push({
-    //         section: formState && formState.concept,
-    //         type: formState && formState.type,
-    //         lastModified: new Date().toString(),
-    //         data: {
-    //             concept: "",
-    //             content_new: "",
-    //             type: formState.type,
-    //             identiferId: '',
-    //         },
-    //     });
-    //     array.push({
-    //         concept: formState.concept,
-    //         name: formState.concept,
-    //         start: formState.concept,
-    //         end: formState.concept,
-    //         description: formState.concept,
-    //         type: formState.type,
-    //         lastModified: new Date().toString(),
-    //         identiferId: "",
-    //     });
-
-    //     setActiveSection(formState.type);
-
-    //     handleClose();
-    //     console.log(array, `array`);
-    //     handleClick();
-    //     console.log(sidebarRoutes, `sidebar Routes`);
-    //     setCkeditorState({ ...ckeditorState, content: "" });
-    //     reset();
-    //     setAcceptInc(false);
-    //     // handleCloseToast();
-    // }
     const onSubmitHandler: SubmitHandler<SectionInput> = (values) => {
         console.log(values);
         if (acceptInc) {

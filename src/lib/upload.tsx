@@ -3,10 +3,8 @@ import {
     Button,
     IconButton,
     Tooltip,
-
     Theme,
-    Box,
-    Grid,
+    Typography,
     FormLabel
 } from "@mui/material";
 import { makeStyles } from '@material-ui/core/styles';
@@ -44,12 +42,13 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
         if (!fileList) return;
 
         setSelectedFile(fileList[0]);
+        console.log(selectedFile, `selectedFile from onChange`)
         setDisButton(true);
     };
 
     // console.log(selectedFile, `selectedFile`);
     const handleSubmit = () => {
-
+        console.log(selectedFile, `selectedFile from OnSubmit`)
         alert(`${selectedFile && selectedFile.name}`);
 
     };
@@ -58,7 +57,6 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
 
     return (
         <>
-
             <input
                 accept="image/jpeg"
                 className={classes.input}
@@ -78,6 +76,7 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
                     </IconButton>
                 </label>
             </Tooltip>
+
             <FormLabel id="">
                 {selectedFile ?
                     <span style={{ color: 'green' }}>
@@ -85,7 +84,7 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
                             ? (selectedFile.name.substring(0, length - 3))
                             : (selectedFile.name)}
                     </span> :
-                    <span style={{ color: 'darkred' }}> Select Image. . .</span>}
+                    <Typography component={'span'} color='error'> Select Image. . .</Typography>}
             </FormLabel>
 
             <Button
@@ -97,12 +96,6 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
                 disabled={!disButton}>
                 Upload
             </Button>
-
-
-
-
-
-
         </>
     );
 };

@@ -79,11 +79,11 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
 
             <FormLabel id="">
                 {selectedFile ?
-                    <span style={{ color: 'green' }}>
+                    <Typography component={'span'} color='success.main'>
                         {(selectedFile.name.length > length)
                             ? (selectedFile.name.substring(0, length - 3))
                             : (selectedFile.name)}
-                    </span> :
+                    </Typography> :
                     <Typography component={'span'} color='error'> Select Image. . .</Typography>}
             </FormLabel>
 

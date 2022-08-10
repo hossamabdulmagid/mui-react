@@ -53,6 +53,8 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
         alert(`${selectedFile && selectedFile.name}`);
 
     };
+    let length = 21;
+
 
     return (
         <>
@@ -76,9 +78,16 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
                     </IconButton>
                 </label>
             </Tooltip>
-            <FormLabel id="">{selectedFile ?
-                <span style={{ color: 'green' }}> {selectedFile.name}</span> :
-                <span style={{ color: 'darkred' }}> Select Image. . .</span>}</FormLabel>
+            <FormLabel id="">
+                {selectedFile ?
+                    <span style={{ color: 'green' }}>
+                        {(selectedFile.name.length > length)
+                            ? (selectedFile.name.substring(0, length - 3))
+                            : (selectedFile.name)}
+                    </span> :
+                    <span style={{ color: 'darkred' }}> Select Image. . .</span>}
+            </FormLabel>
+
             <Button
                 onClick={() => handleSubmit()}
                 color="primary"

@@ -189,7 +189,6 @@ const BasicInformation: React.FC = (): JSX.Element => {
 
 
                     </Grid>
-                    <hr />
 
                     <FileUpload />
 

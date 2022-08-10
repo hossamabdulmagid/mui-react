@@ -311,7 +311,15 @@ const CreateCv: React.FC = (): JSX.Element => {
                                                     e.preventDefault();
                                                     setActiveSection(singleRoute && singleRoute.type);
                                                 }}>
-                                                <Stack sx={{ color: 'black', textDecoration: 'none', padding: '5px', fontSize: '13px' }}>
+                                                <Stack sx={{
+                                                    color: 'black',
+                                                    textDecoration: 'none',
+                                                    padding: '5px',
+                                                    fontSize: '13px',
+                                                    "&:hover": {
+                                                        backgroundColor: 'rgb(24, 199, 225)'
+                                                    }
+                                                }}>
                                                     {singleRoute.section}
                                                 </Stack>
                                             </li>

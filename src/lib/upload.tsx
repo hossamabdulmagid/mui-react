@@ -75,7 +75,8 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
     return (
         <>
             <Grid item xs={4} md={4} sx={{
-                textAlign: 'left'
+                textAlign: 'left',
+
             }}>
                 <input
                     accept="image/jpeg"
@@ -108,7 +109,17 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
             </Grid>
             <Grid item xs={4} md={4}>
                 {!selectedFile ?
-                    <Typography component={'div'} color='error' sx={{ fontSize: "11px", marginTop: '8px', padding: '10px', fontWeight: 800 }}>
+                    <Typography
+                        component={'div'}
+                        color='error'
+                        sx={{
+                            fontSize: "11px",
+                            marginTop: '8px',
+                            padding: '10px',
+                            fontWeight: 800,
+                            backgroundColor: 'rgba(0, 0, 0, 0.06);',
+                            borderRadius: '10px'
+                        }}>
                         Please confirm photo for your cv
                     </Typography> : null}
 

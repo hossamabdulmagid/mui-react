@@ -1,4 +1,4 @@
-import { Box, TextField, Container, Grid, Typography, Stack, Button } from "@mui/material";
+import { Box, TextField, Container, Grid, Typography, Stack, Button, FilledInput } from "@mui/material";
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { literal, object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -10,6 +10,7 @@ import { actionCreators } from '../../../redux/index';
 import InputForm from "../../../lib/TextFeild.component";
 
 import { DoLogin } from '../../../redux/user/user-action';
+import FileUpload from "../../../lib/upload";
 
 const basicInformationSchema = object({
     fullName: string()
@@ -185,7 +186,11 @@ const BasicInformation: React.FC = (): JSX.Element => {
                                 value={basicInformation.addressLine2}
                             />
                         </Typography>
+                        <Box sx={{ p: 1 }}>
+                            <FileUpload saveFace={() => { }} />
+                        </Box>
                         <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
+
                             <Button
                                 variant="contained"
                                 color='info'

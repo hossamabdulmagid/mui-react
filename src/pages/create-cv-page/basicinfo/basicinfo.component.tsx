@@ -187,7 +187,7 @@ const BasicInformation: React.FC = (): JSX.Element => {
                             />
                         </Typography>
                         <Box sx={{ p: 1 }}>
-                            <FileUpload saveFace={() => { }} />
+                            <FileUpload />
                         </Box>
                         <Box sx={{ mt: 1, mb: 1, p: 1, textAlign: 'right' }}>
 

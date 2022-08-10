@@ -134,8 +134,6 @@ const FileUpload: React.FC = ({ }): JSX.Element => {
                         }}>
                         Please confirm photo for your cv
                     </Typography> : null}
-
-
                 {selectedFile &&
                     <>
                         <IconButton aria-label="Example" onClick={handleRemoveImage}>

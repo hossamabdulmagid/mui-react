@@ -285,6 +285,7 @@ const CreateCv: React.FC = (): JSX.Element => {
                                         {" "}is Required Section, if you leave any other section empty it will not appear
                                     </Typography>
                                 </Alert>
+
                             </Grid>
                         </Grid>
                     </Container>
@@ -310,17 +311,26 @@ const CreateCv: React.FC = (): JSX.Element => {
                                                     e.preventDefault();
                                                     setActiveSection(singleRoute && singleRoute.type);
                                                 }}>
-                                                <Stack sx={{
-                                                    color: 'black',
-                                                    textDecoration: 'none',
-                                                    padding: '5px',
-                                                    fontSize: '13px',
-                                                    "&:hover": {
-                                                        backgroundColor: 'rgb(24, 199, 225)'
-                                                    }
-                                                }}>
-                                                    {singleRoute.section}
-                                                </Stack>
+                                                {activeSection === singleRoute.type ?
+                                                    <Stack sx={{
+                                                        color: 'black',
+                                                        textDecoration: 'none',
+                                                        padding: '5px',
+                                                        fontSize: '13px',
+                                                        backgroundColor: 'rgba(0, 0, 0, 0.06);',
+                                                    }}>
+                                                        {singleRoute.section}
+                                                    </Stack> :
+                                                    <Stack sx={{
+                                                        color: 'black',
+                                                        textDecoration: 'none',
+                                                        padding: '5px',
+                                                        fontSize: '13px',
+                                                        backgroundColor: 'snow'
+                                                    }}>
+                                                        {singleRoute.section}
+                                                    </Stack>}
+
                                             </li>
                                         )
                                     })}

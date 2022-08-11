@@ -153,7 +153,9 @@ const CreateCv: React.FC = (): JSX.Element => {
         if (isSubmitSuccessful) {
             reset();
         }
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, [isSubmitSuccessful]);
 
     const [formState, setFormState] = useState({
@@ -179,7 +181,7 @@ const CreateCv: React.FC = (): JSX.Element => {
     const onSubmit: SubmitHandler<SectionInput> = data => console.log(data);
 
 
-    const [acceptInc, setAcceptInc] = useState(false);
+    const [acceptInc, setAcceptInc] = useState<boolean>(false);
 
     const HandleChange = (event: ChangeEvent<HTMLInputElement>) => {
         console.log(event.target.checked);
@@ -311,26 +313,28 @@ const CreateCv: React.FC = (): JSX.Element => {
                                                     e.preventDefault();
                                                     setActiveSection(singleRoute && singleRoute.type);
                                                 }}>
-                                                {activeSection === singleRoute.type ?
-                                                    <Stack sx={{
-                                                        color: 'black',
-                                                        textDecoration: 'none',
-                                                        padding: '5px',
-                                                        fontSize: '13px',
-                                                        backgroundColor: 'rgba(0, 0, 0, 0.06);',
-                                                    }}>
-                                                        {singleRoute.section}
-                                                    </Stack> :
-                                                    <Stack sx={{
-                                                        color: 'black',
-                                                        textDecoration: 'none',
-                                                        padding: '5px',
-                                                        fontSize: '13px',
-                                                        backgroundColor: 'snow'
-                                                    }}>
-                                                        {singleRoute.section}
-                                                    </Stack>}
-
+                                                {
+                                                    activeSection === singleRoute.type ?
+                                                        <Stack sx={{
+                                                            color: 'black',
+                                                            textDecoration: 'none',
+                                                            padding: '5px',
+                                                            fontSize: '13px',
+                                                            backgroundColor: 'rgba(0, 0, 0, 0.06);',
+                                                        }}>
+                                                            {singleRoute.section}
+                                                        </Stack> :
+                                                        <Stack
+                                                            sx={{
+                                                                color: 'black',
+                                                                textDecoration: 'none',
+                                                                padding: '5px',
+                                                                fontSize: '13px',
+                                                                backgroundColor: 'snow'
+                                                            }}>
+                                                            {singleRoute.section}
+                                                        </Stack>
+                                                }
                                             </li>
                                         )
                                     })}
@@ -338,7 +342,6 @@ const CreateCv: React.FC = (): JSX.Element => {
                                         + New Section
                                     </Button>
                                 </ul>
-
                             </Grid>
                             <Grid item xs={12} md={9} sx={{ padding: '10px', margin: '0 auto' }}>
                                 {activeSection === sidebarRoutes[0].type ? <BasicInformation /> : null}

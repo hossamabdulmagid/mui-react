@@ -17,21 +17,26 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
+import ShareIcon from '@mui/icons-material/Share';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 const createData = (
     name: string,
     createAt: string,
     lastModified: string,
-    options: string,
+    options: string[],
 ) => {
     return { name, createAt, lastModified, options };
 }
 
 const rows = [
-    createData('SimpleCv-One', "June 29th 2022, 4:50 pm	", "July 22nd 2022, 2:58 pm	", "Edit now"),
-    createData('SimpleCv-Two', "June 29th 2022, 4:50 pm	", " July 22nd 2022, 2:58 pm	", "Edit now"),
-    createData('SimpleCv-three', 'June 29th 2022, 4:50 pm	', "July 22nd 2022, 2:58 pm	", 'Edit now'),
-    createData('SimpleCv-four', 'June 29th 2022, 4:50 pm	', 'July 22nd 2022, 2:58 pm	', 'Edit now'),
+    createData('SimpleCv-One', "June 29th 2022, 4:50 pm	", "July 22nd 2022, 2:58 pm	", ["Edit", "Rename", "Delete"]),
+    createData('SimpleCv-Two', "June 29th 2022, 4:50 pm	", " July 22nd 2022, 2:58 pm	", ["Edit", "Rename", "Delete"]),
+    createData('SimpleCv-three', 'June 29th 2022, 4:50 pm	', "July 22nd 2022, 2:58 pm	", ["Edit", "Rename", "Delete"]),
+    createData('SimpleCv-four', 'June 29th 2022, 4:50 pm	', 'July 22nd 2022, 2:58 pm	', ["Edit", "Rename", "Delete"]),
 ];
 const OldCv: React.FC = (): JSX.Element => {
 
@@ -59,45 +64,123 @@ const OldCv: React.FC = (): JSX.Element => {
         <>
             <Header />
             <Box sx={{ backgroundColor: "rgb(249, 249, 249)", padding: "20px", minHeight: 'auto' }}>
+
                 <Box sx={{ margin: '30px', marginBottom: '50px', textAlign: 'center' }}>
                     <Container>
                         <Stack>
                             <TableContainer component={Paper}>
-                                <Table sx={{ minWidth: 650 }} aria-label="caption table">
+                                <Table sx={{ minWidth: 650 }} stickyHeader aria-label="sticky table">
                                     <TableHead>
                                         <TableRow>
-                                            <TableCell>NAME</TableCell>
-                                            <TableCell align="right">CREATE AT</TableCell>
-                                            <TableCell align="right">LAST MODIFIED</TableCell>
-                                            <TableCell align="right" >OPTIONS</TableCell>
+                                            <TableCell align="center" sx={{}}>NAME</TableCell>
+                                            <TableCell align="center" sx={{}}>LAST MODIFIED</TableCell>
+                                            <TableCell align="center" sx={{}} colSpan={4} >OPTIONS</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody sx={{ textAlign: 'center', margin: '0 auto' }}>
                                         {rows.map((row, idx) => (
-                                            <TableRow key={idx}>
-                                                <TableCell component="th" scope="row">
+                                            <TableRow hover key={idx} sx={{
+                                                "&:hover": {
+                                                    // backgroundColor: 'gray',
+                                                    // opacity: 1
+                                                }
+                                            }}>
+                                                <TableCell align='center' component="th" scope="row">
                                                     <Typography sx={{ fontSize: '12px' }}>
                                                         {row.name}
                                                     </Typography>
                                                 </TableCell>
-                                                <TableCell align="right">
+
+                                                <TableCell align="center" sx={{
+                                                    borderLeft: '1px dotted grey',
+                                                    borderRight: '1px dotted grey',
+                                                }}>
                                                     <Typography sx={{ fontSize: '12px' }}>
-                                                        {row.createAt}<AccessTimeFilledIcon sx={{ color: 'grey' }} />
+                                                        {row.lastModified}
                                                     </Typography>
                                                 </TableCell>
-                                                <TableCell align="right">
-                                                    <Typography sx={{ fontSize: '12px' }}>
-                                                        {row.lastModified}<AccessTimeFilledIcon sx={{ color: 'grey' }} />
-                                                    </Typography>
-                                                </TableCell>
-                                                <TableCell align="right">
-                                                    <Typography sx={{ fontSize: '12px' }}>
-                                                        <Link to='/create-cv' style={{ color: 'black' }}>
-                                                            {row.options}
-                                                            <SettingsIcon sx={{ padding: '2px', margin: '0 auto', color: 'grey' }} />
-                                                        </Link>
-                                                    </Typography>
-                                                </TableCell>
+
+
+                                                {row.options.map((x, idx) => {
+                                                    return (
+                                                        <TableCell align="right" key={idx}
+                                                            sx={{
+                                                                textAlign: 'center',
+                                                                // opacity: 0,
+                                                                "&:hover": {
+                                                                    cursor: 'pointer',
+                                                                    color: 'darkred',
+                                                                    opacity: 1,
+                                                                }
+                                                            }}>
+                                                            {/* {(idx === 0 || x === 'Share') ?
+                                                                <Button
+                                                                    variant="text"
+                                                                    startIcon={
+                                                                        <ShareIcon sx={{
+                                                                            padding: '0 px',
+                                                                            margin: '0 auto',
+                                                                            color: 'grey',
+
+                                                                        }} />}>
+                                                                    {x}
+                                                                </Button>
+                                                                : null
+                                                            } */}
+
+                                                            {(idx === 0 || x === 'Edit') ?
+                                                                <Button
+                                                                    variant="text"
+                                                                    color="success"
+
+                                                                    startIcon={
+                                                                        <SettingsIcon
+                                                                            sx={{
+                                                                                padding: '2px',
+                                                                                margin: '0 auto',
+                                                                                color: 'grey'
+                                                                            }} />}>
+                                                                    {x}
+                                                                </Button>
+                                                                : null
+                                                            }
+
+                                                            {(idx === 1 || x === "Rename") ?
+                                                                <Button
+                                                                    variant="text"
+                                                                    startIcon={
+                                                                        <DriveFileRenameOutlineIcon
+                                                                            sx={{
+                                                                                padding: '2px',
+                                                                                margin: '0 auto',
+                                                                                color: 'grey'
+                                                                            }}
+                                                                        />}>
+                                                                    {x}
+                                                                </Button>
+                                                                : null
+                                                            }
+
+                                                            {(idx === 2 || x === "Delete") ?
+                                                                <Button
+                                                                    variant="text"
+                                                                    color='error'
+
+                                                                    startIcon={
+                                                                        <DeleteIcon
+                                                                            sx={{
+                                                                                padding: '2px',
+                                                                                margin: '0 auto',
+                                                                                color: 'grey'
+                                                                            }} />}>
+                                                                    {x}
+                                                                </Button>
+                                                                : null
+                                                            }
+
+                                                        </TableCell>
+                                                    )
+                                                })}
                                             </TableRow>
                                         ))}
                                     </TableBody>
@@ -118,31 +201,31 @@ const OldCv: React.FC = (): JSX.Element => {
                                 <Typography>Go Premium <FavoriteIcon sx={{ color: 'red' }} /></Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography sx={{ fontWeight: '200', fontSize: '17px', padding: '5px' }}>
+                                <Typography sx={{ fontWeight: '200', fontSize: '17px', padding: '7px' }}>
                                     CV Creator is absolutely FREE with no restrictions,
                                     but you can get a lot more out of it and support its continued development
                                     by going premium for a nominal annual subscription fee.
                                 </Typography>
                                 <Grid container spacing={2} sx={{ marginTop: '20px', padding: '20px' }}>
                                     <Grid item xs={12} md={6}>
-                                        <Typography sx={{ padding: '15px', margin: '0 auto', marginBottom: '10px' }}>
+                                        <Typography sx={{ padding: '17px', margin: '0 auto', marginBottom: '10px' }}>
                                             Free
                                         </Typography>
                                         {free && free.map((singleText, idx) => {
                                             return (
-                                                <Stack key={idx} sx={{ padding: '15px', borderBottom: '1px dotted darkgrey' }}>
+                                                <Stack key={idx} sx={{ padding: '17px', borderBottom: '1px solid darkgrey' }}>
                                                     {singleText}
                                                 </Stack>
                                             )
                                         })}
                                     </Grid>
                                     <Grid item xs={12} md={6}>
-                                        <Typography sx={{ padding: '15px', margin: '0 auto', marginBottom: '10px' }}>
+                                        <Typography sx={{ padding: '17px', margin: '0 auto', marginBottom: '10px' }}>
                                             Premium
                                         </Typography>
                                         {premium && premium.map((singleText, idx) => {
                                             return (
-                                                <Stack key={idx} sx={{ padding: '15px', borderBottom: '1px dotted darkgrey' }}>
+                                                <Stack key={idx} sx={{ padding: '17px', borderBottom: '1px solid darkgrey' }}>
                                                     <Typography>
                                                         <StarIcon sx={{ color: 'darkgreen', display: 'inline-flex' }} />
                                                         {singleText}
@@ -159,7 +242,7 @@ const OldCv: React.FC = (): JSX.Element => {
                                                 color='success'
                                                 sx={{ py: '0.8rem', mt: '1rem' }}
                                             >
-                                                Upgrade to Premium <FavoriteIcon sx={{ color: 'snow', padding: '4px' }} />
+                                                Upgrade to Premium <FavoriteIcon sx={{ color: 'pink', padding: '4px' }} />
                                             </Button>
                                             <img
                                                 src='https://production-1d741-6fa29.firebaseapp.com/paypal.png'
@@ -169,7 +252,7 @@ const OldCv: React.FC = (): JSX.Element => {
                                                     height: 'auto',
                                                     padding: 10,
                                                     margin: 0,
-                                                    border: "12px solid white",
+                                                    border: "11px solid white",
                                                 }}
                                             />
                                         </Stack>
@@ -180,6 +263,7 @@ const OldCv: React.FC = (): JSX.Element => {
                     </Container>
                 </Box>
             </Box>
+
 
         </>
 
